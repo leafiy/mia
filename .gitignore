@@ -1,0 +1,5 @@
+.venv-laya/
+__pycache__/
+*.partial
+data/public-cache/
+models/*/final/

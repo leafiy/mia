@@ -1,0 +1,108 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='760' height='400' viewBox='0 0 760 400' role='img' aria-label='每个 epoch 的平均训练损失（全部 10 次训练）' font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif'>
+<rect width='760' height='400' fill='#ffffff'/>
+<text x='24' y='30' font-size='18' font-weight='600' fill='#1f2328'>每个 epoch 的平均训练损失（全部 10 次训练）</text>
+<line x1='70' y1='350.0' x2='560' y2='350.0' stroke='#d0d7de'/>
+<text x='62' y='354.0' font-size='11' fill='#57606a' text-anchor='end'>0.00</text>
+<line x1='70' y1='291.2' x2='560' y2='291.2' stroke='#d0d7de'/>
+<text x='62' y='295.2' font-size='11' fill='#57606a' text-anchor='end'>0.14</text>
+<line x1='70' y1='232.4' x2='560' y2='232.4' stroke='#d0d7de'/>
+<text x='62' y='236.4' font-size='11' fill='#57606a' text-anchor='end'>0.28</text>
+<line x1='70' y1='173.6' x2='560' y2='173.6' stroke='#d0d7de'/>
+<text x='62' y='177.6' font-size='11' fill='#57606a' text-anchor='end'>0.42</text>
+<line x1='70' y1='114.8' x2='560' y2='114.8' stroke='#d0d7de'/>
+<text x='62' y='118.8' font-size='11' fill='#57606a' text-anchor='end'>0.56</text>
+<line x1='70' y1='56.0' x2='560' y2='56.0' stroke='#d0d7de'/>
+<text x='62' y='60.0' font-size='11' fill='#57606a' text-anchor='end'>0.70</text>
+<text x='70.0' y='370' font-size='12' fill='#57606a' text-anchor='middle'>epoch 1</text>
+<text x='315.0' y='370' font-size='12' fill='#57606a' text-anchor='middle'>epoch 2</text>
+<text x='560.0' y='370' font-size='12' fill='#57606a' text-anchor='middle'>epoch 3</text>
+<text x='20' y='42' font-size='11' fill='#57606a'>交叉熵</text>
+<path d='M70.0,91.8 L315.0,155.9 L560.0,215.7' fill='none' stroke='#cf222e' stroke-width='2.5'/>
+<circle cx='70.0' cy='91.8' r='4' fill='#cf222e'/>
+<text x='70.0' y='82.8' font-size='10' fill='#1f2328' text-anchor='middle'>0.6148</text>
+<circle cx='315.0' cy='155.9' r='4' fill='#cf222e'/>
+<text x='315.0' y='146.9' font-size='10' fill='#1f2328' text-anchor='middle'>0.4621</text>
+<circle cx='560.0' cy='215.7' r='4' fill='#cf222e'/>
+<text x='560.0' y='206.7' font-size='10' fill='#1f2328' text-anchor='middle'>0.3198</text>
+<rect x='576' y='56' width='14' height='14' fill='#cf222e' rx='2'/>
+<text x='596' y='67' font-size='12' fill='#1f2328'>laya-oldlabels</text>
+<path d='M70.0,135.2 L315.0,203.4 L560.0,260.7' fill='none' stroke='#bf8700' stroke-width='2.5'/>
+<circle cx='70.0' cy='135.2' r='4' fill='#bf8700'/>
+<text x='70.0' y='126.2' font-size='10' fill='#1f2328' text-anchor='middle'>0.5115</text>
+<circle cx='315.0' cy='203.4' r='4' fill='#bf8700'/>
+<text x='315.0' y='194.4' font-size='10' fill='#1f2328' text-anchor='middle'>0.3491</text>
+<circle cx='560.0' cy='260.7' r='4' fill='#bf8700'/>
+<text x='560.0' y='251.7' font-size='10' fill='#1f2328' text-anchor='middle'>0.2126</text>
+<rect x='576' y='78' width='14' height='14' fill='#bf8700' rx='2'/>
+<text x='596' y='89' font-size='12' fill='#1f2328'>laya-oldlabels-neutral-reviewed</text>
+<path d='M70.0,91.8 L315.0,155.9 L560.0,215.7' fill='none' stroke='#1a7f37' stroke-width='2.5'/>
+<circle cx='70.0' cy='91.8' r='4' fill='#1a7f37'/>
+<text x='70.0' y='82.8' font-size='10' fill='#1f2328' text-anchor='middle'>0.6148</text>
+<circle cx='315.0' cy='155.9' r='4' fill='#1a7f37'/>
+<text x='315.0' y='146.9' font-size='10' fill='#1f2328' text-anchor='middle'>0.4622</text>
+<circle cx='560.0' cy='215.7' r='4' fill='#1a7f37'/>
+<text x='560.0' y='206.7' font-size='10' fill='#1f2328' text-anchor='middle'>0.3198</text>
+<rect x='576' y='100' width='14' height='14' fill='#1a7f37' rx='2'/>
+<text x='596' y='111' font-size='12' fill='#1f2328'>laya-oldlabels-cw-none</text>
+<path d='M70.0,80.9 L315.0,148.0 L560.0,210.8' fill='none' stroke='#0969da' stroke-width='2.5'/>
+<circle cx='70.0' cy='80.9' r='4' fill='#0969da'/>
+<text x='70.0' y='71.9' font-size='10' fill='#1f2328' text-anchor='middle'>0.6408</text>
+<circle cx='315.0' cy='148.0' r='4' fill='#0969da'/>
+<text x='315.0' y='139.0' font-size='10' fill='#1f2328' text-anchor='middle'>0.4809</text>
+<circle cx='560.0' cy='210.8' r='4' fill='#0969da'/>
+<text x='560.0' y='201.8' font-size='10' fill='#1f2328' text-anchor='middle'>0.3314</text>
+<rect x='576' y='122' width='14' height='14' fill='#0969da' rx='2'/>
+<text x='596' y='133' font-size='12' fill='#1f2328'>laya-oldlabels-cw-sqrt</text>
+<path d='M70.0,75.6 L315.0,144.7 L560.0,209.6' fill='none' stroke='#8250df' stroke-width='2.5'/>
+<circle cx='70.0' cy='75.6' r='4' fill='#8250df'/>
+<text x='70.0' y='66.6' font-size='10' fill='#1f2328' text-anchor='middle'>0.6534</text>
+<circle cx='315.0' cy='144.7' r='4' fill='#8250df'/>
+<text x='315.0' y='135.7' font-size='10' fill='#1f2328' text-anchor='middle'>0.4889</text>
+<circle cx='560.0' cy='209.6' r='4' fill='#8250df'/>
+<text x='560.0' y='200.6' font-size='10' fill='#1f2328' text-anchor='middle'>0.3343</text>
+<rect x='576' y='144' width='14' height='14' fill='#8250df' rx='2'/>
+<text x='596' y='155' font-size='12' fill='#1f2328'>laya-oldlabels-cw-balanced</text>
+<path d='M70.0,160.5 L315.0,231.9 L560.0,286.1' fill='none' stroke='#6e7781' stroke-width='2.5'/>
+<circle cx='70.0' cy='160.5' r='4' fill='#6e7781'/>
+<text x='70.0' y='151.5' font-size='10' fill='#1f2328' text-anchor='middle'>0.4511</text>
+<circle cx='315.0' cy='231.9' r='4' fill='#6e7781'/>
+<text x='315.0' y='222.9' font-size='10' fill='#1f2328' text-anchor='middle'>0.2812</text>
+<circle cx='560.0' cy='286.1' r='4' fill='#6e7781'/>
+<text x='560.0' y='277.1' font-size='10' fill='#1f2328' text-anchor='middle'>0.1521</text>
+<rect x='576' y='166' width='14' height='14' fill='#6e7781' rx='2'/>
+<text x='596' y='177' font-size='12' fill='#1f2328'>laya-relabeled-cw-none</text>
+<path d='M70.0,155.7 L315.0,229.8 L560.0,284.2' fill='none' stroke='#d4a72c' stroke-width='2.5'/>
+<circle cx='70.0' cy='155.7' r='4' fill='#d4a72c'/>
+<text x='70.0' y='146.7' font-size='10' fill='#1f2328' text-anchor='middle'>0.4626</text>
+<circle cx='315.0' cy='229.8' r='4' fill='#d4a72c'/>
+<text x='315.0' y='220.8' font-size='10' fill='#1f2328' text-anchor='middle'>0.2862</text>
+<circle cx='560.0' cy='284.2' r='4' fill='#d4a72c'/>
+<text x='560.0' y='275.2' font-size='10' fill='#1f2328' text-anchor='middle'>0.1567</text>
+<rect x='576' y='188' width='14' height='14' fill='#d4a72c' rx='2'/>
+<text x='596' y='199' font-size='12' fill='#1f2328'>mia-laya</text>
+<path d='M70.0,157.0 L315.0,282.9 L560.0,341.8' fill='none' stroke='#0550ae' stroke-width='2.5'/>
+<circle cx='70.0' cy='157.0' r='4' fill='#0550ae'/>
+<text x='70.0' y='148.0' font-size='10' fill='#1f2328' text-anchor='middle'>0.4594</text>
+<circle cx='315.0' cy='282.9' r='4' fill='#0550ae'/>
+<text x='315.0' y='273.9' font-size='10' fill='#1f2328' text-anchor='middle'>0.1598</text>
+<circle cx='560.0' cy='341.8' r='4' fill='#0550ae'/>
+<text x='560.0' y='332.8' font-size='10' fill='#1f2328' text-anchor='middle'>0.0194</text>
+<rect x='576' y='210' width='14' height='14' fill='#0550ae' rx='2'/>
+<text x='596' y='221' font-size='12' fill='#1f2328'>qwen0.8b-relabeled</text>
+<path d='M70.0,166.8 L315.0,292.3 L560.0,343.1' fill='none' stroke='#a40e26' stroke-width='2.5'/>
+<circle cx='70.0' cy='166.8' r='4' fill='#a40e26'/>
+<text x='70.0' y='157.8' font-size='10' fill='#1f2328' text-anchor='middle'>0.4362</text>
+<circle cx='315.0' cy='292.3' r='4' fill='#a40e26'/>
+<text x='315.0' y='283.3' font-size='10' fill='#1f2328' text-anchor='middle'>0.1375</text>
+<circle cx='560.0' cy='343.1' r='4' fill='#a40e26'/>
+<text x='560.0' y='334.1' font-size='10' fill='#1f2328' text-anchor='middle'>0.0165</text>
+<rect x='576' y='232' width='14' height='14' fill='#a40e26' rx='2'/>
+<text x='596' y='243' font-size='12' fill='#1f2328'>qwen2b-relabeled</text>
+<path d='M70.0,166.6 L315.0,306.3' fill='none' stroke='#116329' stroke-width='2.5'/>
+<circle cx='70.0' cy='166.6' r='4' fill='#116329'/>
+<text x='70.0' y='157.6' font-size='10' fill='#1f2328' text-anchor='middle'>0.4367</text>
+<circle cx='315.0' cy='306.3' r='4' fill='#116329'/>
+<text x='315.0' y='297.3' font-size='10' fill='#1f2328' text-anchor='middle'>0.1040</text>
+<rect x='576' y='254' width='14' height='14' fill='#116329' rx='2'/>
+<text x='596' y='265' font-size='12' fill='#1f2328'>mia-qwen3.5-2b</text>
+</svg>

@@ -1,0 +1,73 @@
+{
+  "model": "<workdir>/laya-sentiment-model-relabeled-qwen3.5-0.8b/final",
+  "requested_device": "cuda:0",
+  "actual_device": "cuda:0",
+  "training": {
+    "objective": "supervised_cross_entropy",
+    "epochs_completed": 3,
+    "updates": 852
+  },
+  "temperature": [
+    2.95156847910935,
+    1.0,
+    1.0
+  ],
+  "dataset": {
+    "path": "<workdir>/laya-sentiment-data-relabeled/unseen-test.jsonl",
+    "sha256": "4ca85d2b8119c9c8e5e1419c46fc4b409b5007088114a799fbe642fb7c9106a4",
+    "manifest_rows": 5139,
+    "evaluated_rows": 5139,
+    "limit": 0
+  },
+  "metrics": {
+    "rows": 5139,
+    "accuracy": 0.8645650744438171,
+    "macro_f1": 0.8516993248774387,
+    "nll": 0.3330466151237488,
+    "brier": 0.19224323332309723,
+    "ece": 0.016390177184771308,
+    "per_class": {
+      "负面": {
+        "support": 893,
+        "precision": 0.8009153318077803,
+        "recall": 0.7838745800671892,
+        "f1": 0.7923033389926429
+      },
+      "中性": {
+        "support": 2379,
+        "precision": 0.8583779333058872,
+        "recall": 0.8764186633039092,
+        "f1": 0.8673044925124792
+      },
+      "正面": {
+        "support": 1867,
+        "precision": 0.9030501089324618,
+        "recall": 0.888055704338511,
+        "f1": 0.8954901431271942
+      }
+    },
+    "confusion_matrix": [
+      [
+        700,
+        163,
+        30
+      ],
+      [
+        146,
+        2085,
+        148
+      ],
+      [
+        28,
+        181,
+        1658
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  },
+  "label_provenance": "llm relabel of the normalized text; old machine labels unused"
+}

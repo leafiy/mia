@@ -1,0 +1,78 @@
+Training on GPU 0: GPU-c400f524-6282-28d9-992b-2afb78f414cf
+NVIDIA GeForce RTX 4090, 49140 MiB, 1 MiB, 0 %
+GPU NVIDIA GeForce RTX 4090 CUDA_VISIBLE_DEVICES=GPU-c400f524-6282-28d9-992b-2afb78f414cf
+DOWNLOAD convaiinnovations/laya-multilingual e4e9ddf21a7b1903b7acffd8814ad4307bf63a67
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 1232.97it/s]
+DATA train.jsonl: 77259 rows; max_tokens=194
+DATA calibration.jsonl: 5000 rows; max_tokens=153
+DATA test.jsonl: 5000 rows; max_tokens=221
+CLASS_WEIGHTS none {'负面': 1.0, '中性': 1.0, '正面': 1.0}
+TRAIN epochs=3 updates=906 effective_batch=256 smoke_limit=0
+PROGRESS epoch=1/3 update=1/906 loss=1.02618 elapsed=1.5s
+PROGRESS epoch=1/3 update=20/906 loss=0.72184 elapsed=16.3s
+PROGRESS epoch=1/3 update=40/906 loss=0.60884 elapsed=31.9s
+PROGRESS epoch=1/3 update=60/906 loss=0.65025 elapsed=47.6s
+PROGRESS epoch=1/3 update=80/906 loss=0.59133 elapsed=63.3s
+PROGRESS epoch=1/3 update=100/906 loss=0.60664 elapsed=78.8s
+PROGRESS epoch=1/3 update=120/906 loss=0.57148 elapsed=94.6s
+PROGRESS epoch=1/3 update=140/906 loss=0.67110 elapsed=110.3s
+PROGRESS epoch=1/3 update=160/906 loss=0.66822 elapsed=125.8s
+PROGRESS epoch=1/3 update=180/906 loss=0.58465 elapsed=141.5s
+PROGRESS epoch=1/3 update=200/906 loss=0.58417 elapsed=157.2s
+PROGRESS epoch=1/3 update=220/906 loss=0.50220 elapsed=172.8s
+PROGRESS epoch=1/3 update=240/906 loss=0.57815 elapsed=188.5s
+PROGRESS epoch=1/3 update=260/906 loss=0.66142 elapsed=204.2s
+PROGRESS epoch=1/3 update=280/906 loss=0.56553 elapsed=219.7s
+PROGRESS epoch=1/3 update=300/906 loss=0.61076 elapsed=235.5s
+PROGRESS epoch=1/3 update=302/906 loss=0.51743 elapsed=236.9s
+CHECKPOINT laya-sentiment-model-cap100-natural-cw-none/checkpoint-latest
+PROGRESS epoch=2/3 update=320/906 loss=0.45885 elapsed=251.7s
+PROGRESS epoch=2/3 update=340/906 loss=0.51142 elapsed=267.4s
+PROGRESS epoch=2/3 update=360/906 loss=0.40688 elapsed=283.2s
+PROGRESS epoch=2/3 update=380/906 loss=0.44479 elapsed=298.7s
+PROGRESS epoch=2/3 update=400/906 loss=0.38997 elapsed=314.5s
+PROGRESS epoch=2/3 update=420/906 loss=0.49251 elapsed=330.2s
+PROGRESS epoch=2/3 update=440/906 loss=0.54550 elapsed=345.8s
+PROGRESS epoch=2/3 update=460/906 loss=0.50167 elapsed=361.5s
+PROGRESS epoch=2/3 update=480/906 loss=0.41430 elapsed=377.2s
+PROGRESS epoch=2/3 update=500/906 loss=0.44592 elapsed=392.7s
+PROGRESS epoch=2/3 update=520/906 loss=0.55885 elapsed=408.5s
+PROGRESS epoch=2/3 update=540/906 loss=0.52120 elapsed=424.2s
+PROGRESS epoch=2/3 update=560/906 loss=0.44792 elapsed=439.9s
+PROGRESS epoch=2/3 update=580/906 loss=0.36437 elapsed=455.5s
+PROGRESS epoch=2/3 update=600/906 loss=0.43891 elapsed=471.2s
+PROGRESS epoch=2/3 update=604/906 loss=0.51101 elapsed=474.3s
+CHECKPOINT laya-sentiment-model-cap100-natural-cw-none/checkpoint-latest
+PROGRESS epoch=3/3 update=620/906 loss=0.35840 elapsed=487.9s
+PROGRESS epoch=3/3 update=640/906 loss=0.36321 elapsed=503.4s
+PROGRESS epoch=3/3 update=660/906 loss=0.29964 elapsed=519.1s
+PROGRESS epoch=3/3 update=680/906 loss=0.27039 elapsed=534.9s
+PROGRESS epoch=3/3 update=700/906 loss=0.29826 elapsed=550.4s
+PROGRESS epoch=3/3 update=720/906 loss=0.33982 elapsed=566.1s
+PROGRESS epoch=3/3 update=740/906 loss=0.34105 elapsed=581.8s
+PROGRESS epoch=3/3 update=760/906 loss=0.28694 elapsed=597.4s
+PROGRESS epoch=3/3 update=780/906 loss=0.42733 elapsed=613.0s
+PROGRESS epoch=3/3 update=800/906 loss=0.20381 elapsed=628.7s
+PROGRESS epoch=3/3 update=820/906 loss=0.26578 elapsed=644.2s
+PROGRESS epoch=3/3 update=840/906 loss=0.22955 elapsed=659.9s
+PROGRESS epoch=3/3 update=860/906 loss=0.31039 elapsed=675.6s
+PROGRESS epoch=3/3 update=880/906 loss=0.35125 elapsed=691.1s
+PROGRESS epoch=3/3 update=900/906 loss=0.31733 elapsed=706.9s
+PROGRESS epoch=3/3 update=906/906 loss=0.36573 elapsed=711.4s
+CHECKPOINT laya-sentiment-model-cap100-natural-cw-none/checkpoint-latest
+COMPLETE laya-sentiment-model-cap100-natural-cw-none/final test_macro_f1= 0.7230597830305677 temperature= 1.7875776903817824
+PROGRESS 512/5465
+PROGRESS 1024/5465
+PROGRESS 1536/5465
+PROGRESS 2048/5465
+PROGRESS 2560/5465
+PROGRESS 3072/5465
+PROGRESS 3584/5465
+PROGRESS 4096/5465
+PROGRESS 4608/5465
+PROGRESS 5120/5465
+PROGRESS 5465/5465
+PROGRESS 300/300
+PROGRESS 300/300
+PROGRESS 300/300
+DONE none

@@ -1,0 +1,189 @@
+{
+  "model": "/root/models/qwen3.5/Qwen3.5-2B",
+  "method": "zero-shot constrained choice",
+  "training_data": null,
+  "labels": [
+    "负面",
+    "中性",
+    "正面"
+  ],
+  "datasets": {
+    "中文情感测试集_01.csv": {
+      "path": "/root/1/mia/data/eval/中文情感测试集_01.csv",
+      "label_counts": {
+        "正面": 100,
+        "负面": 100,
+        "中性": 100
+      },
+      "exact_train_text_overlap": null,
+      "metrics": {
+        "rows": 300,
+        "accuracy": 0.800000011920929,
+        "macro_f1": 0.7802197802197802,
+        "nll": 0.7232549786567688,
+        "brier": 0.34033143520355225,
+        "ece": 0.13357393582661947,
+        "per_class": {
+          "负面": {
+            "support": 100,
+            "precision": 0.625,
+            "recall": 1.0,
+            "f1": 0.7692307692307693
+          },
+          "中性": {
+            "support": 100,
+            "precision": 1.0,
+            "recall": 0.4,
+            "f1": 0.5714285714285714
+          },
+          "正面": {
+            "support": 100,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            100,
+            0,
+            0
+          ],
+          [
+            60,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            100
+          ]
+        ],
+        "label_order": [
+          "负面",
+          "中性",
+          "正面"
+        ]
+      }
+    },
+    "中文情感测试集_02.csv": {
+      "path": "/root/1/mia/data/eval/中文情感测试集_02.csv",
+      "label_counts": {
+        "中性": 100,
+        "负面": 100,
+        "正面": 100
+      },
+      "exact_train_text_overlap": null,
+      "metrics": {
+        "rows": 300,
+        "accuracy": 0.79666668176651,
+        "macro_f1": 0.7758115346803017,
+        "nll": 0.7055779695510864,
+        "brier": 0.34933242201805115,
+        "ece": 0.14496286263068514,
+        "per_class": {
+          "负面": {
+            "support": 100,
+            "precision": 0.6211180124223602,
+            "recall": 1.0,
+            "f1": 0.7662835249042146
+          },
+          "中性": {
+            "support": 100,
+            "precision": 1.0,
+            "recall": 0.39,
+            "f1": 0.5611510791366906
+          },
+          "正面": {
+            "support": 100,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            100,
+            0,
+            0
+          ],
+          [
+            61,
+            39,
+            0
+          ],
+          [
+            0,
+            0,
+            100
+          ]
+        ],
+        "label_order": [
+          "负面",
+          "中性",
+          "正面"
+        ]
+      }
+    },
+    "中文情感测试集_03.csv": {
+      "path": "/root/1/mia/data/eval/中文情感测试集_03.csv",
+      "label_counts": {
+        "中性": 100,
+        "负面": 100,
+        "正面": 100
+      },
+      "exact_train_text_overlap": null,
+      "metrics": {
+        "rows": 300,
+        "accuracy": 0.7866666913032532,
+        "macro_f1": 0.7653716371273623,
+        "nll": 0.6986246109008789,
+        "brier": 0.3478810489177704,
+        "ece": 0.13717728952566782,
+        "per_class": {
+          "负面": {
+            "support": 100,
+            "precision": 0.6172839506172839,
+            "recall": 1.0,
+            "f1": 0.7633587786259542
+          },
+          "中性": {
+            "support": 100,
+            "precision": 0.95,
+            "recall": 0.38,
+            "f1": 0.5428571428571428
+          },
+          "正面": {
+            "support": 100,
+            "precision": 1.0,
+            "recall": 0.98,
+            "f1": 0.98989898989899
+          }
+        },
+        "confusion_matrix": [
+          [
+            100,
+            0,
+            0
+          ],
+          [
+            62,
+            38,
+            0
+          ],
+          [
+            0,
+            2,
+            98
+          ]
+        ],
+        "label_order": [
+          "负面",
+          "中性",
+          "正面"
+        ]
+      }
+    }
+  }
+}

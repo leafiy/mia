@@ -1,0 +1,28 @@
+{
+  "name": "mia-laya",
+  "task": "chinese-sentiment-3class",
+  "labels": ["负面", "中性", "正面"],
+  "base_model": "convaiinnovations/laya-multilingual",
+  "base_revision": "e4e9ddf21a7b1903b7acffd8814ad4307bf63a67",
+  "base_license": "Apache-2.0",
+  "encoder": "jhu-clsp/mmBERT-base",
+  "architecture": "Laya rl-agent choice head, loaded with laya.load (laya==0.3.20)",
+  "params_million": 322,
+  "weights_dtype": "float32",
+  "temperature": 1.9488,
+  "class_weights": {"负面": 1.666322, "中性": 0.784345, "正面": 0.888946},
+  "training_data": "72,610 Chinese short texts relabeled by an LLM; 褒贬混合 dropped; not distributed",
+  "epochs": 3,
+  "effective_batch_size": 256,
+  "seed": 42,
+  "eval": {
+    "dev_4920": {"accuracy": 0.8108, "macro_f1": 0.7974},
+    "holdout_5372": {"accuracy": 0.8172, "macro_f1": 0.8028, "recall": {"负面": 0.794, "中性": 0.770, "正面": 0.894}},
+    "chinese_csv_900": {"accuracy": 0.9367, "macro_f1": 0.9362, "neutral_recall": 0.833},
+    "public_forced_binary_accuracy": {"chnsenticorp": 0.8833, "online_shopping_10_cats": 0.9186, "eprstmt": 0.8820, "weibo_senti_100k": 0.8030},
+    "public_dmsc_3class_accuracy": 0.5422
+  },
+  "throughput": "about 1,600 rows/s on RTX 4090, batch 64",
+  "reports": ["reports/mia-laya/", "reports/public/mia-laya.json"],
+  "released": "2026-09-26"
+}

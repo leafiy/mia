@@ -1,0 +1,68 @@
+{
+  "model": "models/mia-qwen3.5-2b/final",
+  "requested_device": "cuda:0",
+  "actual_device": "cuda:0",
+  "temperature": [
+    1.7063414420191156,
+    1.0,
+    1.0
+  ],
+  "dataset": {
+    "path": "data/eval/test.jsonl",
+    "sha256": "2adee0bf6a949b2e9df35422c52d8ce11c8dc5d27b1a1dd0b01c5cd0fada334a",
+    "manifest_rows": 4920,
+    "evaluated_rows": 4920,
+    "limit": 0
+  },
+  "metrics": {
+    "rows": 4920,
+    "accuracy": 0.8689024448394775,
+    "macro_f1": 0.8543005689669355,
+    "nll": 0.31573641300201416,
+    "brier": 0.1865096539258957,
+    "ece": 0.01611189641119018,
+    "per_class": {
+      "负面": {
+        "support": 838,
+        "precision": 0.8238341968911918,
+        "recall": 0.7589498806682577,
+        "f1": 0.7900621118012422
+      },
+      "中性": {
+        "support": 2391,
+        "precision": 0.8557730723132241,
+        "recall": 0.8958594730238394,
+        "f1": 0.8753575807110748
+      },
+      "正面": {
+        "support": 1691,
+        "precision": 0.9100303951367781,
+        "recall": 0.8852749852158486,
+        "f1": 0.8974820143884892
+      }
+    },
+    "confusion_matrix": [
+      [
+        636,
+        184,
+        18
+      ],
+      [
+        119,
+        2142,
+        130
+      ],
+      [
+        17,
+        177,
+        1497
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  },
+  "label_provenance": "llm relabel of the normalized text; old machine labels unused"
+}

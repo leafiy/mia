@@ -1,0 +1,60 @@
+Training on GPU 0: GPU-c400f524-6282-28d9-992b-2afb78f414cf
+NVIDIA GeForce RTX 4090, 49140 MiB, 1 MiB, 0 %
+GPU NVIDIA GeForce RTX 4090 CUDA_VISIBLE_DEVICES=GPU-c400f524-6282-28d9-992b-2afb78f414cf
+DOWNLOAD convaiinnovations/laya-multilingual e4e9ddf21a7b1903b7acffd8814ad4307bf63a67
+DATA train.jsonl: 75692 rows; max_tokens=179
+DATA calibration.jsonl: 5000 rows; max_tokens=153
+DATA test.jsonl: 5000 rows; max_tokens=221
+TRAIN epochs=3 updates=888 effective_batch=256 smoke_limit=0
+PROGRESS epoch=1/3 update=1/888 loss=0.95430 elapsed=1.5s
+PROGRESS epoch=1/3 update=20/888 loss=0.58502 elapsed=15.8s
+PROGRESS epoch=1/3 update=40/888 loss=0.55902 elapsed=31.1s
+PROGRESS epoch=1/3 update=60/888 loss=0.53728 elapsed=46.2s
+PROGRESS epoch=1/3 update=80/888 loss=0.48358 elapsed=61.4s
+PROGRESS epoch=1/3 update=100/888 loss=0.51533 elapsed=76.7s
+PROGRESS epoch=1/3 update=120/888 loss=0.54226 elapsed=91.8s
+PROGRESS epoch=1/3 update=140/888 loss=0.60758 elapsed=107.1s
+PROGRESS epoch=1/3 update=160/888 loss=0.42750 elapsed=122.6s
+PROGRESS epoch=1/3 update=180/888 loss=0.48012 elapsed=137.7s
+PROGRESS epoch=1/3 update=200/888 loss=0.48086 elapsed=153.0s
+PROGRESS epoch=1/3 update=220/888 loss=0.43489 elapsed=168.3s
+PROGRESS epoch=1/3 update=240/888 loss=0.44694 elapsed=183.7s
+PROGRESS epoch=1/3 update=260/888 loss=0.41848 elapsed=199.0s
+PROGRESS epoch=1/3 update=280/888 loss=0.46403 elapsed=214.2s
+PROGRESS epoch=1/3 update=296/888 loss=0.45351 elapsed=226.1s
+CHECKPOINT laya-sentiment-model-neutral-reviewed-no-uncertain/checkpoint-latest
+PROGRESS epoch=2/3 update=300/888 loss=0.32186 elapsed=230.0s
+PROGRESS epoch=2/3 update=320/888 loss=0.32626 elapsed=245.3s
+PROGRESS epoch=2/3 update=340/888 loss=0.40598 elapsed=260.4s
+PROGRESS epoch=2/3 update=360/888 loss=0.34631 elapsed=275.7s
+PROGRESS epoch=2/3 update=380/888 loss=0.40062 elapsed=291.0s
+PROGRESS epoch=2/3 update=400/888 loss=0.36507 elapsed=306.1s
+PROGRESS epoch=2/3 update=420/888 loss=0.38171 elapsed=321.4s
+PROGRESS epoch=2/3 update=440/888 loss=0.30443 elapsed=336.6s
+PROGRESS epoch=2/3 update=460/888 loss=0.30962 elapsed=351.7s
+PROGRESS epoch=2/3 update=480/888 loss=0.37058 elapsed=367.0s
+PROGRESS epoch=2/3 update=500/888 loss=0.37595 elapsed=382.2s
+PROGRESS epoch=2/3 update=520/888 loss=0.33102 elapsed=397.3s
+PROGRESS epoch=2/3 update=540/888 loss=0.29813 elapsed=412.5s
+PROGRESS epoch=2/3 update=560/888 loss=0.30835 elapsed=427.8s
+PROGRESS epoch=2/3 update=580/888 loss=0.25447 elapsed=442.9s
+PROGRESS epoch=2/3 update=592/888 loss=0.29168 elapsed=451.8s
+CHECKPOINT laya-sentiment-model-neutral-reviewed-no-uncertain/checkpoint-latest
+PROGRESS epoch=3/3 update=600/888 loss=0.20593 elapsed=459.0s
+PROGRESS epoch=3/3 update=620/888 loss=0.17337 elapsed=474.3s
+PROGRESS epoch=3/3 update=640/888 loss=0.20658 elapsed=489.4s
+PROGRESS epoch=3/3 update=660/888 loss=0.14737 elapsed=504.5s
+PROGRESS epoch=3/3 update=680/888 loss=0.15614 elapsed=519.8s
+PROGRESS epoch=3/3 update=700/888 loss=0.23344 elapsed=535.0s
+PROGRESS epoch=3/3 update=720/888 loss=0.18231 elapsed=550.1s
+PROGRESS epoch=3/3 update=740/888 loss=0.20352 elapsed=565.4s
+PROGRESS epoch=3/3 update=760/888 loss=0.27575 elapsed=580.6s
+PROGRESS epoch=3/3 update=780/888 loss=0.15419 elapsed=595.8s
+PROGRESS epoch=3/3 update=800/888 loss=0.17920 elapsed=611.0s
+PROGRESS epoch=3/3 update=820/888 loss=0.25213 elapsed=626.3s
+PROGRESS epoch=3/3 update=840/888 loss=0.15905 elapsed=641.4s
+PROGRESS epoch=3/3 update=860/888 loss=0.19204 elapsed=656.7s
+PROGRESS epoch=3/3 update=880/888 loss=0.20177 elapsed=671.9s
+PROGRESS epoch=3/3 update=888/888 loss=0.21705 elapsed=677.7s
+CHECKPOINT laya-sentiment-model-neutral-reviewed-no-uncertain/checkpoint-latest
+COMPLETE laya-sentiment-model-neutral-reviewed-no-uncertain/final test_macro_f1= 0.7132386557094165 temperature= 2.4479170989457137

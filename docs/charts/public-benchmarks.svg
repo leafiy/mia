@@ -1,0 +1,91 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1080' height='678' viewBox='0 0 1080 678' role='img' aria-label='公开数据集：二分类集用二选一准确率，DMSC 用三分类准确率' font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif'>
+<rect width='1080' height='678' fill='#ffffff'/>
+<text x='24' y='30' font-size='18' font-weight='600' fill='#1f2328'>公开数据集：二分类集用二选一准确率，DMSC 用三分类准确率</text>
+<line x1='256.0' y1='50' x2='256.0' y2='566' stroke='#d0d7de' stroke-width='1'/>
+<text x='256.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.40</text>
+<line x1='329.4' y1='50' x2='329.4' y2='566' stroke='#d0d7de' stroke-width='1'/>
+<text x='329.4' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.46</text>
+<line x1='402.8' y1='50' x2='402.8' y2='566' stroke='#d0d7de' stroke-width='1'/>
+<text x='402.8' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.52</text>
+<line x1='476.2' y1='50' x2='476.2' y2='566' stroke='#d0d7de' stroke-width='1'/>
+<text x='476.2' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.58</text>
+<line x1='549.6' y1='50' x2='549.6' y2='566' stroke='#d0d7de' stroke-width='1'/>
+<text x='549.6' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.64</text>
+<line x1='623.0' y1='50' x2='623.0' y2='566' stroke='#d0d7de' stroke-width='1'/>
+<text x='623.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.70</text>
+<line x1='696.4' y1='50' x2='696.4' y2='566' stroke='#d0d7de' stroke-width='1'/>
+<text x='696.4' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.76</text>
+<line x1='769.8' y1='50' x2='769.8' y2='566' stroke='#d0d7de' stroke-width='1'/>
+<text x='769.8' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.82</text>
+<line x1='843.2' y1='50' x2='843.2' y2='566' stroke='#d0d7de' stroke-width='1'/>
+<text x='843.2' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.88</text>
+<line x1='916.6' y1='50' x2='916.6' y2='566' stroke='#d0d7de' stroke-width='1'/>
+<text x='916.6' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.94</text>
+<line x1='990.0' y1='50' x2='990.0' y2='566' stroke='#d0d7de' stroke-width='1'/>
+<text x='990.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>1.00</text>
+<text x='244' y='103.0' font-size='13' fill='#1f2328' text-anchor='end'>ChnSentiCorp</text>
+<text x='244' y='119.0' font-size='13' fill='#1f2328' text-anchor='end'>test</text>
+<rect x='256' y='65.0' width='589.2' height='18' fill='#0969da' rx='2'/>
+<text x='851.2' y='79.0' font-size='11' fill='#1f2328'>0.882</text>
+<rect x='256' y='87.0' width='591.3' height='18' fill='#8250df' rx='2'/>
+<text x='853.3' y='101.0' font-size='11' fill='#1f2328'>0.883</text>
+<rect x='256' y='109.0' width='585.2' height='18' fill='#bf8700' rx='2'/>
+<text x='847.2' y='123.0' font-size='11' fill='#1f2328'>0.878</text>
+<rect x='256' y='131.0' width='560.7' height='18' fill='#6e7781' rx='2'/>
+<text x='822.7' y='145.0' font-size='11' fill='#1f2328'>0.858</text>
+<text x='244' y='197.0' font-size='13' fill='#1f2328' text-anchor='end'>online_shopping_</text>
+<text x='244' y='213.0' font-size='13' fill='#1f2328' text-anchor='end'>10_cats（抽样</text>
+<text x='244' y='229.0' font-size='13' fill='#1f2328' text-anchor='end'>5,000）</text>
+<rect x='256' y='167.0' width='639.1' height='18' fill='#0969da' rx='2'/>
+<text x='901.1' y='181.0' font-size='11' fill='#1f2328'>0.922</text>
+<rect x='256' y='189.0' width='634.4' height='18' fill='#8250df' rx='2'/>
+<text x='896.4' y='203.0' font-size='11' fill='#1f2328'>0.919</text>
+<rect x='256' y='211.0' width='635.2' height='18' fill='#bf8700' rx='2'/>
+<text x='897.2' y='225.0' font-size='11' fill='#1f2328'>0.919</text>
+<rect x='256' y='233.0' width='607.3' height='18' fill='#6e7781' rx='2'/>
+<text x='869.3' y='247.0' font-size='11' fill='#1f2328'>0.896</text>
+<line x1='24' y1='158' x2='1056' y2='158' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='307.0' font-size='13' fill='#1f2328' text-anchor='end'>eprstmt</text>
+<text x='244' y='323.0' font-size='13' fill='#1f2328' text-anchor='end'>(FewCLUE) test</text>
+<rect x='256' y='269.0' width='607.7' height='18' fill='#0969da' rx='2'/>
+<text x='869.7' y='283.0' font-size='11' fill='#1f2328'>0.897</text>
+<rect x='256' y='291.0' width='589.6' height='18' fill='#8250df' rx='2'/>
+<text x='851.6' y='305.0' font-size='11' fill='#1f2328'>0.882</text>
+<rect x='256' y='313.0' width='587.6' height='18' fill='#bf8700' rx='2'/>
+<text x='849.6' y='327.0' font-size='11' fill='#1f2328'>0.880</text>
+<rect x='256' y='335.0' width='541.5' height='18' fill='#6e7781' rx='2'/>
+<text x='803.5' y='349.0' font-size='11' fill='#1f2328'>0.843</text>
+<line x1='24' y1='260' x2='1056' y2='260' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='409.0' font-size='13' fill='#1f2328' text-anchor='end'>weibo_senti_100k</text>
+<text x='244' y='425.0' font-size='13' fill='#1f2328' text-anchor='end'>（抽样 5,000）</text>
+<rect x='256' y='371.0' width='486.4' height='18' fill='#0969da' rx='2'/>
+<text x='748.4' y='385.0' font-size='11' fill='#1f2328'>0.798</text>
+<rect x='256' y='393.0' width='493.0' height='18' fill='#8250df' rx='2'/>
+<text x='755.0' y='407.0' font-size='11' fill='#1f2328'>0.803</text>
+<rect x='256' y='415.0' width='523.3' height='18' fill='#bf8700' rx='2'/>
+<text x='785.3' y='429.0' font-size='11' fill='#1f2328'>0.828</text>
+<rect x='256' y='437.0' width='495.0' height='18' fill='#6e7781' rx='2'/>
+<text x='757.0' y='451.0' font-size='11' fill='#1f2328'>0.805</text>
+<line x1='24' y1='362' x2='1056' y2='362' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='503.0' font-size='13' fill='#1f2328' text-anchor='end'>DMSC 豆瓣影评（抽样</text>
+<text x='244' y='519.0' font-size='13' fill='#1f2328' text-anchor='end'>5,000，1-2 星负 /</text>
+<text x='244' y='535.0' font-size='13' fill='#1f2328' text-anchor='end'>3 星中 / 4-5 星正）</text>
+<rect x='256' y='473.0' width='137.0' height='18' fill='#0969da' rx='2'/>
+<text x='399.0' y='487.0' font-size='11' fill='#1f2328'>0.512</text>
+<rect x='256' y='495.0' width='174.0' height='18' fill='#8250df' rx='2'/>
+<text x='436.0' y='509.0' font-size='11' fill='#1f2328'>0.542</text>
+<rect x='256' y='517.0' width='211.4' height='18' fill='#bf8700' rx='2'/>
+<text x='473.4' y='531.0' font-size='11' fill='#1f2328'>0.573</text>
+<rect x='256' y='539.0' width='128.2' height='18' fill='#6e7781' rx='2'/>
+<text x='390.2' y='553.0' font-size='11' fill='#1f2328'>0.505</text>
+<line x1='24' y1='464' x2='1056' y2='464' stroke='#d0d7de' stroke-width='0.5'/>
+<rect x='256' y='581' width='14' height='14' fill='#0969da' rx='2'/>
+<text x='276' y='592' font-size='12' fill='#1f2328'>mia-qwen3.5-2b</text>
+<rect x='446' y='581' width='14' height='14' fill='#8250df' rx='2'/>
+<text x='466' y='592' font-size='12' fill='#1f2328'>mia-laya</text>
+<rect x='582' y='581' width='14' height='14' fill='#bf8700' rx='2'/>
+<text x='602' y='592' font-size='12' fill='#1f2328'>laya-oldlabels</text>
+<rect x='256' y='603' width='14' height='14' fill='#6e7781' rx='2'/>
+<text x='276' y='614' font-size='12' fill='#1f2328'>qwen3.5-2b-zero-shot</text>
+<text x='256' y='636' font-size='11' fill='#57606a'>模型没有在这些数据集上训练过</text>
+</svg>

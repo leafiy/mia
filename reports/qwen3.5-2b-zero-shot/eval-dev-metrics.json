@@ -1,0 +1,68 @@
+{
+  "model": "/root/models/qwen3.5/Qwen3.5-2B",
+  "method": "zero-shot constrained choice over 负面/中性/正面 next-token logits, thinking off, no calibration",
+  "requested_device": "cuda:0",
+  "temperature": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "dataset": {
+    "path": "data/eval/test.jsonl",
+    "sha256": "2adee0bf6a949b2e9df35422c52d8ce11c8dc5d27b1a1dd0b01c5cd0fada334a",
+    "manifest_rows": 4920,
+    "evaluated_rows": 4920,
+    "limit": 0
+  },
+  "metrics": {
+    "rows": 4920,
+    "accuracy": 0.6432926654815674,
+    "macro_f1": 0.6360762754976589,
+    "nll": 0.9472740888595581,
+    "brier": 0.5056588053703308,
+    "ece": 0.1265461775708974,
+    "per_class": {
+      "负面": {
+        "support": 838,
+        "precision": 0.3942857142857143,
+        "recall": 0.9880668257756563,
+        "f1": 0.5636487406398911
+      },
+      "中性": {
+        "support": 2391,
+        "precision": 0.911578947368421,
+        "recall": 0.36219155165202843,
+        "f1": 0.518407662376534
+      },
+      "正面": {
+        "support": 1691,
+        "precision": 0.7866310160427807,
+        "recall": 0.8698994677705499,
+        "f1": 0.8261724234765515
+      }
+    },
+    "confusion_matrix": [
+      [
+        828,
+        4,
+        6
+      ],
+      [
+        1132,
+        866,
+        393
+      ],
+      [
+        140,
+        80,
+        1471
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  },
+  "label_provenance": "llm relabel of the normalized text; old machine labels unused"
+}

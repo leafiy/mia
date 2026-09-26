@@ -1,0 +1,223 @@
+{
+  "data_dir": "laya-sentiment-data-cap100-natural-neutral-reviewed-no-uncertain",
+  "output": "laya-sentiment-model-neutral-reviewed-no-uncertain",
+  "model": "convaiinnovations/laya-multilingual",
+  "revision": "e4e9ddf21a7b1903b7acffd8814ad4307bf63a67",
+  "device": "cuda:0",
+  "epochs": 3,
+  "batch_size": 16,
+  "grad_accum": 16,
+  "encoder_lr": 2e-05,
+  "head_lr": 0.0001,
+  "max_length": 512,
+  "seed": 42,
+  "limit": 0,
+  "objective": "supervised cross-entropy; NOT RLCD",
+  "effective_batch_size": 256,
+  "versions": {
+    "laya": "0.3.20",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "data_manifest": {
+    "format": "Laya notebook-compatible JSONL; state, questions, and gold are JSON-encoded strings",
+    "recommended_base_model": "convaiinnovations/laya-multilingual",
+    "source_file": "sentiment-training-industry.csv",
+    "source_sha256": "560033f6981fcee64fb558670da1625d682970d8ff210abb85807113ee48487e",
+    "seed": "laya-sentiment-v1",
+    "split_method": "SHA-256 assignment by source_group: 80% train pool, 10% calibration pool, 10% test pool; no group crosses splits",
+    "max_rows_per_source_group_before_sampling": {
+      "train": 100,
+      "calibration": 100,
+      "test": 100
+    },
+    "split_targets": {
+      "train": 75692,
+      "calibration": 5000,
+      "test": 5000
+    },
+    "training_sampling": "Same capped source-pool rows as cap100-natural with 4,203 agreed neutral-label corrections and 1,567 uncertain/disputed neutral rows excluded",
+    "calibration_and_test_sampling": "5,000 rows each, stratified to retain their source-pool label-by-industry proportions",
+    "unseen_test_sampling": "All eligible test-pool rows left after the fixed 5,000-row test selection; no row appears in train, calibration, or test.",
+    "fields_used_as_text_or_target": {
+      "input_state": "normalized state text",
+      "target": "original sentiment labels, with independently confirmed neutral-label semantic corrections"
+    },
+    "industry_usage": "Industry labels are used only for sampling and audit metadata; never included in model input or target.",
+    "cleaning": {
+      "symbols": "Emoji, variation selectors, decorative symbols, and control/format characters removed; currency symbols retained; common sentence punctuation and English apostrophes/hyphens retained.",
+      "whitespace": "Repeated whitespace collapsed; spaces between adjacent CJK characters removed. Necessary spaces between Latin words are retained.",
+      "punctuation": "Repeated sentence punctuation collapsed to one mark; spaces before sentence punctuation removed.",
+      "length": "Keep 5-100 Unicode characters after normalization.",
+      "deduplication": "Keep one copy of each normalized text when all copies have the same label; drop every row of normalized texts with conflicting labels."
+    },
+    "filter_counts": {
+      "rows_seen": 570684,
+      "eligible_before_dedup": 567010,
+      "normalized_rows": 453435,
+      "dropped_cleaned_length": 3674,
+      "conflicting_normalized_texts_dropped": 424,
+      "conflicting_rows_dropped": 869,
+      "same_label_duplicate_rows_dropped": 2360,
+      "unique_train_rows": 442856,
+      "unique_test_rows": 66950,
+      "unique_calibration_rows": 53975
+    },
+    "candidate_pools_after_group_cap": {
+      "train": {
+        "rows_after_source_group_cap": 77259,
+        "labels": {
+          "正面": 37874,
+          "中性": 20728,
+          "负面": 18657
+        },
+        "industries": {
+          "文学": 7925,
+          "其他": 33703,
+          "社媒": 13794,
+          "学术": 2689,
+          "电商": 14242,
+          "工业": 2484,
+          "医疗": 2422
+        }
+      },
+      "calibration": {
+        "rows_after_source_group_cap": 9275,
+        "labels": {
+          "正面": 4680,
+          "负面": 2071,
+          "中性": 2524
+        },
+        "industries": {
+          "社媒": 1667,
+          "其他": 3858,
+          "文学": 845,
+          "学术": 405,
+          "电商": 1964,
+          "医疗": 163,
+          "工业": 373
+        }
+      },
+      "test": {
+        "rows_after_source_group_cap": 10465,
+        "labels": {
+          "负面": 2349,
+          "正面": 5117,
+          "中性": 2999
+        },
+        "industries": {
+          "其他": 4858,
+          "社媒": 1679,
+          "文学": 1130,
+          "电商": 1960,
+          "学术": 225,
+          "工业": 277,
+          "医疗": 336
+        }
+      }
+    },
+    "files": {
+      "train.jsonl": {
+        "rows": 75692,
+        "sha256": "9b68b981e9d5d9ae1b66241229248933634efe3375ca6a97a57d84d62cb94f0f",
+        "labels": {
+          "中性": 14958,
+          "正面": 39888,
+          "负面": 20846
+        },
+        "industries": {
+          "社媒": 13448,
+          "文学": 7746,
+          "电商": 14036,
+          "其他": 32979,
+          "学术": 2661,
+          "医疗": 2379,
+          "工业": 2443
+        },
+        "source_groups": 1358
+      },
+      "calibration.jsonl": {
+        "rows": 5000,
+        "sha256": "62edcada4fbe081efee02c19a671e6bd05fd70add9742bf4197a07af3a3c4e35",
+        "labels": {
+          "正面": 2522,
+          "中性": 1360,
+          "负面": 1118
+        },
+        "industries": {
+          "电商": 1059,
+          "工业": 201,
+          "社媒": 898,
+          "其他": 2080,
+          "学术": 218,
+          "文学": 456,
+          "医疗": 88
+        },
+        "source_groups": 146
+      },
+      "test.jsonl": {
+        "rows": 5000,
+        "sha256": "20ae30155d80b1a0696c14ff043f8bf10873fbf8cc923e2f75477a71be68ec2b",
+        "labels": {
+          "负面": 1121,
+          "中性": 1435,
+          "正面": 2444
+        },
+        "industries": {
+          "其他": 2321,
+          "医疗": 161,
+          "电商": 936,
+          "文学": 540,
+          "社媒": 802,
+          "学术": 108,
+          "工业": 132
+        },
+        "source_groups": 154
+      },
+      "unseen-test.jsonl": {
+        "rows": 5465,
+        "sha256": "4e0aec6ac110b07898c3889710437ec3f897ab931848c7e4662ee086c8cdded9",
+        "labels": {
+          "负面": 1228,
+          "正面": 2673,
+          "中性": 1564
+        },
+        "industries": {
+          "其他": 2537,
+          "社媒": 877,
+          "文学": 590,
+          "电商": 1024,
+          "学术": 117,
+          "工业": 145,
+          "医疗": 175
+        },
+        "source_groups": 154
+      },
+      "sentiment-selected-clean.csv": {
+        "rows": 85692,
+        "sha256": "535b307d735fc35042e83475b0b1d82e6ff047c2f1b10e66dfa4de4de436544a"
+      }
+    },
+    "neutral_label_review": {
+      "source_train_sha256": "37b26251a2718a364aa91bbbb08c6f121bffea041481238fec97dc40afcec941",
+      "source_manifest_sha256": "47484457bbf8524ce20af6111237a3bb7339a171daf9b125263126b8aa840a56",
+      "first_pass": "model-assisted contextual sentiment classification without the original label",
+      "second_pass": "independent model-assisted contextual sentiment classification on proposed polar relabels",
+      "policy": "Relabel only if both passes agree on the same non-neutral label; exclude first-pass uncertain and second-pass disputed rows",
+      "machine_generated_not_human_gold": true,
+      "reviewed_neutral_rows": 20728,
+      "proposed_relabels": 4469,
+      "confirmed_relabels": 4203,
+      "excluded_uncertain_rows": 1567,
+      "dispositions": {
+        "kept_neutral_first_pass": 14958,
+        "excluded_ambiguous_first_pass": 1301,
+        "confirmed_relabel": 4203,
+        "excluded_disagreed_second_pass": 266
+      },
+      "audit_file": "neutral-label-audit.jsonl",
+      "audit_sha256": "114916a4f56b0f54d2cf864bd855889ff52880ebbc9568544171e92a90c9b5da"
+    }
+  },
+  "act_head_supervised": false
+}

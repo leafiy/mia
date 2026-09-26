@@ -1,0 +1,45 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='760' height='400' viewBox='0 0 760 400' role='img' aria-label='Qwen 三次训练每个 epoch 结束时的开发集 Macro-F1' font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif'>
+<rect width='760' height='400' fill='#ffffff'/>
+<text x='24' y='30' font-size='18' font-weight='600' fill='#1f2328'>Qwen 三次训练每个 epoch 结束时的开发集 Macro-F1</text>
+<line x1='70' y1='350.0' x2='560' y2='350.0' stroke='#d0d7de'/>
+<text x='62' y='354.0' font-size='11' fill='#57606a' text-anchor='end'>0.80</text>
+<line x1='70' y1='291.2' x2='560' y2='291.2' stroke='#d0d7de'/>
+<text x='62' y='295.2' font-size='11' fill='#57606a' text-anchor='end'>0.82</text>
+<line x1='70' y1='232.4' x2='560' y2='232.4' stroke='#d0d7de'/>
+<text x='62' y='236.4' font-size='11' fill='#57606a' text-anchor='end'>0.83</text>
+<line x1='70' y1='173.6' x2='560' y2='173.6' stroke='#d0d7de'/>
+<text x='62' y='177.6' font-size='11' fill='#57606a' text-anchor='end'>0.85</text>
+<line x1='70' y1='114.8' x2='560' y2='114.8' stroke='#d0d7de'/>
+<text x='62' y='118.8' font-size='11' fill='#57606a' text-anchor='end'>0.86</text>
+<line x1='70' y1='56.0' x2='560' y2='56.0' stroke='#d0d7de'/>
+<text x='62' y='60.0' font-size='11' fill='#57606a' text-anchor='end'>0.88</text>
+<text x='70.0' y='370' font-size='12' fill='#57606a' text-anchor='middle'>epoch 1</text>
+<text x='315.0' y='370' font-size='12' fill='#57606a' text-anchor='middle'>epoch 2</text>
+<text x='560.0' y='370' font-size='12' fill='#57606a' text-anchor='middle'>epoch 3</text>
+<text x='20' y='42' font-size='11' fill='#57606a'>Macro-F1（各自训练时的开发集）</text>
+<path d='M70.0,179.0 L315.0,154.7 L560.0,166.8' fill='none' stroke='#bf8700' stroke-width='2.5'/>
+<circle cx='70.0' cy='179.0' r='4' fill='#bf8700'/>
+<text x='70.0' y='170.0' font-size='10' fill='#1f2328' text-anchor='middle'>0.8465</text>
+<circle cx='315.0' cy='154.7' r='4' fill='#bf8700'/>
+<text x='315.0' y='145.7' font-size='10' fill='#1f2328' text-anchor='middle'>0.8531</text>
+<circle cx='560.0' cy='166.8' r='4' fill='#bf8700'/>
+<text x='560.0' y='157.8' font-size='10' fill='#1f2328' text-anchor='middle'>0.8499</text>
+<rect x='576' y='56' width='14' height='14' fill='#bf8700' rx='2'/>
+<text x='596' y='67' font-size='12' fill='#1f2328'>qwen0.8b-relabeled</text>
+<path d='M70.0,205.4 L315.0,133.1 L560.0,135.0' fill='none' stroke='#8250df' stroke-width='2.5'/>
+<circle cx='70.0' cy='205.4' r='4' fill='#8250df'/>
+<text x='70.0' y='196.4' font-size='10' fill='#1f2328' text-anchor='middle'>0.8393</text>
+<circle cx='315.0' cy='133.1' r='4' fill='#8250df'/>
+<text x='315.0' y='124.1' font-size='10' fill='#1f2328' text-anchor='middle'>0.8590</text>
+<circle cx='560.0' cy='135.0' r='4' fill='#8250df'/>
+<text x='560.0' y='126.0' font-size='10' fill='#1f2328' text-anchor='middle'>0.8585</text>
+<rect x='576' y='78' width='14' height='14' fill='#8250df' rx='2'/>
+<text x='596' y='89' font-size='12' fill='#1f2328'>qwen2b-relabeled</text>
+<path d='M70.0,196.8 L315.0,152.4' fill='none' stroke='#0969da' stroke-width='2.5'/>
+<circle cx='70.0' cy='196.8' r='4' fill='#0969da'/>
+<text x='70.0' y='187.8' font-size='10' fill='#1f2328' text-anchor='middle'>0.8417</text>
+<circle cx='315.0' cy='152.4' r='4' fill='#0969da'/>
+<text x='315.0' y='143.4' font-size='10' fill='#1f2328' text-anchor='middle'>0.8538</text>
+<rect x='576' y='100' width='14' height='14' fill='#0969da' rx='2'/>
+<text x='596' y='111' font-size='12' fill='#1f2328'>mia-qwen3.5-2b</text>
+</svg>

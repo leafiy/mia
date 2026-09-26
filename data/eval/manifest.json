@@ -1,0 +1,294 @@
+{
+  "format": "Laya notebook-compatible JSONL; state, questions, and gold are JSON-encoded strings",
+  "recommended_base_model": "convaiinnovations/laya-multilingual",
+  "source_file": "sentiment-training-industry.csv",
+  "source_sha256": "560033f6981fcee64fb558670da1625d682970d8ff210abb85807113ee48487e",
+  "seed": "laya-sentiment-v1",
+  "split_method": "SHA-256 assignment by source_group: 80% train pool, 10% calibration pool, 10% test pool; no group crosses splits",
+  "max_rows_per_source_group_before_sampling": {
+    "train": 100,
+    "calibration": 100,
+    "test": 100
+  },
+  "split_targets": {
+    "train": 77259,
+    "calibration": 5000,
+    "test": 5000
+  },
+  "training_sampling": "77,259 rows preserving the capped source-pool label-by-industry proportions; then every row relabeled by llm, 褒贬混合 written as 中性, 无法判断 dropped",
+  "calibration_and_test_sampling": "5,000 rows each, stratified to retain their source-pool label-by-industry proportions",
+  "unseen_test_sampling": "All eligible test-pool rows left after the fixed 5,000-row test selection; no row appears in train, calibration, or test.",
+  "fields_used_as_text_or_target": {
+    "input_state": "normalized state text",
+    "target": "llm relabel of the normalized text; old machine labels unused"
+  },
+  "industry_usage": "Industry labels are used only for sampling and audit metadata; never included in model input or target.",
+  "cleaning": {
+    "symbols": "Emoji, variation selectors, decorative symbols, and control/format characters removed; currency symbols retained; common sentence punctuation and English apostrophes/hyphens retained.",
+    "whitespace": "Repeated whitespace collapsed; spaces between adjacent CJK characters removed. Necessary spaces between Latin words are retained.",
+    "punctuation": "Repeated sentence punctuation collapsed to one mark; spaces before sentence punctuation removed.",
+    "length": "Keep 5-100 Unicode characters after normalization.",
+    "deduplication": "Keep one copy of each normalized text when all copies have the same label; drop every row of normalized texts with conflicting labels."
+  },
+  "filter_counts": {
+    "rows_seen": 570684,
+    "eligible_before_dedup": 567010,
+    "normalized_rows": 453435,
+    "dropped_cleaned_length": 3674,
+    "conflicting_normalized_texts_dropped": 424,
+    "conflicting_rows_dropped": 869,
+    "same_label_duplicate_rows_dropped": 2360,
+    "unique_train_rows": 442856,
+    "unique_test_rows": 66950,
+    "unique_calibration_rows": 53975
+  },
+  "candidate_pools_after_group_cap": {
+    "train": {
+      "rows_after_source_group_cap": 77259,
+      "labels": {
+        "正面": 37874,
+        "中性": 20728,
+        "负面": 18657
+      },
+      "industries": {
+        "文学": 7925,
+        "其他": 33703,
+        "社媒": 13794,
+        "学术": 2689,
+        "电商": 14242,
+        "工业": 2484,
+        "医疗": 2422
+      }
+    },
+    "calibration": {
+      "rows_after_source_group_cap": 9275,
+      "labels": {
+        "正面": 4680,
+        "负面": 2071,
+        "中性": 2524
+      },
+      "industries": {
+        "社媒": 1667,
+        "其他": 3858,
+        "文学": 845,
+        "学术": 405,
+        "电商": 1964,
+        "医疗": 163,
+        "工业": 373
+      }
+    },
+    "test": {
+      "rows_after_source_group_cap": 10465,
+      "labels": {
+        "负面": 2349,
+        "正面": 5117,
+        "中性": 2999
+      },
+      "industries": {
+        "其他": 4858,
+        "社媒": 1679,
+        "文学": 1130,
+        "电商": 1960,
+        "学术": 225,
+        "工业": 277,
+        "医疗": 336
+      }
+    }
+  },
+  "files": {
+    "train.jsonl": {
+      "rows": 76112,
+      "sha256": "22f098b2f8b7d7154ac79d1efde7fe5849bbb9f170e020bd1c11f5309a643677",
+      "labels": {
+        "中性": 34360,
+        "正面": 27227,
+        "负面": 14525
+      },
+      "industries": {
+        "社媒": 13576,
+        "文学": 7722,
+        "电商": 14212,
+        "其他": 33090,
+        "学术": 2647,
+        "医疗": 2403,
+        "工业": 2462
+      },
+      "source_groups": 1356
+    },
+    "calibration.jsonl": {
+      "rows": 4926,
+      "sha256": "301f999e1aac9e03caed16b879f81ca031e388948729e59f0482964cfd0a342f",
+      "labels": {
+        "正面": 1970,
+        "中性": 2148,
+        "负面": 808
+      }
+    },
+    "test.jsonl": {
+      "rows": 4920,
+      "sha256": "2adee0bf6a949b2e9df35422c52d8ce11c8dc5d27b1a1dd0b01c5cd0fada334a",
+      "labels": {
+        "负面": 838,
+        "正面": 1691,
+        "中性": 2391
+      }
+    },
+    "unseen-test.jsonl": {
+      "rows": 5372,
+      "sha256": "4d8addb601234bb6262604e60911fa7c7f8fbc98897501010539eaf4b39ef8bd",
+      "labels": {
+        "中性": 2612,
+        "正面": 1867,
+        "负面": 893
+      }
+    }
+  },
+  "relabel": {
+    "model": "llm",
+    "batch_size": 30,
+    "temperature": 0.0,
+    "seed": 42,
+    "mixed_to_neutral": true,
+    "system_prompt_sha256": "1fc927050645fb0e564a9591bab525297fc11b8d9826d9f7742abf73e1170793",
+    "source_dir": "<workdir>/laya-sentiment-data-cap100-natural",
+    "source_files_sha256": {
+      "train.jsonl": "37b26251a2718a364aa91bbbb08c6f121bffea041481238fec97dc40afcec941",
+      "calibration.jsonl": "62edcada4fbe081efee02c19a671e6bd05fd70add9742bf4197a07af3a3c4e35",
+      "test.jsonl": "20ae30155d80b1a0696c14ff043f8bf10873fbf8cc923e2f75477a71be68ec2b",
+      "unseen-test.jsonl": "4e0aec6ac110b07898c3889710437ec3f897ab931848c7e4662ee086c8cdded9"
+    },
+    "failed_batches": 0,
+    "usage": {},
+    "splits": {
+      "train": {
+        "source_rows": 77259,
+        "kept_rows": 76112,
+        "dropped": {
+          "无法判断": 1147
+        },
+        "mixed_mapped_to_neutral": 3502,
+        "old_label_agreement": 0.6713263179694275,
+        "old_to_new": {
+          "中性": {
+            "中性": 15456,
+            "正面": 1691,
+            "褒贬混合": 853,
+            "无法判断": 857,
+            "负面": 1871
+          },
+          "正面": {
+            "正面": 24880,
+            "中性": 9981,
+            "无法判断": 128,
+            "褒贬混合": 1761,
+            "负面": 1124
+          },
+          "负面": {
+            "负面": 11530,
+            "中性": 5421,
+            "褒贬混合": 888,
+            "正面": 656,
+            "无法判断": 162
+          }
+        }
+      },
+      "calibration": {
+        "source_rows": 5000,
+        "kept_rows": 4930,
+        "dropped": {
+          "无法判断": 70
+        },
+        "mixed_mapped_to_neutral": 202,
+        "old_label_agreement": 0.7136,
+        "old_to_new": {
+          "正面": {
+            "正面": 1811,
+            "中性": 538,
+            "褒贬混合": 111,
+            "负面": 53,
+            "无法判断": 9
+          },
+          "中性": {
+            "中性": 1074,
+            "正面": 115,
+            "褒贬混合": 44,
+            "无法判断": 55,
+            "负面": 72
+          },
+          "负面": {
+            "负面": 683,
+            "中性": 337,
+            "正面": 45,
+            "褒贬混合": 47,
+            "无法判断": 6
+          }
+        }
+      },
+      "test": {
+        "source_rows": 5000,
+        "kept_rows": 4923,
+        "dropped": {
+          "无法判断": 77
+        },
+        "mixed_mapped_to_neutral": 219,
+        "old_label_agreement": 0.6674,
+        "old_to_new": {
+          "负面": {
+            "负面": 666,
+            "中性": 363,
+            "褒贬混合": 47,
+            "正面": 40,
+            "无法判断": 5
+          },
+          "中性": {
+            "负面": 96,
+            "中性": 1122,
+            "正面": 103,
+            "褒贬混合": 54,
+            "无法判断": 60
+          },
+          "正面": {
+            "正面": 1549,
+            "中性": 689,
+            "褒贬混合": 118,
+            "无法判断": 12,
+            "负面": 76
+          }
+        }
+      },
+      "unseen-test": {
+        "source_rows": 5465,
+        "kept_rows": 5373,
+        "dropped": {
+          "无法判断": 92
+        },
+        "mixed_mapped_to_neutral": 234,
+        "old_label_agreement": 0.6508691674290943,
+        "old_to_new": {
+          "负面": {
+            "褒贬混合": 60,
+            "中性": 432,
+            "负面": 683,
+            "无法判断": 10,
+            "正面": 43
+          },
+          "正面": {
+            "正面": 1685,
+            "褒贬混合": 135,
+            "中性": 758,
+            "负面": 86,
+            "无法判断": 9
+          },
+          "中性": {
+            "负面": 124,
+            "中性": 1189,
+            "正面": 139,
+            "褒贬混合": 39,
+            "无法判断": 73
+          }
+        }
+      }
+    }
+  },
+  "public_eval_note": "test/unseen-test/calibration are the public evaluation sets; rows naming specific products or platforms and rows containing id-number or phone-number-like strings were removed: {\"test\": {\"id_or_phone_like\": 2, \"names_specific_product_or_platform\": 1}, \"unseen-test\": {\"id_or_phone_like\": 1}, \"calibration\": {\"names_specific_product_or_platform\": 4}}"
+}

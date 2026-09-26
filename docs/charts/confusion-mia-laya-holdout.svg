@@ -1,0 +1,39 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='498' height='428' viewBox='0 0 498 428' role='img' aria-label='mia-laya：holdout 5,372 混淆矩阵' font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif'>
+<rect width='498' height='428' fill='#ffffff'/>
+<text x='24' y='30' font-size='18' font-weight='600' fill='#1f2328'>mia-laya：holdout 5,372 混淆矩阵</text>
+<text x='294.0' y='50' font-size='12' fill='#57606a' text-anchor='middle'>预测 →</text>
+<text x='40' y='224.0' font-size='12' fill='#57606a' transform='rotate(-90 40 224.0)' text-anchor='middle'>真值 ↓</text>
+<text x='198.0' y='70' font-size='13' fill='#1f2328' text-anchor='middle'>负面</text>
+<text x='294.0' y='70' font-size='13' fill='#1f2328' text-anchor='middle'>中性</text>
+<text x='390.0' y='70' font-size='13' fill='#1f2328' text-anchor='middle'>正面</text>
+<text x='138' y='133.0' font-size='13' fill='#1f2328' text-anchor='end'>负面</text>
+<rect x='150' y='80' width='94' height='94' fill='rgba(9,105,218,0.755)' rx='4'/>
+<text x='197.0' y='124.0' font-size='18' font-weight='600' fill='#ffffff' text-anchor='middle'>709</text>
+<text x='197.0' y='144.0' font-size='11' fill='#ffffff' text-anchor='middle'>79.4%</text>
+<rect x='246' y='80' width='94' height='94' fill='rgba(207,34,46,0.232)' rx='4'/>
+<text x='293.0' y='124.0' font-size='18' font-weight='600' fill='#1f2328' text-anchor='middle'>160</text>
+<text x='293.0' y='144.0' font-size='11' fill='#1f2328' text-anchor='middle'>17.9%</text>
+<rect x='342' y='80' width='94' height='94' fill='rgba(207,34,46,0.103)' rx='4'/>
+<text x='389.0' y='124.0' font-size='18' font-weight='600' fill='#1f2328' text-anchor='middle'>24</text>
+<text x='389.0' y='144.0' font-size='11' fill='#1f2328' text-anchor='middle'>2.7%</text>
+<text x='138' y='229.0' font-size='13' fill='#1f2328' text-anchor='end'>中性</text>
+<rect x='150' y='176' width='94' height='94' fill='rgba(207,34,46,0.176)' rx='4'/>
+<text x='197.0' y='220.0' font-size='18' font-weight='600' fill='#1f2328' text-anchor='middle'>296</text>
+<text x='197.0' y='240.0' font-size='11' fill='#1f2328' text-anchor='middle'>11.3%</text>
+<rect x='246' y='176' width='94' height='94' fill='rgba(9,105,218,0.735)' rx='4'/>
+<text x='293.0' y='220.0' font-size='18' font-weight='600' fill='#ffffff' text-anchor='middle'>2012</text>
+<text x='293.0' y='240.0' font-size='11' fill='#ffffff' text-anchor='middle'>77.0%</text>
+<rect x='342' y='176' width='94' height='94' fill='rgba(207,34,46,0.179)' rx='4'/>
+<text x='389.0' y='220.0' font-size='18' font-weight='600' fill='#1f2328' text-anchor='middle'>304</text>
+<text x='389.0' y='240.0' font-size='11' fill='#1f2328' text-anchor='middle'>11.6%</text>
+<text x='138' y='325.0' font-size='13' fill='#1f2328' text-anchor='end'>正面</text>
+<rect x='150' y='272' width='94' height='94' fill='rgba(207,34,46,0.101)' rx='4'/>
+<text x='197.0' y='316.0' font-size='18' font-weight='600' fill='#1f2328' text-anchor='middle'>46</text>
+<text x='197.0' y='336.0' font-size='11' fill='#1f2328' text-anchor='middle'>2.5%</text>
+<rect x='246' y='272' width='94' height='94' fill='rgba(207,34,46,0.149)' rx='4'/>
+<text x='293.0' y='316.0' font-size='18' font-weight='600' fill='#1f2328' text-anchor='middle'>152</text>
+<text x='293.0' y='336.0' font-size='11' fill='#1f2328' text-anchor='middle'>8.1%</text>
+<rect x='342' y='272' width='94' height='94' fill='rgba(9,105,218,0.840)' rx='4'/>
+<text x='389.0' y='316.0' font-size='18' font-weight='600' fill='#ffffff' text-anchor='middle'>1669</text>
+<text x='389.0' y='336.0' font-size='11' fill='#ffffff' text-anchor='middle'>89.4%</text>
+</svg>

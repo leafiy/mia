@@ -1,0 +1,72 @@
+ROWS 92724 batches=3091 batch_size=30 model=llm
+RESUME 0 finished batches
+PASS 1: submitting 3091 batches
+PROGRESS pass=1 1/3091 done_total=1/3091 elapsed=1s rate=0.72/s
+PROGRESS pass=1 50/3091 done_total=50/3091 elapsed=17s rate=3.02/s
+PROGRESS pass=1 100/3091 done_total=100/3091 elapsed=32s rate=3.08/s
+PROGRESS pass=1 150/3091 done_total=150/3091 elapsed=48s rate=3.12/s
+PROGRESS pass=1 200/3091 done_total=200/3091 elapsed=64s rate=3.12/s
+PROGRESS pass=1 250/3091 done_total=250/3091 elapsed=79s rate=3.15/s
+PROGRESS pass=1 300/3091 done_total=300/3091 elapsed=95s rate=3.16/s
+PROGRESS pass=1 350/3091 done_total=350/3091 elapsed=111s rate=3.16/s
+PROGRESS pass=1 400/3091 done_total=400/3091 elapsed=126s rate=3.17/s
+PROGRESS pass=1 450/3091 done_total=450/3091 elapsed=142s rate=3.16/s
+PROGRESS pass=1 500/3091 done_total=500/3091 elapsed=159s rate=3.15/s
+PROGRESS pass=1 550/3091 done_total=550/3091 elapsed=174s rate=3.16/s
+PROGRESS pass=1 600/3091 done_total=600/3091 elapsed=190s rate=3.16/s
+PROGRESS pass=1 650/3091 done_total=650/3091 elapsed=206s rate=3.16/s
+PROGRESS pass=1 700/3091 done_total=700/3091 elapsed=221s rate=3.16/s
+PROGRESS pass=1 750/3091 done_total=750/3091 elapsed=237s rate=3.17/s
+PROGRESS pass=1 800/3091 done_total=800/3091 elapsed=253s rate=3.16/s
+PROGRESS pass=1 850/3091 done_total=850/3091 elapsed=268s rate=3.17/s
+PROGRESS pass=1 900/3091 done_total=900/3091 elapsed=283s rate=3.18/s
+PROGRESS pass=1 950/3091 done_total=950/3091 elapsed=299s rate=3.18/s
+PROGRESS pass=1 1000/3091 done_total=1000/3091 elapsed=315s rate=3.18/s
+PROGRESS pass=1 1050/3091 done_total=1050/3091 elapsed=331s rate=3.18/s
+PROGRESS pass=1 1100/3091 done_total=1100/3091 elapsed=347s rate=3.17/s
+PROGRESS pass=1 1150/3091 done_total=1150/3091 elapsed=362s rate=3.17/s
+PROGRESS pass=1 1200/3091 done_total=1200/3091 elapsed=378s rate=3.18/s
+PROGRESS pass=1 1250/3091 done_total=1250/3091 elapsed=394s rate=3.18/s
+PROGRESS pass=1 1300/3091 done_total=1300/3091 elapsed=410s rate=3.17/s
+PROGRESS pass=1 1350/3091 done_total=1350/3091 elapsed=425s rate=3.17/s
+PROGRESS pass=1 1400/3091 done_total=1400/3091 elapsed=441s rate=3.17/s
+PROGRESS pass=1 1450/3091 done_total=1450/3091 elapsed=459s rate=3.16/s
+PROGRESS pass=1 1500/3091 done_total=1500/3091 elapsed=474s rate=3.17/s
+PROGRESS pass=1 1550/3091 done_total=1550/3091 elapsed=489s rate=3.17/s
+PROGRESS pass=1 1600/3091 done_total=1600/3091 elapsed=505s rate=3.17/s
+PROGRESS pass=1 1650/3091 done_total=1650/3091 elapsed=521s rate=3.17/s
+PROGRESS pass=1 1700/3091 done_total=1700/3091 elapsed=537s rate=3.17/s
+PROGRESS pass=1 1750/3091 done_total=1750/3091 elapsed=552s rate=3.17/s
+PROGRESS pass=1 1800/3091 done_total=1800/3091 elapsed=568s rate=3.17/s
+PROGRESS pass=1 1850/3091 done_total=1850/3091 elapsed=584s rate=3.17/s
+PROGRESS pass=1 1900/3091 done_total=1900/3091 elapsed=600s rate=3.17/s
+PROGRESS pass=1 1950/3091 done_total=1950/3091 elapsed=615s rate=3.17/s
+PROGRESS pass=1 2000/3091 done_total=2000/3091 elapsed=631s rate=3.17/s
+PROGRESS pass=1 2050/3091 done_total=2050/3091 elapsed=647s rate=3.17/s
+PROGRESS pass=1 2100/3091 done_total=2100/3091 elapsed=663s rate=3.17/s
+PROGRESS pass=1 2150/3091 done_total=2150/3091 elapsed=678s rate=3.17/s
+PROGRESS pass=1 2200/3091 done_total=2200/3091 elapsed=694s rate=3.17/s
+PROGRESS pass=1 2250/3091 done_total=2250/3091 elapsed=710s rate=3.17/s
+PROGRESS pass=1 2300/3091 done_total=2300/3091 elapsed=725s rate=3.17/s
+PROGRESS pass=1 2350/3091 done_total=2350/3091 elapsed=741s rate=3.17/s
+PROGRESS pass=1 2400/3091 done_total=2400/3091 elapsed=757s rate=3.17/s
+PROGRESS pass=1 2450/3091 done_total=2450/3091 elapsed=773s rate=3.17/s
+PROGRESS pass=1 2500/3091 done_total=2500/3091 elapsed=787s rate=3.17/s
+PROGRESS pass=1 2550/3091 done_total=2550/3091 elapsed=803s rate=3.18/s
+PROGRESS pass=1 2600/3091 done_total=2600/3091 elapsed=819s rate=3.17/s
+PROGRESS pass=1 2650/3091 done_total=2650/3091 elapsed=834s rate=3.18/s
+PROGRESS pass=1 2700/3091 done_total=2700/3091 elapsed=850s rate=3.18/s
+PROGRESS pass=1 2750/3091 done_total=2750/3091 elapsed=865s rate=3.18/s
+PROGRESS pass=1 2800/3091 done_total=2800/3091 elapsed=881s rate=3.18/s
+PROGRESS pass=1 2850/3091 done_total=2850/3091 elapsed=896s rate=3.18/s
+PROGRESS pass=1 2900/3091 done_total=2900/3091 elapsed=912s rate=3.18/s
+PROGRESS pass=1 2950/3091 done_total=2950/3091 elapsed=928s rate=3.18/s
+PROGRESS pass=1 3000/3091 done_total=3000/3091 elapsed=943s rate=3.18/s
+PROGRESS pass=1 3050/3091 done_total=3050/3091 elapsed=959s rate=3.18/s
+PROGRESS pass=1 3091/3091 done_total=3091/3091 elapsed=971s rate=3.18/s
+FAILED_BATCHES 0 (rows dropped: 0)
+SPLIT train: kept=72610 dropped={'褒贬混合': 3502, '无法判断': 1147} agreement_with_old=0.671 labels={'中性': 30858, '正面': 27227, '负面': 14525}
+SPLIT calibration: kept=4728 dropped={'褒贬混合': 202, '无法判断': 70} agreement_with_old=0.714 labels={'正面': 1971, '中性': 1949, '负面': 808}
+SPLIT test: kept=4704 dropped={'褒贬混合': 219, '无法判断': 77} agreement_with_old=0.667 labels={'负面': 838, '正面': 1692, '中性': 2174}
+SPLIT unseen-test: kept=5139 dropped={'褒贬混合': 234, '无法判断': 92} agreement_with_old=0.651 labels={'正面': 1867, '中性': 2379, '负面': 893}
+COMPLETE laya-sentiment-data-relabeled

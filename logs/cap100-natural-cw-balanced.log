@@ -1,0 +1,78 @@
+Training on GPU 1: GPU-4cd53c0a-735f-e204-fd05-74cc64f08d77
+NVIDIA GeForce RTX 3080, 20480 MiB, 295 MiB, 0 %
+GPU NVIDIA GeForce RTX 3080 CUDA_VISIBLE_DEVICES=GPU-4cd53c0a-735f-e204-fd05-74cc64f08d77
+DOWNLOAD convaiinnovations/laya-multilingual e4e9ddf21a7b1903b7acffd8814ad4307bf63a67
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 1198.85it/s]
+DATA train.jsonl: 77259 rows; max_tokens=194
+DATA calibration.jsonl: 5000 rows; max_tokens=153
+DATA test.jsonl: 5000 rows; max_tokens=221
+CLASS_WEIGHTS balanced {'负面': 1.38034, '中性': 1.242426, '正面': 0.679965}
+TRAIN epochs=3 updates=906 effective_batch=256 smoke_limit=0
+PROGRESS epoch=1/3 update=1/906 loss=1.02608 elapsed=2.3s
+PROGRESS epoch=1/3 update=20/906 loss=0.75968 elapsed=33.2s
+PROGRESS epoch=1/3 update=40/906 loss=0.63670 elapsed=66.0s
+PROGRESS epoch=1/3 update=60/906 loss=0.68556 elapsed=99.0s
+PROGRESS epoch=1/3 update=80/906 loss=0.63186 elapsed=132.2s
+PROGRESS epoch=1/3 update=100/906 loss=0.65217 elapsed=165.0s
+PROGRESS epoch=1/3 update=120/906 loss=0.60524 elapsed=198.2s
+PROGRESS epoch=1/3 update=140/906 loss=0.69534 elapsed=231.6s
+PROGRESS epoch=1/3 update=160/906 loss=0.69999 elapsed=264.5s
+PROGRESS epoch=1/3 update=180/906 loss=0.61283 elapsed=297.0s
+PROGRESS epoch=1/3 update=200/906 loss=0.62085 elapsed=330.4s
+PROGRESS epoch=1/3 update=220/906 loss=0.52604 elapsed=362.9s
+PROGRESS epoch=1/3 update=240/906 loss=0.60841 elapsed=396.0s
+PROGRESS epoch=1/3 update=260/906 loss=0.69598 elapsed=429.0s
+PROGRESS epoch=1/3 update=280/906 loss=0.60598 elapsed=461.6s
+PROGRESS epoch=1/3 update=300/906 loss=0.65586 elapsed=494.7s
+PROGRESS epoch=1/3 update=302/906 loss=0.54428 elapsed=497.7s
+CHECKPOINT laya-sentiment-model-cap100-natural-cw-balanced/checkpoint-latest
+PROGRESS epoch=2/3 update=320/906 loss=0.48403 elapsed=528.3s
+PROGRESS epoch=2/3 update=340/906 loss=0.53850 elapsed=561.3s
+PROGRESS epoch=2/3 update=360/906 loss=0.43598 elapsed=594.7s
+PROGRESS epoch=2/3 update=380/906 loss=0.47090 elapsed=627.6s
+PROGRESS epoch=2/3 update=400/906 loss=0.42817 elapsed=660.6s
+PROGRESS epoch=2/3 update=420/906 loss=0.51144 elapsed=693.6s
+PROGRESS epoch=2/3 update=440/906 loss=0.59649 elapsed=726.6s
+PROGRESS epoch=2/3 update=460/906 loss=0.54119 elapsed=759.9s
+PROGRESS epoch=2/3 update=480/906 loss=0.45919 elapsed=793.2s
+PROGRESS epoch=2/3 update=500/906 loss=0.46765 elapsed=826.3s
+PROGRESS epoch=2/3 update=520/906 loss=0.57140 elapsed=859.4s
+PROGRESS epoch=2/3 update=540/906 loss=0.55802 elapsed=892.4s
+PROGRESS epoch=2/3 update=560/906 loss=0.46567 elapsed=925.4s
+PROGRESS epoch=2/3 update=580/906 loss=0.39437 elapsed=958.1s
+PROGRESS epoch=2/3 update=600/906 loss=0.44377 elapsed=991.0s
+PROGRESS epoch=2/3 update=604/906 loss=0.52455 elapsed=997.4s
+CHECKPOINT laya-sentiment-model-cap100-natural-cw-balanced/checkpoint-latest
+PROGRESS epoch=3/3 update=620/906 loss=0.37808 elapsed=1025.2s
+PROGRESS epoch=3/3 update=640/906 loss=0.37024 elapsed=1058.3s
+PROGRESS epoch=3/3 update=660/906 loss=0.31709 elapsed=1091.7s
+PROGRESS epoch=3/3 update=680/906 loss=0.28464 elapsed=1124.9s
+PROGRESS epoch=3/3 update=700/906 loss=0.30697 elapsed=1157.7s
+PROGRESS epoch=3/3 update=720/906 loss=0.33608 elapsed=1191.0s
+PROGRESS epoch=3/3 update=740/906 loss=0.33471 elapsed=1224.0s
+PROGRESS epoch=3/3 update=760/906 loss=0.28922 elapsed=1256.8s
+PROGRESS epoch=3/3 update=780/906 loss=0.43863 elapsed=1290.0s
+PROGRESS epoch=3/3 update=800/906 loss=0.23816 elapsed=1323.1s
+PROGRESS epoch=3/3 update=820/906 loss=0.28188 elapsed=1356.3s
+PROGRESS epoch=3/3 update=840/906 loss=0.25744 elapsed=1389.4s
+PROGRESS epoch=3/3 update=860/906 loss=0.31123 elapsed=1422.5s
+PROGRESS epoch=3/3 update=880/906 loss=0.37663 elapsed=1455.4s
+PROGRESS epoch=3/3 update=900/906 loss=0.32163 elapsed=1488.7s
+PROGRESS epoch=3/3 update=906/906 loss=0.35902 elapsed=1498.2s
+CHECKPOINT laya-sentiment-model-cap100-natural-cw-balanced/checkpoint-latest
+COMPLETE laya-sentiment-model-cap100-natural-cw-balanced/final test_macro_f1= 0.7232357232239512 temperature= 1.7949083397460723
+PROGRESS 512/5465
+PROGRESS 1024/5465
+PROGRESS 1536/5465
+PROGRESS 2048/5465
+PROGRESS 2560/5465
+PROGRESS 3072/5465
+PROGRESS 3584/5465
+PROGRESS 4096/5465
+PROGRESS 4608/5465
+PROGRESS 5120/5465
+PROGRESS 5465/5465
+PROGRESS 300/300
+PROGRESS 300/300
+PROGRESS 300/300
+DONE balanced

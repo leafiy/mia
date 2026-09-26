@@ -1,0 +1,54 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1080' height='382' viewBox='0 0 1080 382' role='img' aria-label='一路走来：holdout 准确率随每一步的变化' font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif'>
+<rect width='1080' height='382' fill='#ffffff'/>
+<text x='24' y='30' font-size='18' font-weight='600' fill='#1f2328'>一路走来：holdout 准确率随每一步的变化</text>
+<line x1='256.0' y1='50' x2='256.0' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<text x='256.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.60</text>
+<line x1='329.4' y1='50' x2='329.4' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<text x='329.4' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.63</text>
+<line x1='402.8' y1='50' x2='402.8' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<text x='402.8' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.66</text>
+<line x1='476.2' y1='50' x2='476.2' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<text x='476.2' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.69</text>
+<line x1='549.6' y1='50' x2='549.6' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<text x='549.6' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.72</text>
+<line x1='623.0' y1='50' x2='623.0' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<text x='623.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.75</text>
+<line x1='696.4' y1='50' x2='696.4' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<text x='696.4' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.78</text>
+<line x1='769.8' y1='50' x2='769.8' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<text x='769.8' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.81</text>
+<line x1='843.2' y1='50' x2='843.2' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<text x='843.2' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.84</text>
+<line x1='916.6' y1='50' x2='916.6' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<text x='916.6' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.87</text>
+<line x1='990.0' y1='50' x2='990.0' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<text x='990.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.90</text>
+<text x='244' y='75.0' font-size='13' fill='#1f2328' text-anchor='end'>qwen3.5-2b-zero-</text>
+<text x='244' y='91.0' font-size='13' fill='#1f2328' text-anchor='end'>shot</text>
+<rect x='256' y='70.0' width='91.0' height='18' fill='#0969da' rx='2'/>
+<text x='353.0' y='84.0' font-size='11' fill='#1f2328'>0.637</text>
+<text x='244' y='124.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-oldlabels</text>
+<rect x='256' y='111.0' width='234.9' height='18' fill='#0969da' rx='2'/>
+<text x='496.9' y='125.0' font-size='11' fill='#1f2328'>0.696</text>
+<line x1='24' y1='102' x2='1056' y2='102' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='157.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-oldlabels-</text>
+<text x='244' y='173.0' font-size='13' fill='#1f2328' text-anchor='end'>cw-balanced</text>
+<rect x='256' y='152.0' width='270.0' height='18' fill='#0969da' rx='2'/>
+<text x='532.0' y='166.0' font-size='11' fill='#1f2328'>0.710</text>
+<line x1='24' y1='138' x2='1056' y2='138' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='206.0' font-size='13' fill='#1f2328' text-anchor='end' font-weight="600">mia-laya</text>
+<rect x='256' y='193.0' width='531.4' height='18' fill='#0969da' rx='2'/>
+<text x='793.4' y='207.0' font-size='11' fill='#1f2328'>0.817</text>
+<line x1='24' y1='184' x2='1056' y2='184' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='242.0' font-size='13' fill='#1f2328' text-anchor='end'>qwen2b-relabeled</text>
+<rect x='256' y='229.0' width='598.8' height='18' fill='#0969da' rx='2'/>
+<text x='860.8' y='243.0' font-size='11' fill='#1f2328'>0.845</text>
+<line x1='24' y1='220' x2='1056' y2='220' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='278.0' font-size='13' fill='#1f2328' text-anchor='end' font-weight="600">mia-qwen3.5-2b</text>
+<rect x='256' y='265.0' width='663.0' height='18' fill='#0969da' rx='2'/>
+<text x='925.0' y='279.0' font-size='11' fill='#1f2328'>0.871</text>
+<line x1='24' y1='256' x2='1056' y2='256' stroke='#d0d7de' stroke-width='0.5'/>
+<rect x='256' y='307' width='14' height='14' fill='#0969da' rx='2'/>
+<text x='276' y='318' font-size='12' fill='#1f2328'>holdout 准确率</text>
+<text x='256' y='340' font-size='11' fill='#57606a'>原版零样本 → 起点 → 类别权重 → 换标签 → 换底座 → 定义褒贬混合</text>
+</svg>

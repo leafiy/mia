@@ -1,0 +1,80 @@
+{
+  "model": "models/mia-laya/final",
+  "requested_device": "cuda:0",
+  "actual_device": "cuda:0",
+  "training": {
+    "objective": "supervised_cross_entropy",
+    "epochs_completed": 3,
+    "updates": 852,
+    "fine_tuned_from_checkpoint": true
+  },
+  "temperature": [
+    1.9487578187426935,
+    1.0,
+    1.0
+  ],
+  "temperature_by_options": {
+    "choice:3-5": 1.9487578187426935
+  },
+  "dataset": {
+    "path": "data/eval/test.jsonl",
+    "sha256": "2adee0bf6a949b2e9df35422c52d8ce11c8dc5d27b1a1dd0b01c5cd0fada334a",
+    "manifest_rows": 4920,
+    "evaluated_rows": 4920,
+    "limit": 0
+  },
+  "metrics": {
+    "rows": 4920,
+    "accuracy": 0.8107723577235773,
+    "macro_f1": 0.7974268134818594,
+    "nll": 0.4810066459518712,
+    "brier": 0.2756250438142409,
+    "ece": 0.0401726098684788,
+    "per_class": {
+      "负面": {
+        "support": 838,
+        "precision": 0.6918976545842217,
+        "recall": 0.7744630071599046,
+        "f1": 0.7308558558558559
+      },
+      "中性": {
+        "support": 2391,
+        "precision": 0.851716247139588,
+        "recall": 0.7783354245085738,
+        "f1": 0.8133741258741258
+      },
+      "正面": {
+        "support": 1691,
+        "precision": 0.8230383973288815,
+        "recall": 0.8746303962152573,
+        "f1": 0.8480504587155964
+      }
+    },
+    "confusion_matrix": [
+      [
+        649,
+        157,
+        32
+      ],
+      [
+        244,
+        1861,
+        286
+      ],
+      [
+        45,
+        167,
+        1479
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ],
+    "elapsed_seconds": 3.0346197129692882,
+    "rows_per_second": 1621.290277269374
+  },
+  "probability_source": "Laya public predict_batch output, renormalized after 4-decimal serialization",
+  "label_provenance": "Existing machine-generated sentiment labels, not human gold labels"
+}

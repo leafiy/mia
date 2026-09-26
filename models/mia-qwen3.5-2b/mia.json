@@ -1,0 +1,26 @@
+{
+  "name": "mia-qwen3.5-2b",
+  "task": "chinese-sentiment-3class",
+  "labels": ["负面", "中性", "正面"],
+  "base_model": "Qwen/Qwen3.5-2B",
+  "base_license": "Apache-2.0",
+  "architecture": "Qwen3_5TextForSequenceClassification (text backbone of the multimodal checkpoint + linear head)",
+  "params_million": 1882,
+  "weights_dtype": "bfloat16",
+  "input_template": "文本：{text}\n情感倾向：",
+  "temperature": 1.7063414420191156,
+  "training_data": "76,112 Chinese short texts relabeled by an LLM; 褒贬混合 mapped to 中性; not distributed",
+  "epochs": 2,
+  "effective_batch_size": 256,
+  "seed": 42,
+  "eval": {
+    "dev_4920": {"accuracy": 0.8689, "macro_f1": 0.8543},
+    "holdout_5372": {"accuracy": 0.8710, "macro_f1": 0.8564, "recall": {"负面": 0.774, "中性": 0.892, "正面": 0.889}},
+    "chinese_csv_900": {"accuracy": 0.9411, "macro_f1": 0.9411, "neutral_recall": 0.903},
+    "public_forced_binary_accuracy": {"chnsenticorp": 0.8817, "online_shopping_10_cats": 0.9224, "eprstmt": 0.8967, "weibo_senti_100k": 0.7976},
+    "public_dmsc_3class_accuracy": 0.5120
+  },
+  "throughput": "about 340 rows/s on RTX 4090, bf16, batch 64, PyTorch fallback kernels",
+  "reports": ["reports/mia-qwen3.5-2b/", "reports/public/mia-qwen3.5-2b.json"],
+  "released": "2026-09-26"
+}
