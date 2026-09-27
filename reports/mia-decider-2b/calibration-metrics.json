@@ -1,0 +1,106 @@
+{
+  "model": "models/mia-decider-2b/final",
+  "method": "decider-2b v11 continued on Mia's 76,112 training rows (+13,432 teacher_data replay rows), one epoch with decider.train; same Choice as the zero-shot baseline; temperature fitted on Mia's calibration split",
+  "temperature": 0.9989189216657526,
+  "rows": 4926,
+  "before": {
+    "rows": 4926,
+    "accuracy": 0.8930166363716125,
+    "macro_f1": 0.8816151714285486,
+    "nll": 0.26031002402305603,
+    "brier": 0.15418022871017456,
+    "ece": 0.010144134531938753,
+    "per_class": {
+      "负面": {
+        "support": 808,
+        "precision": 0.8460559796437659,
+        "recall": 0.823019801980198,
+        "f1": 0.8343789209535759
+      },
+      "中性": {
+        "support": 2148,
+        "precision": 0.8805147058823529,
+        "recall": 0.8919925512104283,
+        "f1": 0.8862164662349676
+      },
+      "正面": {
+        "support": 1970,
+        "precision": 0.9256619144602851,
+        "recall": 0.9228426395939087,
+        "f1": 0.9242501270971022
+      }
+    },
+    "confusion_matrix": [
+      [
+        665,
+        123,
+        20
+      ],
+      [
+        106,
+        1916,
+        126
+      ],
+      [
+        15,
+        137,
+        1818
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  },
+  "after": {
+    "rows": 4926,
+    "accuracy": 0.8930166363716125,
+    "macro_f1": 0.8816151714285486,
+    "nll": 0.26030978560447693,
+    "brier": 0.15417936444282532,
+    "ece": 0.010115215976064951,
+    "per_class": {
+      "负面": {
+        "support": 808,
+        "precision": 0.8460559796437659,
+        "recall": 0.823019801980198,
+        "f1": 0.8343789209535759
+      },
+      "中性": {
+        "support": 2148,
+        "precision": 0.8805147058823529,
+        "recall": 0.8919925512104283,
+        "f1": 0.8862164662349676
+      },
+      "正面": {
+        "support": 1970,
+        "precision": 0.9256619144602851,
+        "recall": 0.9228426395939087,
+        "f1": 0.9242501270971022
+      }
+    },
+    "confusion_matrix": [
+      [
+        665,
+        123,
+        20
+      ],
+      [
+        106,
+        1916,
+        126
+      ],
+      [
+        15,
+        137,
+        1818
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  }
+}

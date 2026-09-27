@@ -1,0 +1,19 @@
+{
+  "model": "models/mia-decider-2b/final",
+  "impl": "decider",
+  "model_name": "decider-2b-v11-mia",
+  "temperature": 0.9989189216657526,
+  "temperature_by_type": {
+    "choice": 0.9989189216657526,
+    "noul": 1.624,
+    "score": 1.124
+  },
+  "layout": "plain",
+  "path": "eager DecisionModel.slot_logits, bf16, right-padded batches",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 41.75776386260986,
+  "rows_per_second": 128.6467354352305,
+  "holdout_accuracy_check": 0.8762099776619509
+}

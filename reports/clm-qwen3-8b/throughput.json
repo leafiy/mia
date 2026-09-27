@@ -1,0 +1,12 @@
+{
+  "head": "<workdir>/clm/runs/clm-scratch-e40/best_head.pt",
+  "embed_model": "Qwen/Qwen3-8B",
+  "device": "NVIDIA GeForce RTX 4090",
+  "dtype": "bfloat16",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 21.181980848312378,
+  "rows_per_second": 253.61178628522842,
+  "holdout_accuracy_check": 0.8667163252830505,
+  "path": "tokenise + Qwen3-8B forward (transformers, sdpa) + both heads + softmax; option vectors precomputed"
+}

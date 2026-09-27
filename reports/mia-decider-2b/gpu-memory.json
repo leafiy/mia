@@ -1,0 +1,23 @@
+{
+ "device": "NVIDIA GeForce RTX 4090",
+ "path": "Decider.schema(questions).batch, bf16, CUDA graphs, holdout texts sorted by length",
+ "weights_gb": 3.76,
+ "by_batch": [
+  {
+   "batch": 16,
+   "peak_allocated_gb": 5.87,
+   "nvidia_smi_mib": 6640
+  },
+  {
+   "batch": 32,
+   "peak_allocated_gb": 9.55,
+   "nvidia_smi_mib": 10776
+  },
+  {
+   "batch": 64,
+   "peak_allocated_gb": 16.82,
+   "nvidia_smi_mib": 18984
+  }
+ ],
+ "note": "throughput.json (375 rows/s) was measured at batch 64; batch 128 and above ran out of memory on the 48 GB card (CUDA graph pools)"
+}

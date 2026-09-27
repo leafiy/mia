@@ -1,7 +1,11 @@
 {
   "name": "mia-qwen3.5-2b",
   "task": "chinese-sentiment-3class",
-  "labels": ["负面", "中性", "正面"],
+  "labels": [
+    "负面",
+    "中性",
+    "正面"
+  ],
   "base_model": "Qwen/Qwen3.5-2B",
   "base_license": "Apache-2.0",
   "architecture": "Qwen3_5TextForSequenceClassification (text backbone of the multimodal checkpoint + linear head)",
@@ -14,13 +18,41 @@
   "effective_batch_size": 256,
   "seed": 42,
   "eval": {
-    "dev_4920": {"accuracy": 0.8689, "macro_f1": 0.8543},
-    "holdout_5372": {"accuracy": 0.8710, "macro_f1": 0.8564, "recall": {"负面": 0.774, "中性": 0.892, "正面": 0.889}},
-    "chinese_csv_900": {"accuracy": 0.9411, "macro_f1": 0.9411, "neutral_recall": 0.903},
-    "public_forced_binary_accuracy": {"chnsenticorp": 0.8817, "online_shopping_10_cats": 0.9224, "eprstmt": 0.8967, "weibo_senti_100k": 0.7976},
-    "public_dmsc_3class_accuracy": 0.5120
+    "dev_4920": {
+      "accuracy": 0.8689,
+      "macro_f1": 0.8543
+    },
+    "holdout_5372": {
+      "accuracy": 0.871,
+      "macro_f1": 0.8564,
+      "recall": {
+        "负面": 0.774,
+        "中性": 0.892,
+        "正面": 0.889
+      }
+    },
+    "chinese_csv_900": {
+      "accuracy": 0.9411,
+      "macro_f1": 0.9411,
+      "neutral_recall": 0.903
+    },
+    "public_forced_binary_accuracy": {
+      "chnsenticorp": 0.8817,
+      "online_shopping_10_cats": 0.9224,
+      "eprstmt": 0.8967,
+      "weibo_senti_100k": 0.7976
+    },
+    "public_dmsc_3class_accuracy": 0.512
   },
-  "throughput": "about 340 rows/s on RTX 4090, bf16, batch 64, PyTorch fallback kernels",
-  "reports": ["reports/mia-qwen3.5-2b/", "reports/public/mia-qwen3.5-2b.json"],
-  "released": "2026-09-26"
+  "throughput": "626 rows/s on RTX 4090, bf16, batch 64, PyTorch fallback kernels, holdout 5,372 rows end to end (reports/mia-qwen3.5-2b/throughput.json)",
+  "reports": [
+    "reports/mia-qwen3.5-2b/",
+    "reports/public/mia-qwen3.5-2b.json"
+  ],
+  "released": "2026-09-26",
+  "license": "Apache-2.0",
+  "hub": {
+    "huggingface": "https://huggingface.co/leafiy/mia-qwen3.5-2b",
+    "modelscope": "https://modelscope.cn/models/leafiy2/mia-qwen3.5-2b"
+  }
 }

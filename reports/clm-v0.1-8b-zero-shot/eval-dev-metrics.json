@@ -1,0 +1,68 @@
+{
+  "model": "Contrastive-LM/CLM-v0.1-8B/CLM_v0.1-8B.pt",
+  "requested_device": "cuda:0",
+  "actual_device": "cuda:0",
+  "temperature": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "dataset": {
+    "path": "data/eval/test.jsonl",
+    "sha256": "2adee0bf6a949b2e9df35422c52d8ce11c8dc5d27b1a1dd0b01c5cd0fada334a",
+    "manifest_rows": 4920,
+    "evaluated_rows": 4920,
+    "limit": 0
+  },
+  "metrics": {
+    "rows": 4920,
+    "accuracy": 0.343699187040329,
+    "macro_f1": 0.1705238743508294,
+    "nll": 3.2190754413604736,
+    "brier": 1.2757830619812012,
+    "ece": 0.6380468503731054,
+    "per_class": {
+      "负面": {
+        "support": 838,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "中性": {
+        "support": 2391,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "正面": {
+        "support": 1691,
+        "precision": 0.3436991869918699,
+        "recall": 1.0,
+        "f1": 0.5115716230524883
+      }
+    },
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        838
+      ],
+      [
+        0,
+        0,
+        2391
+      ],
+      [
+        0,
+        0,
+        1691
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  },
+  "label_provenance": "llm relabel of the normalized text; old machine labels unused"
+}

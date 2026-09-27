@@ -1,27 +1,27 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='1080' height='382' viewBox='0 0 1080 382' role='img' aria-label='一路走来：holdout 准确率随每一步的变化' font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif'>
-<rect width='1080' height='382' fill='#ffffff'/>
+<svg xmlns='http://www.w3.org/2000/svg' width='1080' height='464' viewBox='0 0 1080 464' role='img' aria-label='一路走来：holdout 准确率随每一步的变化' font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif'>
+<rect width='1080' height='464' fill='#ffffff'/>
 <text x='24' y='30' font-size='18' font-weight='600' fill='#1f2328'>一路走来：holdout 准确率随每一步的变化</text>
-<line x1='256.0' y1='50' x2='256.0' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<line x1='256.0' y1='50' x2='256.0' y2='374' stroke='#d0d7de' stroke-width='1'/>
 <text x='256.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.60</text>
-<line x1='329.4' y1='50' x2='329.4' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<line x1='329.4' y1='50' x2='329.4' y2='374' stroke='#d0d7de' stroke-width='1'/>
 <text x='329.4' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.63</text>
-<line x1='402.8' y1='50' x2='402.8' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<line x1='402.8' y1='50' x2='402.8' y2='374' stroke='#d0d7de' stroke-width='1'/>
 <text x='402.8' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.66</text>
-<line x1='476.2' y1='50' x2='476.2' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<line x1='476.2' y1='50' x2='476.2' y2='374' stroke='#d0d7de' stroke-width='1'/>
 <text x='476.2' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.69</text>
-<line x1='549.6' y1='50' x2='549.6' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<line x1='549.6' y1='50' x2='549.6' y2='374' stroke='#d0d7de' stroke-width='1'/>
 <text x='549.6' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.72</text>
-<line x1='623.0' y1='50' x2='623.0' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<line x1='623.0' y1='50' x2='623.0' y2='374' stroke='#d0d7de' stroke-width='1'/>
 <text x='623.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.75</text>
-<line x1='696.4' y1='50' x2='696.4' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<line x1='696.4' y1='50' x2='696.4' y2='374' stroke='#d0d7de' stroke-width='1'/>
 <text x='696.4' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.78</text>
-<line x1='769.8' y1='50' x2='769.8' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<line x1='769.8' y1='50' x2='769.8' y2='374' stroke='#d0d7de' stroke-width='1'/>
 <text x='769.8' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.81</text>
-<line x1='843.2' y1='50' x2='843.2' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<line x1='843.2' y1='50' x2='843.2' y2='374' stroke='#d0d7de' stroke-width='1'/>
 <text x='843.2' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.84</text>
-<line x1='916.6' y1='50' x2='916.6' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<line x1='916.6' y1='50' x2='916.6' y2='374' stroke='#d0d7de' stroke-width='1'/>
 <text x='916.6' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.87</text>
-<line x1='990.0' y1='50' x2='990.0' y2='292' stroke='#d0d7de' stroke-width='1'/>
+<line x1='990.0' y1='50' x2='990.0' y2='374' stroke='#d0d7de' stroke-width='1'/>
 <text x='990.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.90</text>
 <text x='244' y='75.0' font-size='13' fill='#1f2328' text-anchor='end'>qwen3.5-2b-zero-</text>
 <text x='244' y='91.0' font-size='13' fill='#1f2328' text-anchor='end'>shot</text>
@@ -48,7 +48,16 @@
 <rect x='256' y='265.0' width='663.0' height='18' fill='#0969da' rx='2'/>
 <text x='925.0' y='279.0' font-size='11' fill='#1f2328'>0.871</text>
 <line x1='24' y1='256' x2='1056' y2='256' stroke='#d0d7de' stroke-width='0.5'/>
-<rect x='256' y='307' width='14' height='14' fill='#0969da' rx='2'/>
-<text x='276' y='318' font-size='12' fill='#1f2328'>holdout 准确率</text>
-<text x='256' y='340' font-size='11' fill='#57606a'>原版零样本 → 起点 → 类别权重 → 换标签 → 换底座 → 定义褒贬混合</text>
+<text x='244' y='311.0' font-size='13' fill='#1f2328' text-anchor='end'>decider-2b-zero-</text>
+<text x='244' y='327.0' font-size='13' fill='#1f2328' text-anchor='end'>shot</text>
+<rect x='256' y='306.0' width='596.5' height='18' fill='#0969da' rx='2'/>
+<text x='858.5' y='320.0' font-size='11' fill='#1f2328'>0.844</text>
+<line x1='24' y1='292' x2='1056' y2='292' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='360.0' font-size='13' fill='#1f2328' text-anchor='end' font-weight="600">mia-decider-2b</text>
+<rect x='256' y='347.0' width='688.1' height='18' fill='#0969da' rx='2'/>
+<text x='950.1' y='361.0' font-size='11' fill='#1f2328'>0.881</text>
+<line x1='24' y1='338' x2='1056' y2='338' stroke='#d0d7de' stroke-width='0.5'/>
+<rect x='256' y='389' width='14' height='14' fill='#0969da' rx='2'/>
+<text x='276' y='400' font-size='12' fill='#1f2328'>holdout 准确率</text>
+<text x='256' y='422' font-size='11' fill='#57606a'>原版零样本 → 起点 → 类别权重 → 换标签 → 换底座 → 定义褒贬混合 → 换决策模型（零样本）→ 在它上面接着训</text>
 </svg>

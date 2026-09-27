@@ -1,0 +1,41 @@
+[choice] <workdir>/clm/data [sentiment] rows train 68501 val 7611 test 4920 | questions train 68501 val 7611 test 4920
+[choice] embedding cache: 81035 texts from <workdir>/clm/embeddings/choice_Qwen_Qwen3-8B_2048.npz
+[choice] warm start Contrastive-LM/CLM-v0.1-8B/CLM_v0.1-8B.pt {'width': 1536, 'depth': 3, 'activation': 'gelu', 'layernorm': True, 'residual': False}
+[choice] baselines {"majority_val": 0.451714623571147, "majority_test": 0.48597560975609755}
+[choice] epoch 0 (init) val acc 0.3583 test acc 0.3437
+[choice] epoch 1 loss 3.2244 val acc 0.7300 soft_ce 0.6423
+[choice] epoch 2 loss 2.7855 val acc 0.7975 soft_ce 0.4882
+[choice] epoch 3 loss 2.6897 val acc 0.8350 soft_ce 0.4159
+[choice] epoch 4 loss 2.6533 val acc 0.8358 soft_ce 0.3975
+[choice] epoch 5 loss 2.6240 val acc 0.8237 soft_ce 0.4128
+[choice] epoch 6 loss 2.6030 val acc 0.8482 soft_ce 0.3811
+[choice] epoch 7 loss 2.5925 val acc 0.8418 soft_ce 0.3952
+[choice] epoch 8 loss 2.5836 val acc 0.8468 soft_ce 0.3812
+[choice] epoch 9 loss 2.5765 val acc 0.8568 soft_ce 0.3552
+[choice] epoch 10 loss 2.5715 val acc 0.8429 soft_ce 0.3826
+[choice] epoch 11 loss 2.5671 val acc 0.8585 soft_ce 0.3531
+[choice] epoch 12 loss 2.5627 val acc 0.8497 soft_ce 0.3684
+[choice] epoch 13 loss 2.5554 val acc 0.8588 soft_ce 0.3502
+[choice] epoch 14 loss 2.5533 val acc 0.8634 soft_ce 0.3368
+[choice] epoch 15 loss 2.5497 val acc 0.8609 soft_ce 0.3483
+[choice] epoch 16 loss 2.5428 val acc 0.8624 soft_ce 0.3350
+[choice] epoch 17 loss 2.5404 val acc 0.8574 soft_ce 0.3442
+[choice] epoch 18 loss 2.5392 val acc 0.8481 soft_ce 0.3590
+[choice] epoch 19 loss 2.5365 val acc 0.8672 soft_ce 0.3289
+[choice] epoch 20 loss 2.5338 val acc 0.8539 soft_ce 0.3522
+[choice] epoch 21 loss 2.5301 val acc 0.8664 soft_ce 0.3288
+[choice] epoch 22 loss 2.5267 val acc 0.8644 soft_ce 0.3333
+[choice] epoch 23 loss 2.5254 val acc 0.8695 soft_ce 0.3264
+[choice] epoch 24 loss 2.5228 val acc 0.8613 soft_ce 0.3374
+[choice] epoch 25 loss 2.5208 val acc 0.8670 soft_ce 0.3270
+[choice] epoch 26 loss 2.5185 val acc 0.8602 soft_ce 0.3376
+[choice] epoch 27 loss 2.5179 val acc 0.8530 soft_ce 0.3510
+[choice] epoch 28 loss 2.5150 val acc 0.8660 soft_ce 0.3265
+[choice] epoch 29 loss 2.5125 val acc 0.8680 soft_ce 0.3231
+[choice] epoch 30 loss 2.5100 val acc 0.8669 soft_ce 0.3235
+[choice] epoch 31 loss 2.5097 val acc 0.8653 soft_ce 0.3268
+[choice] epoch 32 loss 2.5086 val acc 0.8661 soft_ce 0.3229
+[choice] epoch 33 loss 2.5059 val acc 0.8670 soft_ce 0.3231
+[choice] early stop at epoch 33
+[choice] best epoch 23: val acc 0.8695 | TEST acc 0.8685 (init 0.3437, majority 0.4860) per_question {'sentiment': 0.8685}
+[done] {"best_epoch": 23, "val_acc": 0.8695309420575483, "test": {"acc": 0.8684959349593496, "soft_ce": 0.3132017554306402, "per_question": {"sentiment": 0.8685}}, "init_test": {"acc": 0.3436991869918699, "soft_ce": 3.265009884717988, "per_question": {"sentiment": 0.3437}}, "majority_val": 0.451714623571147, "majority_test": 0.48597560975609755, "train_questions": 68501, "minutes": 0.61}

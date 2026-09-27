@@ -1,0 +1,46 @@
+[choice] <workdir>/clm/data [sentiment] rows train 68501 val 7611 test 4920 | questions train 68501 val 7611 test 4920
+[choice] embedding cache: 81035 texts from <workdir>/clm/embeddings/choice_Qwen_Qwen3-8B_2048.npz
+[choice] baselines {"majority_val": 0.451714623571147, "majority_test": 0.48597560975609755}
+[choice] epoch 0 (init) val acc 0.4517 test acc 0.4860
+[choice] epoch 1 loss 2.9276 val acc 0.7665 soft_ce 0.5604
+[choice] epoch 2 loss 2.8124 val acc 0.7502 soft_ce 0.5710
+[choice] epoch 3 loss 2.8512 val acc 0.8061 soft_ce 0.4704
+[choice] epoch 4 loss 2.7879 val acc 0.7632 soft_ce 0.5407
+[choice] epoch 5 loss 2.6824 val acc 0.7305 soft_ce 0.6817
+[choice] epoch 6 loss 2.6561 val acc 0.7824 soft_ce 0.5179
+[choice] epoch 7 loss 2.6344 val acc 0.8325 soft_ce 0.4010
+[choice] epoch 8 loss 2.6268 val acc 0.8280 soft_ce 0.4132
+[choice] epoch 9 loss 2.6114 val acc 0.7949 soft_ce 0.4622
+[choice] epoch 10 loss 2.5981 val acc 0.8337 soft_ce 0.4001
+[choice] epoch 11 loss 2.5876 val acc 0.8401 soft_ce 0.3787
+[choice] epoch 12 loss 2.5843 val acc 0.8366 soft_ce 0.3844
+[choice] epoch 13 loss 2.5781 val acc 0.8317 soft_ce 0.4161
+[choice] epoch 14 loss 2.5668 val acc 0.8107 soft_ce 0.4364
+[choice] epoch 15 loss 2.5710 val acc 0.8475 soft_ce 0.3744
+[choice] epoch 16 loss 2.5527 val acc 0.8517 soft_ce 0.3565
+[choice] epoch 17 loss 2.5498 val acc 0.8396 soft_ce 0.3847
+[choice] epoch 18 loss 2.5462 val acc 0.8446 soft_ce 0.3658
+[choice] epoch 19 loss 2.5423 val acc 0.8534 soft_ce 0.3576
+[choice] epoch 20 loss 2.5383 val acc 0.8521 soft_ce 0.3741
+[choice] epoch 21 loss 2.5328 val acc 0.8570 soft_ce 0.3454
+[choice] epoch 22 loss 2.5356 val acc 0.8632 soft_ce 0.3434
+[choice] epoch 23 loss 2.5255 val acc 0.8570 soft_ce 0.3398
+[choice] epoch 24 loss 2.5248 val acc 0.8514 soft_ce 0.3633
+[choice] epoch 25 loss 2.5184 val acc 0.8635 soft_ce 0.3280
+[choice] epoch 26 loss 2.5137 val acc 0.8597 soft_ce 0.3407
+[choice] epoch 27 loss 2.5133 val acc 0.8640 soft_ce 0.3313
+[choice] epoch 28 loss 2.5123 val acc 0.8687 soft_ce 0.3207
+[choice] epoch 29 loss 2.5085 val acc 0.8680 soft_ce 0.3162
+[choice] epoch 30 loss 2.5045 val acc 0.8682 soft_ce 0.3203
+[choice] epoch 31 loss 2.5024 val acc 0.8686 soft_ce 0.3166
+[choice] epoch 32 loss 2.4998 val acc 0.8701 soft_ce 0.3157
+[choice] epoch 33 loss 2.4961 val acc 0.8702 soft_ce 0.3156
+[choice] epoch 34 loss 2.4937 val acc 0.8669 soft_ce 0.3235
+[choice] epoch 35 loss 2.4919 val acc 0.8670 soft_ce 0.3232
+[choice] epoch 36 loss 2.4894 val acc 0.8690 soft_ce 0.3172
+[choice] epoch 37 loss 2.4893 val acc 0.8661 soft_ce 0.3177
+[choice] epoch 38 loss 2.4868 val acc 0.8699 soft_ce 0.3147
+[choice] epoch 39 loss 2.4865 val acc 0.8689 soft_ce 0.3151
+[choice] epoch 40 loss 2.4860 val acc 0.8698 soft_ce 0.3150
+[choice] best epoch 33: val acc 0.8702 | TEST acc 0.8732 (init 0.4860, majority 0.4860) per_question {'sentiment': 0.8732}
+[done] {"best_epoch": 33, "val_acc": 0.8701878859545394, "test": {"acc": 0.8731707317073171, "soft_ce": 0.30053333809705285, "per_question": {"sentiment": 0.8732}}, "init_test": {"acc": 0.48597560975609755, "soft_ce": 1.0961860470655487, "per_question": {"sentiment": 0.486}}, "majority_val": 0.451714623571147, "majority_test": 0.48597560975609755, "train_questions": 68501, "minutes": 0.7}

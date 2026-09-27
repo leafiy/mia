@@ -1,0 +1,22 @@
+[choice] <workdir>/clm/data [sentiment] rows train 68501 val 7611 test 4920 | questions train 68501 val 7611 test 4920
+[choice] embedding cache: 81035 texts from <workdir>/clm/embeddings/choice_Qwen_Qwen3-8B_2048.npz
+[choice] warm start Contrastive-LM/CLM-v0.1-8B/CLM_v0.1-8B.pt {'width': 1536, 'depth': 3, 'activation': 'gelu', 'layernorm': True, 'residual': False}
+[choice] baselines {"majority_val": 0.451714623571147, "majority_test": 0.48597560975609755}
+[choice] epoch 0 (init) val acc 0.3583 test acc 0.3437
+[choice] epoch 1 loss 0.8902 val acc 0.7667 soft_ce 0.5427
+[choice] epoch 2 loss 0.4821 val acc 0.8205 soft_ce 0.4277
+[choice] epoch 3 loss 0.4363 val acc 0.8346 soft_ce 0.4017
+[choice] epoch 4 loss 0.4140 val acc 0.8522 soft_ce 0.3690
+[choice] epoch 5 loss 0.3977 val acc 0.8515 soft_ce 0.3721
+[choice] epoch 6 loss 0.3829 val acc 0.8517 soft_ce 0.3670
+[choice] epoch 7 loss 0.3752 val acc 0.8528 soft_ce 0.3647
+[choice] epoch 8 loss 0.3645 val acc 0.8602 soft_ce 0.3497
+[choice] epoch 9 loss 0.3598 val acc 0.8623 soft_ce 0.3455
+[choice] epoch 10 loss 0.3541 val acc 0.8588 soft_ce 0.3452
+[choice] epoch 11 loss 0.3451 val acc 0.8601 soft_ce 0.3447
+[choice] epoch 12 loss 0.3486 val acc 0.8592 soft_ce 0.3437
+[choice] epoch 13 loss 0.3377 val acc 0.8556 soft_ce 0.3548
+[choice] epoch 14 loss 0.3339 val acc 0.8607 soft_ce 0.3407
+[choice] early stop at epoch 14
+[choice] best epoch 9: val acc 0.8623 | TEST acc 0.8563 (init 0.3437, majority 0.4860) per_question {'sentiment': 0.8563}
+[done] {"best_epoch": 9, "val_acc": 0.8623045591906451, "test": {"acc": 0.8563008130081301, "soft_ce": 0.3303472255303608, "per_question": {"sentiment": 0.8563}}, "init_test": {"acc": 0.3436991869918699, "soft_ce": 3.265009884717988, "per_question": {"sentiment": 0.3437}}, "majority_val": 0.451714623571147, "majority_test": 0.48597560975609755, "train_questions": 68501, "minutes": 0.32}

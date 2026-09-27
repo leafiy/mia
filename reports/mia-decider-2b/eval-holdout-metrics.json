@@ -1,0 +1,77 @@
+{
+  "model": "models/mia-decider-2b/final",
+  "method": "decider-2b v11 continued on Mia's 76,112 training rows (+13,432 teacher_data replay rows), one epoch with decider.train; same Choice as the zero-shot baseline; temperature fitted on Mia's calibration split (scored in the questions-first layout with the question prefix cached)",
+  "impl": "decider",
+  "model_name": "decider-2b-v11-mia",
+  "temperature": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "temperature_by_type": {
+    "choice": 0.9989189216657526,
+    "noul": 1.624,
+    "score": 1.124
+  },
+  "layout": "plain",
+  "path": "schema-first layout, question prefix cached once (Decider.schema, CUDA graphs), bf16",
+  "requested_device": "cuda:0",
+  "dataset": {
+    "path": "data/eval/unseen-test.jsonl",
+    "sha256": "4d8addb601234bb6262604e60911fa7c7f8fbc98897501010539eaf4b39ef8bd",
+    "manifest_rows": 5372,
+    "evaluated_rows": 5372,
+    "limit": 0
+  },
+  "metrics": {
+    "rows": 5372,
+    "accuracy": 0.8812360167503357,
+    "macro_f1": 0.8704985489670426,
+    "nll": 0.28819540143013,
+    "brier": 0.17165574431419373,
+    "ece": 0.010165869546131892,
+    "per_class": {
+      "负面": {
+        "support": 893,
+        "precision": 0.7900207900207901,
+        "recall": 0.851063829787234,
+        "f1": 0.8194070080862533
+      },
+      "中性": {
+        "support": 2612,
+        "precision": 0.8927457098283932,
+        "recall": 0.8763399693721287,
+        "f1": 0.884466769706337
+      },
+      "正面": {
+        "support": 1867,
+        "precision": 0.9127843986998917,
+        "recall": 0.9025174076057847,
+        "f1": 0.9076218691085376
+      }
+    },
+    "confusion_matrix": [
+      [
+        760,
+        113,
+        20
+      ],
+      [
+        182,
+        2289,
+        141
+      ],
+      [
+        20,
+        162,
+        1685
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  },
+  "label_provenance": "llm relabel of the normalized text; old machine labels unused"
+}

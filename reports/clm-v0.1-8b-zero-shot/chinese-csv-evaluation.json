@@ -1,0 +1,189 @@
+{
+  "model": "Contrastive-LM/CLM-v0.1-8B/CLM_v0.1-8B.pt",
+  "actual_device": "cuda:0",
+  "training_data": "<workdir>/relabeled-mixed-neutral/train.jsonl",
+  "labels": [
+    "负面",
+    "中性",
+    "正面"
+  ],
+  "datasets": {
+    "中文情感测试集_01.csv": {
+      "path": "data/eval/中文情感测试集_01.csv",
+      "label_counts": {
+        "正面": 100,
+        "负面": 100,
+        "中性": 100
+      },
+      "exact_train_text_overlap": 0,
+      "metrics": {
+        "rows": 300,
+        "accuracy": 0.3333333432674408,
+        "macro_f1": 0.16666666666666666,
+        "nll": 3.4194698333740234,
+        "brier": 1.302090048789978,
+        "ece": 0.6537042045593261,
+        "per_class": {
+          "负面": {
+            "support": 100,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "中性": {
+            "support": 100,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "正面": {
+            "support": 100,
+            "precision": 0.3333333333333333,
+            "recall": 1.0,
+            "f1": 0.5
+          }
+        },
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            100
+          ],
+          [
+            0,
+            0,
+            100
+          ],
+          [
+            0,
+            0,
+            100
+          ]
+        ],
+        "label_order": [
+          "负面",
+          "中性",
+          "正面"
+        ]
+      }
+    },
+    "中文情感测试集_02.csv": {
+      "path": "data/eval/中文情感测试集_02.csv",
+      "label_counts": {
+        "中性": 100,
+        "负面": 100,
+        "正面": 100
+      },
+      "exact_train_text_overlap": 0,
+      "metrics": {
+        "rows": 300,
+        "accuracy": 0.3333333432674408,
+        "macro_f1": 0.16666666666666666,
+        "nll": 3.4780733585357666,
+        "brier": 1.3060753345489502,
+        "ece": 0.6551182647546132,
+        "per_class": {
+          "负面": {
+            "support": 100,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "中性": {
+            "support": 100,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "正面": {
+            "support": 100,
+            "precision": 0.3333333333333333,
+            "recall": 1.0,
+            "f1": 0.5
+          }
+        },
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            100
+          ],
+          [
+            0,
+            0,
+            100
+          ],
+          [
+            0,
+            0,
+            100
+          ]
+        ],
+        "label_order": [
+          "负面",
+          "中性",
+          "正面"
+        ]
+      }
+    },
+    "中文情感测试集_03.csv": {
+      "path": "data/eval/中文情感测试集_03.csv",
+      "label_counts": {
+        "中性": 100,
+        "负面": 100,
+        "正面": 100
+      },
+      "exact_train_text_overlap": 0,
+      "metrics": {
+        "rows": 300,
+        "accuracy": 0.3333333432674408,
+        "macro_f1": 0.16666666666666666,
+        "nll": 3.4658524990081787,
+        "brier": 1.3038980960845947,
+        "ece": 0.6545424185196559,
+        "per_class": {
+          "负面": {
+            "support": 100,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "中性": {
+            "support": 100,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "正面": {
+            "support": 100,
+            "precision": 0.3333333333333333,
+            "recall": 1.0,
+            "f1": 0.5
+          }
+        },
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            100
+          ],
+          [
+            0,
+            0,
+            100
+          ],
+          [
+            0,
+            0,
+            100
+          ]
+        ],
+        "label_order": [
+          "负面",
+          "中性",
+          "正面"
+        ]
+      }
+    }
+  }
+}

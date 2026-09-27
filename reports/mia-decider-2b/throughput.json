@@ -1,0 +1,19 @@
+{
+  "model": "models/mia-decider-2b/final",
+  "impl": "decider",
+  "model_name": "decider-2b-v11-mia",
+  "temperature": 0.9989189216657526,
+  "temperature_by_type": {
+    "choice": 0.9989189216657526,
+    "noul": 1.624,
+    "score": 1.124
+  },
+  "layout": "plain",
+  "path": "schema-first layout, question prefix cached once (Decider.schema, CUDA graphs), bf16",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 14.312829732894897,
+  "rows_per_second": 375.32759770443135,
+  "holdout_accuracy_check": 0.8812360387192851
+}

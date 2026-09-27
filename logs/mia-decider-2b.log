@@ -1,0 +1,64 @@
+[args] {"model": "Mapika/decider-2b@533964da", "data": "<workdir>/decider/data/mia-decider.pkl", "out": "<workdir>/decider/runs/decider-2b-mia", "epochs": 1.0, "lr": 8e-06, "wd": 0.0, "warmup": 50, "max_tokens": 16384, "accum": 2, "max_ctx": 16384, "brier_w": 0.0, "label_smooth": 0.0, "eval_every": 100, "eval_limit": 600, "train_cap": 0, "seed": 0, "resample_every_epoch": false, "none_prob": 0.0, "schema_first_prob": 0.5, "max_options": 255}
+
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 320/320 [00:00<00:00, 22133.90it/s]
+[data] train examples 89544; tokenizing...
+[data] 89544 items, 92974 questions, 12.3M tokens, tokenized in 13s
+[sched] 466 optimizer steps/epoch, 466 total
+[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[train] step 20/466 ep 0 ce 0.3848 gn 13.31 lr 3.20e-06 2.1min eta 47min 5155tok/s mem 23GB
+[train] step 40/466 ep 0 ce 0.3710 gn 14.69 lr 6.40e-06 4.2min eta 44min 5152tok/s mem 23GB
+[train] step 60/466 ep 0 ce 0.3744 gn 20.25 lr 7.99e-06 6.3min eta 42min 5122tok/s mem 23GB
+[train] step 80/466 ep 0 ce 0.3228 gn 18.38 lr 7.90e-06 8.4min eta 41min 5136tok/s mem 23GB
+[train] step 100/466 ep 0 ce 0.3117 gn 17.62 lr 7.72e-06 10.5min eta 39min 5151tok/s mem 23GB
+[eval] mia_calibration      n=  600 acc=0.880 (chance 0.33) nll=0.272 brier=0.163 ece=0.022 aurc=0.022 acc@80=0.952 
+[eval] teacher_custom_heldout n= 2888 acc=0.934 (chance 0.34) nll=0.187 brier=0.103 ece=0.026 aurc=0.009 acc@80=0.987 
+[eval] teacher_routing_heldout n=  600 acc=0.920 (chance 0.20) nll=0.230 brier=0.124 ece=0.015 aurc=0.014 acc@80=0.977 
+[eval-agg] step 100 {"in_task": {"acc": 0.9114035087719299, "nll": 0.2298453152179718, "brier": 0.1299689238270124, "ece": 0.020772735122883645, "aurc": 0.015007449145946823, "acc_at_80": 0.9722041847041846, "chance": 0.28970894707529055}, "heldout": {}, "n_in": 3, "n_heldout": 0}
+[train] step 120/466 ep 0 ce 0.3478 gn 15.69 lr 7.45e-06 12.9min eta 42min 4482tok/s mem 23GB
+[train] step 140/466 ep 0 ce 0.3155 gn 19.00 lr 7.11e-06 15.0min eta 35min 5137tok/s mem 23GB
+[train] step 160/466 ep 0 ce 0.2952 gn 17.75 lr 6.70e-06 17.2min eta 32min 5171tok/s mem 23GB
+[train] step 180/466 ep 0 ce 0.3094 gn 17.38 lr 6.22e-06 19.2min eta 30min 5144tok/s mem 23GB
+[train] step 200/466 ep 0 ce 0.3060 gn 14.00 lr 5.70e-06 21.3min eta 27min 5158tok/s mem 23GB
+[eval] mia_calibration      n=  600 acc=0.893 (chance 0.33) nll=0.258 brier=0.153 ece=0.029 aurc=0.019 acc@80=0.960 
+[eval] teacher_custom_heldout n= 2888 acc=0.933 (chance 0.34) nll=0.182 brier=0.100 ece=0.016 aurc=0.009 acc@80=0.988 
+[eval] teacher_routing_heldout n=  600 acc=0.920 (chance 0.20) nll=0.213 brier=0.116 ece=0.023 aurc=0.012 acc@80=0.981 
+[eval-agg] step 200 {"in_task": {"acc": 0.9155016928285625, "nll": 0.21770599484443665, "brier": 0.12298222631216049, "ece": 0.022828910559709342, "aurc": 0.013376721371354186, "acc_at_80": 0.9765151515151516, "chance": 0.28970894707529055}, "heldout": {}, "n_in": 3, "n_heldout": 0}
+[train] step 220/466 ep 0 ce 0.2872 gn 14.44 lr 5.13e-06 23.7min eta 29min 4483tok/s mem 23GB
+[train] step 240/466 ep 0 ce 0.2962 gn 13.94 lr 4.54e-06 25.8min eta 24min 5123tok/s mem 23GB
+[train] step 260/466 ep 0 ce 0.2811 gn 15.00 lr 3.94e-06 27.9min eta 21min 5159tok/s mem 23GB
+[train] step 280/466 ep 0 ce 0.2970 gn 13.81 lr 3.34e-06 30.0min eta 19min 5129tok/s mem 23GB
+[train] step 300/466 ep 0 ce 0.2772 gn 16.88 lr 2.75e-06 32.1min eta 18min 5135tok/s mem 23GB
+[eval] mia_calibration      n=  600 acc=0.882 (chance 0.33) nll=0.252 brier=0.154 ece=0.027 aurc=0.019 acc@80=0.958 
+[eval] teacher_custom_heldout n= 2888 acc=0.935 (chance 0.34) nll=0.182 brier=0.099 ece=0.019 aurc=0.009 acc@80=0.988 
+[eval] teacher_routing_heldout n=  600 acc=0.925 (chance 0.20) nll=0.201 brier=0.110 ece=0.027 aurc=0.011 acc@80=0.985 
+[eval-agg] step 300 {"in_task": {"acc": 0.9137411511234227, "nll": 0.21177045504252115, "brier": 0.12096271167198817, "ece": 0.024422608366440748, "aurc": 0.012865280341574609, "acc_at_80": 0.9773538961038962, "chance": 0.28970894707529055}, "heldout": {}, "n_in": 3, "n_heldout": 0}
+[train] step 320/466 ep 0 ce 0.2689 gn 17.75 lr 2.19e-06 34.5min eta 18min 4506tok/s mem 23GB
+[train] step 340/466 ep 0 ce 0.2819 gn 13.69 lr 1.68e-06 36.6min eta 13min 5154tok/s mem 23GB
+[train] step 360/466 ep 0 ce 0.2907 gn 17.62 lr 1.21e-06 38.7min eta 11min 5156tok/s mem 23GB
+[train] step 380/466 ep 0 ce 0.2801 gn 16.38 lr 8.14e-07 40.8min eta 9min 5149tok/s mem 23GB
+[train] step 400/466 ep 0 ce 0.2690 gn 13.31 lr 4.87e-07 42.9min eta 7min 5172tok/s mem 23GB
+[eval] mia_calibration      n=  600 acc=0.897 (chance 0.33) nll=0.245 brier=0.149 ece=0.022 aurc=0.018 acc@80=0.963 
+[eval] teacher_custom_heldout n= 2888 acc=0.935 (chance 0.34) nll=0.182 brier=0.099 ece=0.018 aurc=0.009 acc@80=0.988 
+[eval] teacher_routing_heldout n=  600 acc=0.928 (chance 0.20) nll=0.200 brier=0.109 ece=0.023 aurc=0.010 acc@80=0.985 
+[eval-agg] step 400 {"in_task": {"acc": 0.9200831024930748, "nll": 0.20874240497748056, "brier": 0.11908489962418874, "ece": 0.0210105608966432, "aurc": 0.01232236173851488, "acc_at_80": 0.978742784992785, "chance": 0.28970894707529055}, "heldout": {}, "n_in": 3, "n_heldout": 0}
+[train] step 420/466 ep 0 ce 0.2598 gn 18.62 lr 2.39e-07 45.3min eta 5min 4505tok/s mem 23GB
+[train] step 440/466 ep 0 ce 0.2760 gn 11.31 lr 7.69e-08 47.4min eta 3min 5166tok/s mem 23GB
+[train] step 460/466 ep 0 ce 0.2782 gn 16.62 lr 4.11e-09 49.5min eta 1min 5154tok/s mem 23GB
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:02<00:00,  2.23s/it]
+Writing model shards: 100%|██████████| 1/1 [00:02<00:00,  2.23s/it]
+[save] models/mia-decider-2b/final
+[eval] mia_calibration      n=  600 acc=0.898 (chance 0.33) nll=0.245 brier=0.149 ece=0.021 aurc=0.018 acc@80=0.963 
+[eval] teacher_custom_heldout n= 2888 acc=0.935 (chance 0.34) nll=0.182 brier=0.099 ece=0.020 aurc=0.009 acc@80=0.989 
+[eval] teacher_routing_heldout n=  600 acc=0.927 (chance 0.20) nll=0.199 brier=0.109 ece=0.025 aurc=0.010 acc@80=0.985 
+[eval-agg] step 466 {"in_task": {"acc": 0.9199676823638042, "nll": 0.2085837870836258, "brier": 0.119044524927934, "ece": 0.0218735959603534, "aurc": 0.012269779535189635, "acc_at_80": 0.9788870851370851, "chance": 0.28970894707529055}, "heldout": {}, "n_in": 3, "n_heldout": 0}
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+Writing model shards: 100%|██████████| 1/1 [00:02<00:00,  2.49s/it]
+Writing model shards: 100%|██████████| 1/1 [00:02<00:00,  2.49s/it]
+[done] saved models/mia-decider-2b/final
+TRAIN_DONE

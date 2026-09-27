@@ -1,0 +1,61 @@
+{
+ "best_epoch": 23,
+ "val_acc": 0.8695309420575483,
+ "test": {
+  "acc": 0.8684959349593496,
+  "soft_ce": 0.3132017554306402,
+  "per_question": {
+   "sentiment": 0.8685
+  }
+ },
+ "init_test": {
+  "acc": 0.3436991869918699,
+  "soft_ce": 3.265009884717988,
+  "per_question": {
+   "sentiment": 0.3437
+  }
+ },
+ "majority_val": 0.451714623571147,
+ "majority_test": 0.48597560975609755,
+ "train_questions": 68501,
+ "minutes": 0.61,
+ "args": {
+  "task": "choice",
+  "out_dir": "<workdir>/clm/runs/clm-e40",
+  "benchmark": null,
+  "emb_dir": null,
+  "hf_dataset": null,
+  "data": "<workdir>/clm/data",
+  "workflow": "sentiment",
+  "hf_cache": null,
+  "hf_split": null,
+  "embed_model": "Qwen/Qwen3-8B",
+  "embed_url": null,
+  "served_model_name": null,
+  "max_len": 2048,
+  "gpu_mem": 0.85,
+  "embed_cache": "<workdir>/clm/embeddings",
+  "init_ckpt": "Contrastive-LM/CLM-v0.1-8B/CLM_v0.1-8B.pt",
+  "width": null,
+  "depth": null,
+  "proj": 512,
+  "epochs": 40,
+  "batch": 256,
+  "lr": null,
+  "weight_decay": 0.0,
+  "val_frac": 0.1,
+  "patience": 10,
+  "seed": 1234,
+  "gpu": 0,
+  "holdout_folds": null,
+  "holdout_tasks": null,
+  "folds": null,
+  "fold_index": null,
+  "fold_config": null,
+  "sampler": "random",
+  "tasks_per_batch": 4,
+  "clm_select_metric": "within_task_top1",
+  "targets": "soft",
+  "loss": "infonce"
+ }
+}

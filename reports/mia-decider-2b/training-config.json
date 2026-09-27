@@ -1,0 +1,79 @@
+{
+ "trainer": "python -m decider.train (decider-ai, github.com/Mapika/decider @ a5120cc), unchanged",
+ "recipe": "decider's delta recipe (scripts/train.sh delta: continue a decider checkpoint) with two changes: warmup 150 -> 50 (this run has 466 optimizer steps), none_prob 0.1 -> 0 (the abstain augmentation borrows labels from other clean-label tasks; Mia is the only one here, so it cannot run)",
+ "init": "Mapika/decider-2b v11, Hub revision 533964da (Qwen/Qwen3.5-2B-Base + decider supervised stages + calibration RL + LoRA stage)",
+ "args": {
+  "model": "Mapika/decider-2b@533964da",
+  "data": "<workdir>/decider/data/mia-decider.pkl",
+  "out": "<workdir>/decider/runs/decider-2b-mia",
+  "epochs": 1.0,
+  "lr": 8e-06,
+  "wd": 0.0,
+  "warmup": 50,
+  "max_tokens": 16384,
+  "accum": 2,
+  "max_ctx": 16384,
+  "brier_w": 0.0,
+  "label_smooth": 0.0,
+  "eval_every": 100,
+  "eval_limit": 600,
+  "train_cap": 0,
+  "seed": 0,
+  "resample_every_epoch": false,
+  "none_prob": 0.0,
+  "schema_first_prob": 0.5,
+  "max_options": 255
+ },
+ "data": {
+  "train_rows": 89544,
+  "mia_rows": 76112,
+  "replay_rows": 13432,
+  "replay_pool": 102413,
+  "replay_tasks": {
+   "custom+iso": 7816,
+   "routing+fmt": 1274,
+   "custom+fmt": 2382,
+   "routing+iso": 778,
+   "commands+fmt": 1182
+  },
+  "held_domains": [
+   "a construction site daily log",
+   "a farm management system",
+   "a voice call transcript at a call centre",
+   "a web-browsing agent's page observations",
+   "an autonomous agent's tool-call trace",
+   "research lab equipment booking"
+  ],
+  "evals": {
+   "mia_calibration": 4926,
+   "teacher_custom_heldout": 378,
+   "teacher_routing_heldout": 600
+  },
+  "questions": {
+   "sentiment": {
+    "type": "choice",
+    "instructions": "判断文本作者表达的整体情感倾向。",
+    "criteria": {
+     "负面": "表达不满、失望、批评、愤怒、担忧、厌恶、贬损等态度，反讽按作者实际态度判为负面",
+     "中性": "客观陈述、信息说明、提问、叙述、事实报道，作者态度或情绪不明显；褒贬并存、无法归为一方的也算中性",
+     "正面": "表达满意、赞赏、喜爱、愉快、感谢、期待、推荐等态度"
+    }
+   }
+  },
+  "example_question": {
+   "text": "判断文本作者表达的整体情感倾向。",
+   "options": [
+    "负面: 表达不满、失望、批评、愤怒、担忧、厌恶、贬损等态度，反讽按作者实际态度判为负面",
+    "中性: 客观陈述、信息说明、提问、叙述、事实报道，作者态度或情绪不明显；褒贬并存、无法归为一方的也算中性",
+    "正面: 表达满意、赞赏、喜爱、愉快、感谢、期待、推荐等态度"
+   ]
+  }
+ },
+ "data_builder": "scripts/prepare-decider-sentiment.py (--replay-frac 0.15, --seed 0)",
+ "optimizer_steps": 466,
+ "tokens_per_step": 32768,
+ "train_minutes": 49.5,
+ "hardware": "RTX 4090 48G, bf16, gradient checkpointing, PyTorch fallback kernels for the linear-attention layers",
+ "temperature": 0.9989189216657526,
+ "default_scoring_path": "questions-first layout with the question prefix cached (decider_config.json schema_first=true)"
+}

@@ -3,6 +3,8 @@
 
   python scripts/evaluate-public-benchmarks.py --model-type qwen --model models/mia-qwen3.5-2b/final --output reports/public/mia-qwen3.5-2b.json
   python scripts/evaluate-public-benchmarks.py --model-type laya --model models/mia-laya/final --output reports/public/mia-laya.json
+  python scripts/evaluate-public-benchmarks.py --model-type clm --model <run>/best_head.pt --clm-repo <CLM> --embed-model <Qwen3-8B> \
+    --clm-cache <workdir>/embeddings/public.npz --clm-config reports/<alias>/sentiment-config.json --output reports/public/<alias>.json
 
 Datasets (fixed samples, seed 42; texts normalized like training and cut to 512 characters):
   chnsenticorp   lansinuote/ChnSentiCorp test split, 1,200 hotel/book/laptop reviews, binary
@@ -43,10 +45,17 @@ def module(filename, name):
 
 def arguments():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('--model-type', choices=('qwen', 'laya', 'zero-shot'), required=True,
-                        help='qwen/laya: a Mia final/ directory; zero-shot: an original Qwen3.5 checkpoint scored by evaluate-qwen-zero-shot.py')
-    parser.add_argument('--model', type=Path, required=True, help='final/ directory (or the base checkpoint for zero-shot)')
+    parser.add_argument('--model-type', choices=('qwen', 'laya', 'zero-shot', 'clm', 'decider', 'kev'), required=True,
+                        help='qwen/laya: a Mia final/ directory; zero-shot: an original Qwen3.5 checkpoint scored by evaluate-qwen-zero-shot.py; '
+                             'clm: a CLM head checkpoint scored by evaluate-clm-sentiment.py; decider/kev: a System One checkpoint '
+                             '(Hub id or path: models/mia-decider-2b/final, Mapika/decider-2b, jaredpalmer/kev-4b) scored by evaluate-systemone-sentiment.py')
+    parser.add_argument('--model', type=Path, required=True, help='final/ directory (or the base checkpoint for zero-shot, the head .pt for clm)')
     parser.add_argument('--questions', type=Path, help='questions.json for laya (default: beside --model)')
+    parser.add_argument('--clm-repo', type=Path, help='clm: CLM checkout')
+    parser.add_argument('--embed-model', type=Path, help='clm: Qwen3-8B checkpoint directory')
+    parser.add_argument('--clm-cache', type=Path, help='clm: TextCache .npz for the benchmark embeddings (shared across heads)')
+    parser.add_argument('--clm-config', type=Path, help='clm: sentiment-config.json holding the temperature (default: temperature 1)')
+    parser.add_argument('--schema-cache', action='store_true', help='decider: questions-first layout with the question prefix cached')
     parser.add_argument('--device', default='cuda:0')
     parser.add_argument('--batch-size', type=int, default=64)
     parser.add_argument('--datasets', nargs='*', default=['chnsenticorp', 'weibo_senti', 'online_shop', 'eprstmt', 'dmsc'])
@@ -195,6 +204,17 @@ def main():
             if 'zero_shot' not in globals():
                 globals()['zero_shot'] = module('evaluate-qwen-zero-shot.py', 'qwen_zero_shot').ZeroShot(args.model, args.device)
             probs = zero_shot.probs(texts, args.batch_size)
+        elif args.model_type == 'clm':
+            if 'clm_scorer' not in globals():
+                globals()['clm_scorer'] = module('evaluate-clm-sentiment.py', 'clm_sentiment').ClmSentiment(
+                    args.clm_repo, args.embed_model, args.model, args.device, args.batch_size, args.clm_cache)
+            temperature = json.loads(args.clm_config.read_text(encoding='utf-8'))['temperature'] if args.clm_config else 1.0
+            probs = (clm_scorer.logits(texts) / temperature).softmax(-1).tolist()
+        elif args.model_type in ('decider', 'kev'):
+            if 'systemone_scorer' not in globals():
+                globals()['systemone_scorer'] = module('evaluate-systemone-sentiment.py', 'systemone_sentiment').scorer(
+                    args.model_type, str(args.model), args.device, args.batch_size, schema_cache=args.schema_cache)
+            probs = systemone_scorer.probs(texts)
         else:
             probs = predict_laya(args.model, args.questions or args.model.parent / 'questions.json', texts, args.device, args.batch_size)
         res = score(gold, probs, kind)

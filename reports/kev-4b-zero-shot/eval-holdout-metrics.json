@@ -1,0 +1,71 @@
+{
+  "model": "jaredpalmer/kev-4b@139fdd94",
+  "method": "zero-shot System One (kev): one Choice with the evaluate-qwen-zero-shot.py rubric, state = the text, probabilities at the checkpoint temperature, nothing fitted on Mia data",
+  "impl": "kev",
+  "checkpoint": "jaredpalmer/kev-4b@139fdd94",
+  "temperature": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "path": "bf16, LoRA merged, eager DecisionModel.forward_batch (row form on the hybrid base)",
+  "requested_device": "cuda:0",
+  "dataset": {
+    "path": "data/eval/unseen-test.jsonl",
+    "sha256": "4d8addb601234bb6262604e60911fa7c7f8fbc98897501010539eaf4b39ef8bd",
+    "manifest_rows": 5372,
+    "evaluated_rows": 5372,
+    "limit": 0
+  },
+  "metrics": {
+    "rows": 5372,
+    "accuracy": 0.8428890705108643,
+    "macro_f1": 0.8296816395277057,
+    "nll": 0.3974817097187042,
+    "brier": 0.2305678278207779,
+    "ece": 0.050827625747811675,
+    "per_class": {
+      "负面": {
+        "support": 893,
+        "precision": 0.8614540466392319,
+        "recall": 0.7032474804031354,
+        "f1": 0.7743526510480888
+      },
+      "中性": {
+        "support": 2612,
+        "precision": 0.8410393580435613,
+        "recall": 0.8426493108728943,
+        "f1": 0.841843564735131
+      },
+      "正面": {
+        "support": 1867,
+        "precision": 0.8385982230997039,
+        "recall": 0.9100160685591858,
+        "f1": 0.8728487027998972
+      }
+    },
+    "confusion_matrix": [
+      [
+        628,
+        253,
+        12
+      ],
+      [
+        96,
+        2201,
+        315
+      ],
+      [
+        5,
+        163,
+        1699
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  },
+  "label_provenance": "llm relabel of the normalized text; old machine labels unused"
+}

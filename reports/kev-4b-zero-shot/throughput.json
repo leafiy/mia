@@ -1,0 +1,13 @@
+{
+  "model": "jaredpalmer/kev-4b@139fdd94",
+  "impl": "kev",
+  "checkpoint": "jaredpalmer/kev-4b@139fdd94",
+  "temperature": 2.406050072164233,
+  "path": "bf16, LoRA merged, eager DecisionModel.forward_batch (row form on the hybrid base)",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 80.5467791557312,
+  "rows_per_second": 66.69416277482229,
+  "holdout_accuracy_check": 0.8428890543559195
+}

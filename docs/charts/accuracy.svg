@@ -1,27 +1,27 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='1080' height='1026' viewBox='0 0 1080 1026' role='img' aria-label='准确率：原版零样本基线与全部 10 次训练在统一评测集上' font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif'>
-<rect width='1080' height='1026' fill='#ffffff'/>
-<text x='24' y='30' font-size='18' font-weight='600' fill='#1f2328'>准确率：原版零样本基线与全部 10 次训练在统一评测集上</text>
-<line x1='256.0' y1='50' x2='256.0' y2='936' stroke='#d0d7de' stroke-width='1'/>
+<svg xmlns='http://www.w3.org/2000/svg' width='1080' height='1346' viewBox='0 0 1080 1346' role='img' aria-label='准确率：零样本基线与全部 12 次训练在统一评测集上' font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif'>
+<rect width='1080' height='1346' fill='#ffffff'/>
+<text x='24' y='30' font-size='18' font-weight='600' fill='#1f2328'>准确率：零样本基线与全部 12 次训练在统一评测集上</text>
+<line x1='256.0' y1='50' x2='256.0' y2='1256' stroke='#d0d7de' stroke-width='1'/>
 <text x='256.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.40</text>
-<line x1='329.4' y1='50' x2='329.4' y2='936' stroke='#d0d7de' stroke-width='1'/>
+<line x1='329.4' y1='50' x2='329.4' y2='1256' stroke='#d0d7de' stroke-width='1'/>
 <text x='329.4' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.46</text>
-<line x1='402.8' y1='50' x2='402.8' y2='936' stroke='#d0d7de' stroke-width='1'/>
+<line x1='402.8' y1='50' x2='402.8' y2='1256' stroke='#d0d7de' stroke-width='1'/>
 <text x='402.8' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.52</text>
-<line x1='476.2' y1='50' x2='476.2' y2='936' stroke='#d0d7de' stroke-width='1'/>
+<line x1='476.2' y1='50' x2='476.2' y2='1256' stroke='#d0d7de' stroke-width='1'/>
 <text x='476.2' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.58</text>
-<line x1='549.6' y1='50' x2='549.6' y2='936' stroke='#d0d7de' stroke-width='1'/>
+<line x1='549.6' y1='50' x2='549.6' y2='1256' stroke='#d0d7de' stroke-width='1'/>
 <text x='549.6' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.64</text>
-<line x1='623.0' y1='50' x2='623.0' y2='936' stroke='#d0d7de' stroke-width='1'/>
+<line x1='623.0' y1='50' x2='623.0' y2='1256' stroke='#d0d7de' stroke-width='1'/>
 <text x='623.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.70</text>
-<line x1='696.4' y1='50' x2='696.4' y2='936' stroke='#d0d7de' stroke-width='1'/>
+<line x1='696.4' y1='50' x2='696.4' y2='1256' stroke='#d0d7de' stroke-width='1'/>
 <text x='696.4' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.76</text>
-<line x1='769.8' y1='50' x2='769.8' y2='936' stroke='#d0d7de' stroke-width='1'/>
+<line x1='769.8' y1='50' x2='769.8' y2='1256' stroke='#d0d7de' stroke-width='1'/>
 <text x='769.8' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.82</text>
-<line x1='843.2' y1='50' x2='843.2' y2='936' stroke='#d0d7de' stroke-width='1'/>
+<line x1='843.2' y1='50' x2='843.2' y2='1256' stroke='#d0d7de' stroke-width='1'/>
 <text x='843.2' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.88</text>
-<line x1='916.6' y1='50' x2='916.6' y2='936' stroke='#d0d7de' stroke-width='1'/>
+<line x1='916.6' y1='50' x2='916.6' y2='1256' stroke='#d0d7de' stroke-width='1'/>
 <text x='916.6' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.94</text>
-<line x1='990.0' y1='50' x2='990.0' y2='936' stroke='#d0d7de' stroke-width='1'/>
+<line x1='990.0' y1='50' x2='990.0' y2='1256' stroke='#d0d7de' stroke-width='1'/>
 <text x='990.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>1.00</text>
 <text x='244' y='92.0' font-size='13' fill='#1f2328' text-anchor='end'>qwen3.5-2b-zero-</text>
 <text x='244' y='108.0' font-size='13' fill='#1f2328' text-anchor='end'>shot</text>
@@ -31,98 +31,132 @@
 <text x='552.2' y='101.0' font-size='11' fill='#1f2328'>0.637</text>
 <rect x='256' y='109.0' width='482.5' height='18' fill='#bf8700' rx='2'/>
 <text x='744.5' y='123.0' font-size='11' fill='#1f2328'>0.794</text>
-<text x='244' y='180.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-oldlabels</text>
-<rect x='256' y='145.0' width='359.8' height='18' fill='#0969da' rx='2'/>
-<text x='621.8' y='159.0' font-size='11' fill='#1f2328'>0.694</text>
-<rect x='256' y='167.0' width='362.1' height='18' fill='#8250df' rx='2'/>
-<text x='624.1' y='181.0' font-size='11' fill='#1f2328'>0.696</text>
-<rect x='256' y='189.0' width='568.2' height='18' fill='#bf8700' rx='2'/>
-<text x='830.2' y='203.0' font-size='11' fill='#1f2328'>0.864</text>
+<text x='244' y='172.0' font-size='13' fill='#1f2328' text-anchor='end'>decider-2b-zero-</text>
+<text x='244' y='188.0' font-size='13' fill='#1f2328' text-anchor='end'>shot</text>
+<rect x='256' y='145.0' width='545.8' height='18' fill='#0969da' rx='2'/>
+<text x='807.8' y='159.0' font-size='11' fill='#1f2328'>0.846</text>
+<rect x='256' y='167.0' width='542.9' height='18' fill='#8250df' rx='2'/>
+<text x='804.9' y='181.0' font-size='11' fill='#1f2328'>0.844</text>
+<rect x='256' y='189.0' width='621.2' height='18' fill='#bf8700' rx='2'/>
+<text x='883.2' y='203.0' font-size='11' fill='#1f2328'>0.908</text>
 <line x1='24' y1='136' x2='1056' y2='136' stroke='#d0d7de' stroke-width='0.5'/>
-<text x='244' y='244.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-oldlabels-</text>
-<text x='244' y='260.0' font-size='13' fill='#1f2328' text-anchor='end'>neutral-</text>
-<text x='244' y='276.0' font-size='13' fill='#1f2328' text-anchor='end'>reviewed</text>
-<rect x='256' y='225.0' width='340.6' height='18' fill='#0969da' rx='2'/>
-<text x='602.6' y='239.0' font-size='11' fill='#1f2328'>0.678</text>
-<rect x='256' y='247.0' width='343.9' height='18' fill='#8250df' rx='2'/>
-<text x='605.9' y='261.0' font-size='11' fill='#1f2328'>0.681</text>
-<rect x='256' y='269.0' width='496.1' height='18' fill='#bf8700' rx='2'/>
-<text x='758.1' y='283.0' font-size='11' fill='#1f2328'>0.806</text>
+<text x='244' y='252.0' font-size='13' fill='#1f2328' text-anchor='end'>kev-4b-zero-</text>
+<text x='244' y='268.0' font-size='13' fill='#1f2328' text-anchor='end'>shot</text>
+<rect x='256' y='225.0' width='540.6' height='18' fill='#0969da' rx='2'/>
+<text x='802.6' y='239.0' font-size='11' fill='#1f2328'>0.842</text>
+<rect x='256' y='247.0' width='541.8' height='18' fill='#8250df' rx='2'/>
+<text x='803.8' y='261.0' font-size='11' fill='#1f2328'>0.843</text>
+<rect x='256' y='269.0' width='570.9' height='18' fill='#bf8700' rx='2'/>
+<text x='832.9' y='283.0' font-size='11' fill='#1f2328'>0.867</text>
 <line x1='24' y1='216' x2='1056' y2='216' stroke='#d0d7de' stroke-width='0.5'/>
-<text x='244' y='332.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-oldlabels-</text>
-<text x='244' y='348.0' font-size='13' fill='#1f2328' text-anchor='end'>cw-none</text>
-<rect x='256' y='305.0' width='356.6' height='18' fill='#0969da' rx='2'/>
-<text x='618.6' y='319.0' font-size='11' fill='#1f2328'>0.691</text>
-<rect x='256' y='327.0' width='359.6' height='18' fill='#8250df' rx='2'/>
-<text x='621.6' y='341.0' font-size='11' fill='#1f2328'>0.694</text>
-<rect x='256' y='349.0' width='565.5' height='18' fill='#bf8700' rx='2'/>
-<text x='827.5' y='363.0' font-size='11' fill='#1f2328'>0.862</text>
+<text x='244' y='340.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-oldlabels</text>
+<rect x='256' y='305.0' width='359.8' height='18' fill='#0969da' rx='2'/>
+<text x='621.8' y='319.0' font-size='11' fill='#1f2328'>0.694</text>
+<rect x='256' y='327.0' width='362.1' height='18' fill='#8250df' rx='2'/>
+<text x='624.1' y='341.0' font-size='11' fill='#1f2328'>0.696</text>
+<rect x='256' y='349.0' width='568.2' height='18' fill='#bf8700' rx='2'/>
+<text x='830.2' y='363.0' font-size='11' fill='#1f2328'>0.864</text>
 <line x1='24' y1='296' x2='1056' y2='296' stroke='#d0d7de' stroke-width='0.5'/>
-<text x='244' y='412.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-oldlabels-</text>
-<text x='244' y='428.0' font-size='13' fill='#1f2328' text-anchor='end'>cw-sqrt</text>
-<rect x='256' y='385.0' width='366.0' height='18' fill='#0969da' rx='2'/>
-<text x='628.0' y='399.0' font-size='11' fill='#1f2328'>0.699</text>
-<rect x='256' y='407.0' width='369.6' height='18' fill='#8250df' rx='2'/>
-<text x='631.6' y='421.0' font-size='11' fill='#1f2328'>0.702</text>
-<rect x='256' y='429.0' width='575.0' height='18' fill='#bf8700' rx='2'/>
-<text x='837.0' y='443.0' font-size='11' fill='#1f2328'>0.870</text>
+<text x='244' y='404.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-oldlabels-</text>
+<text x='244' y='420.0' font-size='13' fill='#1f2328' text-anchor='end'>neutral-</text>
+<text x='244' y='436.0' font-size='13' fill='#1f2328' text-anchor='end'>reviewed</text>
+<rect x='256' y='385.0' width='340.6' height='18' fill='#0969da' rx='2'/>
+<text x='602.6' y='399.0' font-size='11' fill='#1f2328'>0.678</text>
+<rect x='256' y='407.0' width='343.9' height='18' fill='#8250df' rx='2'/>
+<text x='605.9' y='421.0' font-size='11' fill='#1f2328'>0.681</text>
+<rect x='256' y='429.0' width='496.1' height='18' fill='#bf8700' rx='2'/>
+<text x='758.1' y='443.0' font-size='11' fill='#1f2328'>0.806</text>
 <line x1='24' y1='376' x2='1056' y2='376' stroke='#d0d7de' stroke-width='0.5'/>
 <text x='244' y='492.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-oldlabels-</text>
-<text x='244' y='508.0' font-size='13' fill='#1f2328' text-anchor='end'>cw-balanced</text>
-<rect x='256' y='465.0' width='377.9' height='18' fill='#0969da' rx='2'/>
-<text x='639.9' y='479.0' font-size='11' fill='#1f2328'>0.709</text>
-<rect x='256' y='487.0' width='379.7' height='18' fill='#8250df' rx='2'/>
-<text x='641.7' y='501.0' font-size='11' fill='#1f2328'>0.710</text>
-<rect x='256' y='509.0' width='587.2' height='18' fill='#bf8700' rx='2'/>
-<text x='849.2' y='523.0' font-size='11' fill='#1f2328'>0.880</text>
+<text x='244' y='508.0' font-size='13' fill='#1f2328' text-anchor='end'>cw-none</text>
+<rect x='256' y='465.0' width='356.6' height='18' fill='#0969da' rx='2'/>
+<text x='618.6' y='479.0' font-size='11' fill='#1f2328'>0.691</text>
+<rect x='256' y='487.0' width='359.6' height='18' fill='#8250df' rx='2'/>
+<text x='621.6' y='501.0' font-size='11' fill='#1f2328'>0.694</text>
+<rect x='256' y='509.0' width='565.5' height='18' fill='#bf8700' rx='2'/>
+<text x='827.5' y='523.0' font-size='11' fill='#1f2328'>0.862</text>
 <line x1='24' y1='456' x2='1056' y2='456' stroke='#d0d7de' stroke-width='0.5'/>
-<text x='244' y='572.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-relabeled-</text>
-<text x='244' y='588.0' font-size='13' fill='#1f2328' text-anchor='end'>cw-none</text>
-<rect x='256' y='545.0' width='502.5' height='18' fill='#0969da' rx='2'/>
-<text x='764.5' y='559.0' font-size='11' fill='#1f2328'>0.811</text>
-<rect x='256' y='567.0' width='511.1' height='18' fill='#8250df' rx='2'/>
-<text x='773.1' y='581.0' font-size='11' fill='#1f2328'>0.818</text>
-<rect x='256' y='589.0' width='653.8' height='18' fill='#bf8700' rx='2'/>
-<text x='915.8' y='603.0' font-size='11' fill='#1f2328'>0.934</text>
+<text x='244' y='572.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-oldlabels-</text>
+<text x='244' y='588.0' font-size='13' fill='#1f2328' text-anchor='end'>cw-sqrt</text>
+<rect x='256' y='545.0' width='366.0' height='18' fill='#0969da' rx='2'/>
+<text x='628.0' y='559.0' font-size='11' fill='#1f2328'>0.699</text>
+<rect x='256' y='567.0' width='369.6' height='18' fill='#8250df' rx='2'/>
+<text x='631.6' y='581.0' font-size='11' fill='#1f2328'>0.702</text>
+<rect x='256' y='589.0' width='575.0' height='18' fill='#bf8700' rx='2'/>
+<text x='837.0' y='603.0' font-size='11' fill='#1f2328'>0.870</text>
 <line x1='24' y1='536' x2='1056' y2='536' stroke='#d0d7de' stroke-width='0.5'/>
-<text x='244' y='660.0' font-size='13' fill='#1f2328' text-anchor='end' font-weight="600">mia-laya</text>
-<rect x='256' y='625.0' width='502.5' height='18' fill='#0969da' rx='2'/>
-<text x='764.5' y='639.0' font-size='11' fill='#1f2328'>0.811</text>
-<rect x='256' y='647.0' width='510.4' height='18' fill='#8250df' rx='2'/>
-<text x='772.4' y='661.0' font-size='11' fill='#1f2328'>0.817</text>
-<rect x='256' y='669.0' width='656.5' height='18' fill='#bf8700' rx='2'/>
-<text x='918.5' y='683.0' font-size='11' fill='#1f2328'>0.937</text>
+<text x='244' y='652.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-oldlabels-</text>
+<text x='244' y='668.0' font-size='13' fill='#1f2328' text-anchor='end'>cw-balanced</text>
+<rect x='256' y='625.0' width='377.9' height='18' fill='#0969da' rx='2'/>
+<text x='639.9' y='639.0' font-size='11' fill='#1f2328'>0.709</text>
+<rect x='256' y='647.0' width='379.7' height='18' fill='#8250df' rx='2'/>
+<text x='641.7' y='661.0' font-size='11' fill='#1f2328'>0.710</text>
+<rect x='256' y='669.0' width='587.2' height='18' fill='#bf8700' rx='2'/>
+<text x='849.2' y='683.0' font-size='11' fill='#1f2328'>0.880</text>
 <line x1='24' y1='616' x2='1056' y2='616' stroke='#d0d7de' stroke-width='0.5'/>
-<text x='244' y='732.0' font-size='13' fill='#1f2328' text-anchor='end'>qwen0.8b-</text>
-<text x='244' y='748.0' font-size='13' fill='#1f2328' text-anchor='end'>relabeled</text>
-<rect x='256' y='705.0' width='534.1' height='18' fill='#0969da' rx='2'/>
-<text x='796.1' y='719.0' font-size='11' fill='#1f2328'>0.837</text>
-<rect x='256' y='727.0' width='533.1' height='18' fill='#8250df' rx='2'/>
-<text x='795.1' y='741.0' font-size='11' fill='#1f2328'>0.836</text>
-<rect x='256' y='749.0' width='568.2' height='18' fill='#bf8700' rx='2'/>
-<text x='830.2' y='763.0' font-size='11' fill='#1f2328'>0.864</text>
+<text x='244' y='732.0' font-size='13' fill='#1f2328' text-anchor='end'>laya-relabeled-</text>
+<text x='244' y='748.0' font-size='13' fill='#1f2328' text-anchor='end'>cw-none</text>
+<rect x='256' y='705.0' width='502.5' height='18' fill='#0969da' rx='2'/>
+<text x='764.5' y='719.0' font-size='11' fill='#1f2328'>0.811</text>
+<rect x='256' y='727.0' width='511.1' height='18' fill='#8250df' rx='2'/>
+<text x='773.1' y='741.0' font-size='11' fill='#1f2328'>0.818</text>
+<rect x='256' y='749.0' width='653.8' height='18' fill='#bf8700' rx='2'/>
+<text x='915.8' y='763.0' font-size='11' fill='#1f2328'>0.934</text>
 <line x1='24' y1='696' x2='1056' y2='696' stroke='#d0d7de' stroke-width='0.5'/>
-<text x='244' y='820.0' font-size='13' fill='#1f2328' text-anchor='end'>qwen2b-relabeled</text>
-<rect x='256' y='785.0' width='541.1' height='18' fill='#0969da' rx='2'/>
-<text x='803.1' y='799.0' font-size='11' fill='#1f2328'>0.842</text>
-<rect x='256' y='807.0' width='544.1' height='18' fill='#8250df' rx='2'/>
-<text x='806.1' y='821.0' font-size='11' fill='#1f2328'>0.845</text>
-<rect x='256' y='829.0' width='633.4' height='18' fill='#bf8700' rx='2'/>
-<text x='895.4' y='843.0' font-size='11' fill='#1f2328'>0.918</text>
+<text x='244' y='820.0' font-size='13' fill='#1f2328' text-anchor='end' font-weight="600">mia-laya</text>
+<rect x='256' y='785.0' width='502.5' height='18' fill='#0969da' rx='2'/>
+<text x='764.5' y='799.0' font-size='11' fill='#1f2328'>0.811</text>
+<rect x='256' y='807.0' width='510.4' height='18' fill='#8250df' rx='2'/>
+<text x='772.4' y='821.0' font-size='11' fill='#1f2328'>0.817</text>
+<rect x='256' y='829.0' width='656.5' height='18' fill='#bf8700' rx='2'/>
+<text x='918.5' y='843.0' font-size='11' fill='#1f2328'>0.937</text>
 <line x1='24' y1='776' x2='1056' y2='776' stroke='#d0d7de' stroke-width='0.5'/>
-<text x='244' y='900.0' font-size='13' fill='#1f2328' text-anchor='end' font-weight="600">mia-qwen3.5-2b</text>
-<rect x='256' y='865.0' width='573.6' height='18' fill='#0969da' rx='2'/>
-<text x='835.6' y='879.0' font-size='11' fill='#1f2328'>0.869</text>
-<rect x='256' y='887.0' width='576.2' height='18' fill='#8250df' rx='2'/>
-<text x='838.2' y='901.0' font-size='11' fill='#1f2328'>0.871</text>
-<rect x='256' y='909.0' width='662.0' height='18' fill='#bf8700' rx='2'/>
-<text x='924.0' y='923.0' font-size='11' fill='#1f2328'>0.941</text>
+<text x='244' y='892.0' font-size='13' fill='#1f2328' text-anchor='end'>qwen0.8b-</text>
+<text x='244' y='908.0' font-size='13' fill='#1f2328' text-anchor='end'>relabeled</text>
+<rect x='256' y='865.0' width='534.1' height='18' fill='#0969da' rx='2'/>
+<text x='796.1' y='879.0' font-size='11' fill='#1f2328'>0.837</text>
+<rect x='256' y='887.0' width='533.1' height='18' fill='#8250df' rx='2'/>
+<text x='795.1' y='901.0' font-size='11' fill='#1f2328'>0.836</text>
+<rect x='256' y='909.0' width='568.2' height='18' fill='#bf8700' rx='2'/>
+<text x='830.2' y='923.0' font-size='11' fill='#1f2328'>0.864</text>
 <line x1='24' y1='856' x2='1056' y2='856' stroke='#d0d7de' stroke-width='0.5'/>
-<rect x='256' y='951' width='14' height='14' fill='#0969da' rx='2'/>
-<text x='276' y='962' font-size='12' fill='#1f2328'>开发集 4,920</text>
-<rect x='401' y='951' width='14' height='14' fill='#8250df' rx='2'/>
-<text x='421' y='962' font-size='12' fill='#1f2328'>holdout 5,372</text>
-<rect x='582' y='951' width='14' height='14' fill='#bf8700' rx='2'/>
-<text x='602' y='962' font-size='12' fill='#1f2328'>中文 CSV 900</text>
-<text x='256' y='984' font-size='11' fill='#57606a'>所有模型用同一脚本、同一评测集重评</text>
+<text x='244' y='980.0' font-size='13' fill='#1f2328' text-anchor='end'>qwen2b-relabeled</text>
+<rect x='256' y='945.0' width='541.1' height='18' fill='#0969da' rx='2'/>
+<text x='803.1' y='959.0' font-size='11' fill='#1f2328'>0.842</text>
+<rect x='256' y='967.0' width='544.1' height='18' fill='#8250df' rx='2'/>
+<text x='806.1' y='981.0' font-size='11' fill='#1f2328'>0.845</text>
+<rect x='256' y='989.0' width='633.4' height='18' fill='#bf8700' rx='2'/>
+<text x='895.4' y='1003.0' font-size='11' fill='#1f2328'>0.918</text>
+<line x1='24' y1='936' x2='1056' y2='936' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='1060.0' font-size='13' fill='#1f2328' text-anchor='end' font-weight="600">mia-qwen3.5-2b</text>
+<rect x='256' y='1025.0' width='573.6' height='18' fill='#0969da' rx='2'/>
+<text x='835.6' y='1039.0' font-size='11' fill='#1f2328'>0.869</text>
+<rect x='256' y='1047.0' width='576.2' height='18' fill='#8250df' rx='2'/>
+<text x='838.2' y='1061.0' font-size='11' fill='#1f2328'>0.871</text>
+<rect x='256' y='1069.0' width='662.0' height='18' fill='#bf8700' rx='2'/>
+<text x='924.0' y='1083.0' font-size='11' fill='#1f2328'>0.941</text>
+<line x1='24' y1='1016' x2='1056' y2='1016' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='1140.0' font-size='13' fill='#1f2328' text-anchor='end'>clm-qwen3-8b</text>
+<rect x='256' y='1105.0' width='577.4' height='18' fill='#0969da' rx='2'/>
+<text x='839.4' y='1119.0' font-size='11' fill='#1f2328'>0.872</text>
+<rect x='256' y='1127.0' width='571.2' height='18' fill='#8250df' rx='2'/>
+<text x='833.2' y='1141.0' font-size='11' fill='#1f2328'>0.867</text>
+<rect x='256' y='1149.0' width='535.5' height='18' fill='#bf8700' rx='2'/>
+<text x='797.5' y='1163.0' font-size='11' fill='#1f2328'>0.838</text>
+<line x1='24' y1='1096' x2='1056' y2='1096' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='1220.0' font-size='13' fill='#1f2328' text-anchor='end' font-weight="600">mia-decider-2b</text>
+<rect x='256' y='1185.0' width='595.3' height='18' fill='#0969da' rx='2'/>
+<text x='857.3' y='1199.0' font-size='11' fill='#1f2328'>0.887</text>
+<rect x='256' y='1207.0' width='588.7' height='18' fill='#8250df' rx='2'/>
+<text x='850.7' y='1221.0' font-size='11' fill='#1f2328'>0.881</text>
+<rect x='256' y='1229.0' width='660.6' height='18' fill='#bf8700' rx='2'/>
+<text x='922.6' y='1243.0' font-size='11' fill='#1f2328'>0.940</text>
+<line x1='24' y1='1176' x2='1056' y2='1176' stroke='#d0d7de' stroke-width='0.5'/>
+<rect x='256' y='1271' width='14' height='14' fill='#0969da' rx='2'/>
+<text x='276' y='1282' font-size='12' fill='#1f2328'>开发集 4,920</text>
+<rect x='401' y='1271' width='14' height='14' fill='#8250df' rx='2'/>
+<text x='421' y='1282' font-size='12' fill='#1f2328'>holdout 5,372</text>
+<rect x='582' y='1271' width='14' height='14' fill='#bf8700' rx='2'/>
+<text x='602' y='1282' font-size='12' fill='#1f2328'>中文 CSV 900</text>
+<text x='256' y='1304' font-size='11' fill='#57606a'>所有模型用同一脚本、同一评测集重评；clm-v0.1-8b-zero-shot 把每条都判成同一类，不画</text>
 </svg>

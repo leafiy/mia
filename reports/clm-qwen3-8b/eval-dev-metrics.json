@@ -1,0 +1,68 @@
+{
+  "model": "<workdir>/clm/runs/clm-scratch-e40/best_head.pt",
+  "requested_device": "cuda:0",
+  "actual_device": "cuda:0",
+  "temperature": [
+    0.9992639683972115,
+    1.0,
+    1.0
+  ],
+  "dataset": {
+    "path": "data/eval/test.jsonl",
+    "sha256": "2adee0bf6a949b2e9df35422c52d8ce11c8dc5d27b1a1dd0b01c5cd0fada334a",
+    "manifest_rows": 4920,
+    "evaluated_rows": 4920,
+    "limit": 0
+  },
+  "metrics": {
+    "rows": 4920,
+    "accuracy": 0.8719512224197388,
+    "macro_f1": 0.8622777598318606,
+    "nll": 0.3005736470222473,
+    "brier": 0.18047870695590973,
+    "ece": 0.009019122290902024,
+    "per_class": {
+      "负面": {
+        "support": 838,
+        "precision": 0.8091334894613583,
+        "recall": 0.8245823389021479,
+        "f1": 0.8167848699763594
+      },
+      "中性": {
+        "support": 2391,
+        "precision": 0.8738551207327228,
+        "recall": 0.8778753659556671,
+        "f1": 0.8758606300855414
+      },
+      "正面": {
+        "support": 1691,
+        "precision": 0.9014423076923077,
+        "recall": 0.8870490833826138,
+        "f1": 0.8941877794336811
+      }
+    },
+    "confusion_matrix": [
+      [
+        691,
+        130,
+        17
+      ],
+      [
+        145,
+        2099,
+        147
+      ],
+      [
+        18,
+        173,
+        1500
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  },
+  "label_provenance": "llm relabel of the normalized text; old machine labels unused"
+}

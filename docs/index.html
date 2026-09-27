@@ -33,9 +33,10 @@
 <body>
 <main>
 <h1>Mia</h1>
-<p class="lead">中文短文本情感三分类（负面 / 中性 / 正面）小模型。两个发布版本：<code>mia-laya</code>（322M，Laya 判别头）与 <code>mia-qwen3.5-2b</code>（1.9B，Qwen3.5-2B 文本主干直接做分类）。这一页只放数字和图；来龙去脉、数据、训练心得在 <a href="../README.md">README</a>。</p>
+<p class="lead">中文短文本情感三分类（负面 / 中性 / 正面）小模型。三个发布版本：<code>mia-decider-2b</code>（1.9B，在决策模型 decider-2b 上接着训，Jev 式题目接口）、<code>mia-qwen3.5-2b</code>（1.9B，Qwen3.5-2B 文本主干直接做分类）与 <code>mia-laya</code>（322M，Laya 判别头）。这一页只放数字和图；来龙去脉、数据、训练心得在 <a href="../README.md">README</a>。</p>
 
 <div class="cards">
+  <div class="card"><h3>mia-decider-2b</h3><div class="big">0.8812</div><div class="sub">holdout 准确率 · Macro-F1 0.8705 · 中文 900 条 0.9400</div></div>
   <div class="card"><h3>mia-qwen3.5-2b</h3><div class="big">0.8710</div><div class="sub">holdout 准确率 · Macro-F1 0.8564 · 中文 900 条 0.9411</div></div>
   <div class="card"><h3>mia-laya</h3><div class="big">0.8172</div><div class="sub">holdout 准确率 · Macro-F1 0.8028 · 中文 900 条 0.9367</div></div>
   <div class="card"><h3>起点 laya-oldlabels</h3><div class="big">0.6960</div><div class="sub">同一 holdout 上的早期标签模型 · 从这里到发布版靠的是换标签、换底座、定义褒贬混合</div></div>
@@ -43,25 +44,32 @@
 </div>
 
 <h2>图表</h2>
-<figure><img src='charts/journey.svg' alt='一路走来' loading='lazy'/><figcaption><strong>一路走来</strong> 五个关键版本在同一 holdout 上的准确率。前两步是配方，后三步分别是换标签、换底座、把褒贬混合定义清楚。</figcaption></figure>
-<figure><img src='charts/accuracy.svg' alt='准确率' loading='lazy'/><figcaption><strong>准确率</strong> 10 次训练全部用同一脚本在三套评测集上重评。</figcaption></figure>
+<figure><img src='charts/journey.svg' alt='一路走来' loading='lazy'/><figcaption><strong>一路走来</strong> 关键版本在同一 holdout 上的准确率：配方、换标签、换底座、定义褒贬混合，再换成决策模型并在它上面接着训。</figcaption></figure>
+<figure><img src='charts/accuracy.svg' alt='准确率' loading='lazy'/><figcaption><strong>准确率</strong> 12 次训练和零样本基线全部用同一脚本在三套评测集上重评。</figcaption></figure>
 <figure><img src='charts/macro-f1.svg' alt='Macro-F1' loading='lazy'/><figcaption><strong>Macro-F1</strong> 三类 F1 的算术平均，对少数类更敏感。</figcaption></figure>
-<figure><img src='charts/neutral-recall.svg' alt='中性召回' loading='lazy'/><figcaption><strong>中性召回</strong> 中性一直是最难的一类；旧标签模型的中性召回不到 0.55。</figcaption></figure>
-<figure><img src='charts/per-class-recall-holdout.svg' alt='各类别召回' loading='lazy'/><figcaption><strong>各类别召回</strong> 换标签后不再把客观陈述判成正面；换底座后负面与中性同时上来。</figcaption></figure>
+<figure><img src='charts/neutral-recall.svg' alt='中性召回' loading='lazy'/><figcaption><strong>中性召回</strong> 中性一直是最难的一类；旧标签模型的中性召回不到 0.55，零样本模型普遍把中性判成负面。</figcaption></figure>
+<figure><img src='charts/per-class-recall-holdout.svg' alt='各类别召回' loading='lazy'/><figcaption><strong>各类别召回</strong> 换标签后不再把客观陈述判成正面；换底座后负面与中性同时上来；决策模型底座的负面召回最高。</figcaption></figure>
 <figure><img src='charts/per-class-f1-holdout.svg' alt='各类别 F1' loading='lazy'/><figcaption><strong>各类别 F1</strong> 同一 holdout 上的各类别 F1。</figcaption></figure>
-<figure><img src='charts/confusion-mia-qwen3.5-2b-holdout.svg' alt='Mia-Qwen3.5-2B 混淆矩阵（holdout）' loading='lazy'/><figcaption><strong>Mia-Qwen3.5-2B 混淆矩阵（holdout）</strong> 行是真值，列是预测，括号内是行内占比。剩余错误集中在负面↔中性。</figcaption></figure>
+<figure><img src='charts/confusion-mia-decider-2b-holdout.svg' alt='Mia-Decider-2B 混淆矩阵（holdout）' loading='lazy'/><figcaption><strong>Mia-Decider-2B 混淆矩阵（holdout）</strong> 行是真值，列是预测，括号内是行内占比。</figcaption></figure>
+<figure><img src='charts/confusion-mia-qwen3.5-2b-holdout.svg' alt='Mia-Qwen3.5-2B 混淆矩阵（holdout）' loading='lazy'/><figcaption><strong>Mia-Qwen3.5-2B 混淆矩阵（holdout）</strong> 剩余错误集中在负面↔中性。</figcaption></figure>
 <figure><img src='charts/confusion-mia-laya-holdout.svg' alt='Mia-Laya 混淆矩阵（holdout）' loading='lazy'/><figcaption><strong>Mia-Laya 混淆矩阵（holdout）</strong> 与上图同一评测集。</figcaption></figure>
+<figure><img src='charts/confusion-mia-decider-2b-csv.svg' alt='Mia-Decider-2B 混淆矩阵（中文 900 条）' loading='lazy'/><figcaption><strong>Mia-Decider-2B 混淆矩阵（中文 900 条）</strong> 负面全对，剩余错误是中性判负面和少数正面判中性。</figcaption></figure>
 <figure><img src='charts/confusion-mia-qwen3.5-2b-csv.svg' alt='Mia-Qwen3.5-2B 混淆矩阵（中文 900 条）' loading='lazy'/><figcaption><strong>Mia-Qwen3.5-2B 混淆矩阵（中文 900 条）</strong> 正面与负面接近全对，剩余错误是中性判负面、正面判中性。</figcaption></figure>
 <figure><img src='charts/confusion-mia-laya-csv.svg' alt='Mia-Laya 混淆矩阵（中文 900 条）' loading='lazy'/><figcaption><strong>Mia-Laya 混淆矩阵（中文 900 条）</strong> 同一 900 条。</figcaption></figure>
 <figure><img src='charts/label-distribution.svg' alt='标签分布' loading='lazy'/><figcaption><strong>标签分布</strong> 重标把大量客观陈述从正面/负面挪回中性；中性从 27% 升到 45%。</figcaption></figure>
-<figure><img src='charts/public-benchmarks.svg' alt='公开数据集' loading='lazy'/><figcaption><strong>公开数据集</strong> 两个发布版和起点模型都没有在这些集上训练过。二分类集只比较正、负两类概率；DMSC 用 3 星当中性，只是近似。</figcaption></figure>
+<figure><img src='charts/public-benchmarks.svg' alt='公开数据集' loading='lazy'/><figcaption><strong>公开数据集</strong> 三个发布版和对照模型都没有在这些集上训练过。二分类集只比较正、负两类概率；DMSC 用 3 星当中性，只是近似。</figcaption></figure>
+<figure><img src='charts/decider-retention.svg' alt='接着训前后' loading='lazy'/><figcaption><strong>接着训前后</strong> mia-decider-2b 在 Mia 的校准集上涨了 5.7 个百分点，decider 从没训过的通用判断没有掉。</figcaption></figure>
+<figure><img src='charts/throughput.svg' alt='速度' loading='lazy'/><figcaption><strong>速度</strong> 同一张 4090、同一种测法。mia-decider-2b 默认把题面缓存起来，只算每条文本本身。</figcaption></figure>
 <figure><img src='charts/epochs-qwen.svg' alt='Qwen 每个 epoch 的开发集 Macro-F1' loading='lazy'/><figcaption><strong>Qwen 每个 epoch 的开发集 Macro-F1</strong> 第 2 个 epoch 到顶，第 3 个 epoch 只是在记训练集。</figcaption></figure>
-<figure><img src='charts/train-loss.svg' alt='训练损失' loading='lazy'/><figcaption><strong>训练损失</strong> Qwen 系第 3 个 epoch 损失降到 0.02，属于过拟合；Laya 系降得慢。</figcaption></figure>
+<figure><img src='charts/train-loss.svg' alt='训练损失' loading='lazy'/><figcaption><strong>训练损失</strong> Qwen 系第 3 个 epoch 损失降到 0.02，属于过拟合；Laya 系降得慢；CLM 用 InfoNCE，不在一个尺度上，不画。</figcaption></figure>
 
 <h2>全部训练在统一评测集上的成绩</h2>
 <p class="note">评测集：开发集 data/eval/test.jsonl (4,920 rows)；holdout data/eval/unseen-test.jsonl (5,372 rows)；中文 CSV data/eval/中文情感测试集_01/02/03.csv (900 rows, 100 per class per file)。开发集与 holdout 的标签来自大模型重标（褒贬混合并入中性），中文 CSV 是独立标注的模板化基准。每格为 准确率 / Macro-F1 / 中性召回。</p>
 <div class="tablewrap"><table><thead><tr><th>模型</th><th>底座</th><th>参数量</th><th>训练标签</th><th>类别权重</th><th>epochs</th><th>开发集 4,920</th><th>holdout 5,372</th><th>中文 CSV 900</th></tr></thead><tbody>
 <tr><td><code>qwen3.5-2b-zero-shot</code></td><td>Qwen3.5-2B 原版，未微调，零样本受限选择</td><td>约 2B</td><td>无（零样本，同一三分类口径的提示词）</td><td>—</td><td>—</td><td>0.6433 / 0.6361 / 0.362</td><td>0.6372 / 0.6283 / 0.351</td><td>0.7944 / 0.7738 / 0.390</td></tr>
+<tr><td><code>decider-2b-zero-shot</code></td><td>decider-2b v11 原版，零样本</td><td>1.9B</td><td>无（零样本，同一三分类定义作题面）</td><td>—</td><td>—</td><td>0.8461 / 0.8337 / 0.834</td><td>0.8438 / 0.8320 / 0.822</td><td>0.9078 / 0.9060 / 0.730</td></tr>
+<tr><td><code>kev-4b-zero-shot</code></td><td>Kev-4B（Qwen3.5-4B-Base + LoRA + 指针头），零样本</td><td>4.2B</td><td>无（零样本，同一三分类定义作题面）</td><td>—</td><td>—</td><td>0.8419 / 0.8251 / 0.854</td><td>0.8429 / 0.8297 / 0.843</td><td>0.8667 / 0.8609 / 0.600</td></tr>
+<tr><td><code>clm-v0.1-8b-zero-shot</code></td><td>Qwen3-8B + CLM-v0.1-8B 参考头，零样本</td><td>8B + 18.9M</td><td>无（零样本，数据集自带的短题面）</td><td>—</td><td>—</td><td>0.3437 / 0.1705 / 0.000</td><td>0.3475 / 0.1719 / 0.000</td><td>0.3333 / 0.1667 / 0.000</td></tr>
 <tr><td><code>laya-oldlabels</code></td><td>Laya multilingual (mmBERT-base)</td><td>322M</td><td>早期机器标签</td><td>none</td><td>3</td><td>0.6941 / 0.6888 / 0.488</td><td>0.6960 / 0.6882 / 0.484</td><td>0.8644 / 0.8564 / 0.630</td></tr>
 <tr><td><code>laya-oldlabels-neutral-reviewed</code></td><td>Laya multilingual (mmBERT-base)</td><td>322M</td><td>早期机器标签 + 两轮 AI 复核中性</td><td>none</td><td>3</td><td>0.6785 / 0.6725 / 0.424</td><td>0.6811 / 0.6739 / 0.421</td><td>0.8056 / 0.7807 / 0.433</td></tr>
 <tr><td><code>laya-oldlabels-cw-none</code></td><td>Laya multilingual (mmBERT-base)</td><td>322M</td><td>早期机器标签</td><td>none</td><td>3</td><td>0.6915 / 0.6862 / 0.483</td><td>0.6940 / 0.6863 / 0.480</td><td>0.8622 / 0.8540 / 0.627</td></tr>
@@ -72,6 +80,8 @@
 <tr><td><code>qwen0.8b-relabeled</code></td><td>Qwen3.5-0.8B 文本主干</td><td>752M</td><td>大模型重标（褒贬混合剔除）</td><td>none</td><td>3</td><td>0.8366 / 0.8233 / 0.826</td><td>0.8358 / 0.8236 / 0.816</td><td>0.8644 / 0.8607 / 0.640</td></tr>
 <tr><td><code>qwen2b-relabeled</code></td><td>Qwen3.5-2B 文本主干</td><td>1882M</td><td>大模型重标（褒贬混合剔除）</td><td>none</td><td>3</td><td>0.8423 / 0.8300 / 0.831</td><td>0.8448 / 0.8311 / 0.829</td><td>0.9178 / 0.9166 / 0.760</td></tr>
 <tr><td><code>mia-qwen3.5-2b</code> <span class="tag">发布版</span></td><td>Qwen3.5-2B 文本主干</td><td>1882M</td><td>大模型重标（褒贬混合并入中性）</td><td>none</td><td>2</td><td>0.8689 / 0.8543 / 0.896</td><td>0.8710 / 0.8564 / 0.892</td><td>0.9411 / 0.9411 / 0.903</td></tr>
+<tr><td><code>clm-qwen3-8b</code></td><td>Qwen3-8B 冻结 + CLM 投影头（不热启动）</td><td>7587M</td><td>大模型重标（褒贬混合并入中性）</td><td>none</td><td>40（取第 33 轮）</td><td>0.8720 / 0.8623 / 0.878</td><td>0.8669 / 0.8558 / 0.873</td><td>0.8378 / 0.8362 / 0.697</td></tr>
+<tr><td><code>mia-decider-2b</code> <span class="tag">发布版</span></td><td>decider-2b v11（Qwen3.5-2B-Base + 决策训练）</td><td>1882M</td><td>大模型重标（褒贬混合并入中性）+ 15% 通用决策回放</td><td>none</td><td>1</td><td>0.8866 / 0.8763 / 0.888</td><td>0.8812 / 0.8705 / 0.876</td><td>0.9400 / 0.9397 / 0.840</td></tr>
 </tbody></table></div>
 
 <h2>各类别精确率 / 召回 / F1 与混淆矩阵</h2>
@@ -79,6 +89,15 @@
 <tr><td><code>qwen3.5-2b-zero-shot</code></td><td>开发集</td><td>0.394 / 0.988 / 0.564</td><td>0.912 / 0.362 / 0.518</td><td>0.787 / 0.870 / 0.826</td><td>[[828, 4, 6], [1132, 866, 393], [140, 80, 1471]]</td></tr>
 <tr><td><code>qwen3.5-2b-zero-shot</code></td><td>holdout</td><td>0.381 / 0.985 / 0.549</td><td>0.919 / 0.351 / 0.508</td><td>0.788 / 0.871 / 0.827</td><td>[[880, 2, 11], [1268, 917, 427], [162, 79, 1626]]</td></tr>
 <tr><td><code>qwen3.5-2b-zero-shot</code></td><td>中文 CSV</td><td>0.621 / 1.000 / 0.766</td><td>0.983 / 0.390 / 0.558</td><td>1.000 / 0.993 / 0.997</td><td>[[300, 0, 0], [183, 117, 0], [0, 2, 298]]</td></tr>
+<tr><td><code>decider-2b-zero-shot</code></td><td>开发集</td><td>0.772 / 0.773 / 0.773</td><td>0.857 / 0.834 / 0.846</td><td>0.867 / 0.899 / 0.883</td><td>[[648, 168, 22], [185, 1995, 211], [6, 165, 1520]]</td></tr>
+<tr><td><code>decider-2b-zero-shot</code></td><td>holdout</td><td>0.756 / 0.795 / 0.775</td><td>0.864 / 0.822 / 0.843</td><td>0.860 / 0.897 / 0.878</td><td>[[710, 167, 16], [208, 2148, 256], [21, 171, 1675]]</td></tr>
+<tr><td><code>decider-2b-zero-shot</code></td><td>中文 CSV</td><td>0.789 / 1.000 / 0.882</td><td>0.991 / 0.730 / 0.841</td><td>0.997 / 0.993 / 0.995</td><td>[[300, 0, 0], [80, 219, 1], [0, 2, 298]]</td></tr>
+<tr><td><code>kev-4b-zero-shot</code></td><td>开发集</td><td>0.867 / 0.669 / 0.756</td><td>0.832 / 0.854 / 0.843</td><td>0.846 / 0.910 / 0.877</td><td>[[561, 265, 12], [81, 2043, 267], [5, 148, 1538]]</td></tr>
+<tr><td><code>kev-4b-zero-shot</code></td><td>holdout</td><td>0.861 / 0.703 / 0.774</td><td>0.841 / 0.843 / 0.842</td><td>0.839 / 0.910 / 0.873</td><td>[[628, 253, 12], [96, 2201, 315], [5, 163, 1699]]</td></tr>
+<tr><td><code>kev-4b-zero-shot</code></td><td>中文 CSV</td><td>0.716 / 1.000 / 0.834</td><td>1.000 / 0.600 / 0.750</td><td>0.997 / 1.000 / 0.998</td><td>[[300, 0, 0], [119, 180, 1], [0, 0, 300]]</td></tr>
+<tr><td><code>clm-v0.1-8b-zero-shot</code></td><td>开发集</td><td>0.000 / 0.000 / 0.000</td><td>0.000 / 0.000 / 0.000</td><td>0.344 / 1.000 / 0.512</td><td>[[0, 0, 838], [0, 0, 2391], [0, 0, 1691]]</td></tr>
+<tr><td><code>clm-v0.1-8b-zero-shot</code></td><td>holdout</td><td>0.000 / 0.000 / 0.000</td><td>0.000 / 0.000 / 0.000</td><td>0.348 / 1.000 / 0.516</td><td>[[0, 0, 893], [0, 0, 2612], [0, 0, 1867]]</td></tr>
+<tr><td><code>clm-v0.1-8b-zero-shot</code></td><td>中文 CSV</td><td>0.000 / 0.000 / 0.000</td><td>0.000 / 0.000 / 0.000</td><td>0.333 / 1.000 / 0.500</td><td>[[0, 0, 300], [0, 0, 300], [0, 0, 300]]</td></tr>
 <tr><td><code>laya-oldlabels</code></td><td>开发集</td><td>0.581 / 0.807 / 0.675</td><td>0.877 / 0.488 / 0.627</td><td>0.648 / 0.929 / 0.764</td><td>[[676, 94, 68], [438, 1168, 785], [50, 70, 1571]]</td></tr>
 <tr><td><code>laya-oldlabels</code></td><td>holdout</td><td>0.567 / 0.807 / 0.666</td><td>0.892 / 0.484 / 0.627</td><td>0.654 / 0.939 / 0.771</td><td>[[721, 99, 73], [491, 1264, 857], [59, 54, 1754]]</td></tr>
 <tr><td><code>laya-oldlabels</code></td><td>中文 CSV</td><td>0.822 / 0.987 / 0.897</td><td>0.969 / 0.630 / 0.764</td><td>0.849 / 0.977 / 0.909</td><td>[[296, 3, 1], [60, 189, 51], [4, 3, 293]]</td></tr>
@@ -109,6 +128,12 @@
 <tr><td><code>mia-qwen3.5-2b</code> <span class="tag">发布版</span></td><td>开发集</td><td>0.824 / 0.759 / 0.790</td><td>0.856 / 0.896 / 0.875</td><td>0.910 / 0.885 / 0.897</td><td>[[636, 184, 18], [119, 2142, 130], [17, 177, 1497]]</td></tr>
 <tr><td><code>mia-qwen3.5-2b</code> <span class="tag">发布版</span></td><td>holdout</td><td>0.811 / 0.774 / 0.792</td><td>0.861 / 0.892 / 0.876</td><td>0.914 / 0.889 / 0.901</td><td>[[691, 185, 17], [143, 2329, 140], [18, 190, 1659]]</td></tr>
 <tr><td><code>mia-qwen3.5-2b</code> <span class="tag">发布版</span></td><td>中文 CSV</td><td>0.912 / 0.997 / 0.952</td><td>0.919 / 0.903 / 0.911</td><td>1.000 / 0.923 / 0.960</td><td>[[299, 1, 0], [29, 271, 0], [0, 23, 277]]</td></tr>
+<tr><td><code>clm-qwen3-8b</code></td><td>开发集</td><td>0.809 / 0.825 / 0.817</td><td>0.874 / 0.878 / 0.876</td><td>0.901 / 0.887 / 0.894</td><td>[[691, 130, 17], [145, 2099, 147], [18, 173, 1500]]</td></tr>
+<tr><td><code>clm-qwen3-8b</code></td><td>holdout</td><td>0.784 / 0.824 / 0.803</td><td>0.869 / 0.873 / 0.871</td><td>0.908 / 0.879 / 0.893</td><td>[[736, 139, 18], [183, 2280, 149], [20, 206, 1641]]</td></tr>
+<tr><td><code>clm-qwen3-8b</code></td><td>中文 CSV</td><td>0.761 / 1.000 / 0.865</td><td>0.801 / 0.697 / 0.745</td><td>1.000 / 0.817 / 0.899</td><td>[[300, 0, 0], [91, 209, 0], [3, 52, 245]]</td></tr>
+<tr><td><code>mia-decider-2b</code> <span class="tag">发布版</span></td><td>开发集</td><td>0.822 / 0.833 / 0.828</td><td>0.891 / 0.888 / 0.890</td><td>0.912 / 0.911 / 0.912</td><td>[[698, 121, 19], [138, 2124, 129], [13, 138, 1540]]</td></tr>
+<tr><td><code>mia-decider-2b</code> <span class="tag">发布版</span></td><td>holdout</td><td>0.790 / 0.851 / 0.819</td><td>0.893 / 0.876 / 0.884</td><td>0.913 / 0.903 / 0.908</td><td>[[760, 113, 20], [182, 2289, 141], [20, 162, 1685]]</td></tr>
+<tr><td><code>mia-decider-2b</code> <span class="tag">发布版</span></td><td>中文 CSV</td><td>0.862 / 1.000 / 0.926</td><td>0.977 / 0.840 / 0.903</td><td>1.000 / 0.980 / 0.990</td><td>[[300, 0, 0], [48, 252, 0], [0, 6, 294]]</td></tr>
 </tbody></table></div>
 
 <h2>中文 900 条分表</h2>
@@ -116,6 +141,15 @@
 <tr><td><code>qwen3.5-2b-zero-shot</code></td><td><code>中文情感测试集_01.csv</code></td><td>0.8000</td><td>0.7802</td><td>0.400</td><td>—</td></tr>
 <tr><td><code>qwen3.5-2b-zero-shot</code></td><td><code>中文情感测试集_02.csv</code></td><td>0.7967</td><td>0.7758</td><td>0.390</td><td>—</td></tr>
 <tr><td><code>qwen3.5-2b-zero-shot</code></td><td><code>中文情感测试集_03.csv</code></td><td>0.7867</td><td>0.7654</td><td>0.380</td><td>—</td></tr>
+<tr><td><code>decider-2b-zero-shot</code></td><td><code>中文情感测试集_01.csv</code></td><td>0.8867</td><td>0.8829</td><td>0.660</td><td>—</td></tr>
+<tr><td><code>decider-2b-zero-shot</code></td><td><code>中文情感测试集_02.csv</code></td><td>0.9200</td><td>0.9188</td><td>0.760</td><td>—</td></tr>
+<tr><td><code>decider-2b-zero-shot</code></td><td><code>中文情感测试集_03.csv</code></td><td>0.9167</td><td>0.9157</td><td>0.770</td><td>—</td></tr>
+<tr><td><code>kev-4b-zero-shot</code></td><td><code>中文情感测试集_01.csv</code></td><td>0.8633</td><td>0.8568</td><td>0.590</td><td>—</td></tr>
+<tr><td><code>kev-4b-zero-shot</code></td><td><code>中文情感测试集_02.csv</code></td><td>0.8767</td><td>0.8723</td><td>0.630</td><td>—</td></tr>
+<tr><td><code>kev-4b-zero-shot</code></td><td><code>中文情感测试集_03.csv</code></td><td>0.8600</td><td>0.8535</td><td>0.580</td><td>—</td></tr>
+<tr><td><code>clm-v0.1-8b-zero-shot</code></td><td><code>中文情感测试集_01.csv</code></td><td>0.3333</td><td>0.1667</td><td>0.000</td><td>0</td></tr>
+<tr><td><code>clm-v0.1-8b-zero-shot</code></td><td><code>中文情感测试集_02.csv</code></td><td>0.3333</td><td>0.1667</td><td>0.000</td><td>0</td></tr>
+<tr><td><code>clm-v0.1-8b-zero-shot</code></td><td><code>中文情感测试集_03.csv</code></td><td>0.3333</td><td>0.1667</td><td>0.000</td><td>0</td></tr>
 <tr><td><code>laya-oldlabels</code></td><td><code>中文情感测试集_01.csv</code></td><td>0.8567</td><td>0.8480</td><td>0.610</td><td>0</td></tr>
 <tr><td><code>laya-oldlabels</code></td><td><code>中文情感测试集_02.csv</code></td><td>0.8633</td><td>0.8553</td><td>0.630</td><td>0</td></tr>
 <tr><td><code>laya-oldlabels</code></td><td><code>中文情感测试集_03.csv</code></td><td>0.8733</td><td>0.8660</td><td>0.650</td><td>0</td></tr>
@@ -146,45 +180,92 @@
 <tr><td><code>mia-qwen3.5-2b</code> <span class="tag">发布版</span></td><td><code>中文情感测试集_01.csv</code></td><td>0.9500</td><td>0.9499</td><td>0.900</td><td>0</td></tr>
 <tr><td><code>mia-qwen3.5-2b</code> <span class="tag">发布版</span></td><td><code>中文情感测试集_02.csv</code></td><td>0.9433</td><td>0.9433</td><td>0.920</td><td>0</td></tr>
 <tr><td><code>mia-qwen3.5-2b</code> <span class="tag">发布版</span></td><td><code>中文情感测试集_03.csv</code></td><td>0.9300</td><td>0.9301</td><td>0.890</td><td>0</td></tr>
+<tr><td><code>clm-qwen3-8b</code></td><td><code>中文情感测试集_01.csv</code></td><td>0.8300</td><td>0.8278</td><td>0.660</td><td>0</td></tr>
+<tr><td><code>clm-qwen3-8b</code></td><td><code>中文情感测试集_02.csv</code></td><td>0.8500</td><td>0.8490</td><td>0.740</td><td>0</td></tr>
+<tr><td><code>clm-qwen3-8b</code></td><td><code>中文情感测试集_03.csv</code></td><td>0.8333</td><td>0.8317</td><td>0.690</td><td>0</td></tr>
+<tr><td><code>mia-decider-2b</code> <span class="tag">发布版</span></td><td><code>中文情感测试集_01.csv</code></td><td>0.9367</td><td>0.9363</td><td>0.830</td><td>—</td></tr>
+<tr><td><code>mia-decider-2b</code> <span class="tag">发布版</span></td><td><code>中文情感测试集_02.csv</code></td><td>0.9533</td><td>0.9532</td><td>0.880</td><td>—</td></tr>
+<tr><td><code>mia-decider-2b</code> <span class="tag">发布版</span></td><td><code>中文情感测试集_03.csv</code></td><td>0.9300</td><td>0.9295</td><td>0.810</td><td>—</td></tr>
 </tbody></table></div>
 
 <h2>公开数据集</h2>
 <p class="note">模型没有在这些数据集上训练过。二分类集给四个数：二选一准确率只比较正、负两类概率；三选一严格准确率把判中性算错；判为中性的比例；只看给出极性的行的准确率。DMSC 用 1-2 星为负、3 星为中、4-5 星为正，3 星当中性只是近似。文本做与训练相同的归一化并截到 512 字。</p>
-<div class="tablewrap"><table><thead><tr><th>公开数据集</th><th>行数</th><th>指标</th><th>mia-qwen3.5-2b</th><th>mia-laya</th><th>laya-oldlabels</th><th>qwen3.5-2b-zero-shot</th></tr></thead><tbody>
-<tr><td>ChnSentiCorp test</td><td>1,200</td><td>二选一准确率（只比较正/负概率）</td><td>0.8817</td><td>0.8833</td><td>0.8783</td><td>0.8583</td></tr>
-<tr><td></td><td></td><td>三选一严格准确率（判中性算错）</td><td>0.6508</td><td>0.8225</td><td>0.8275</td><td>0.8067</td></tr>
-<tr><td></td><td></td><td>判为中性的比例</td><td>0.312</td><td>0.087</td><td>0.083</td><td>0.082</td></tr>
-<tr><td></td><td></td><td>只看给出极性的行的准确率</td><td>0.9455</td><td>0.9005</td><td>0.9027</td><td>0.8784</td></tr>
-<tr><td>online_shopping_10_cats（抽样 5,000）</td><td>5,000</td><td>二选一准确率（只比较正/负概率）</td><td>0.9224</td><td>0.9186</td><td>0.9192</td><td>0.8964</td></tr>
-<tr><td></td><td></td><td>三选一严格准确率（判中性算错）</td><td>0.7754</td><td>0.8786</td><td>0.8754</td><td>0.8562</td></tr>
-<tr><td></td><td></td><td>判为中性的比例</td><td>0.199</td><td>0.058</td><td>0.066</td><td>0.062</td></tr>
-<tr><td></td><td></td><td>只看给出极性的行的准确率</td><td>0.9676</td><td>0.9325</td><td>0.9377</td><td>0.9130</td></tr>
-<tr><td>eprstmt (FewCLUE) test</td><td>610</td><td>二选一准确率（只比较正/负概率）</td><td>0.8967</td><td>0.8820</td><td>0.8803</td><td>0.8426</td></tr>
-<tr><td></td><td></td><td>三选一严格准确率（判中性算错）</td><td>0.6721</td><td>0.8180</td><td>0.8033</td><td>0.7918</td></tr>
-<tr><td></td><td></td><td>判为中性的比例</td><td>0.298</td><td>0.087</td><td>0.120</td><td>0.092</td></tr>
-<tr><td></td><td></td><td>只看给出极性的行的准确率</td><td>0.9579</td><td>0.8959</td><td>0.9125</td><td>0.8718</td></tr>
-<tr><td>weibo_senti_100k（抽样 5,000）</td><td>5,000</td><td>二选一准确率（只比较正/负概率）</td><td>0.7976</td><td>0.8030</td><td>0.8278</td><td>0.8046</td></tr>
-<tr><td></td><td></td><td>三选一严格准确率（判中性算错）</td><td>0.6162</td><td>0.6650</td><td>0.7680</td><td>0.7810</td></tr>
-<tr><td></td><td></td><td>判为中性的比例</td><td>0.271</td><td>0.192</td><td>0.086</td><td>0.034</td></tr>
-<tr><td></td><td></td><td>只看给出极性的行的准确率</td><td>0.8455</td><td>0.8228</td><td>0.8399</td><td>0.8085</td></tr>
-<tr><td>DMSC 豆瓣影评（抽样 5,000，1-2 星负 / 3 星中 / 4-5 星正）</td><td>5,000</td><td>三分类准确率</td><td>0.5120</td><td>0.5422</td><td>0.5728</td><td>0.5048</td></tr>
-<tr><td></td><td></td><td>三分类 Macro-F1</td><td>0.4992</td><td>0.4666</td><td>0.4890</td><td>0.4214</td></tr>
-<tr><td></td><td></td><td>中性（3 星）召回</td><td>0.508</td><td>0.216</td><td>0.235</td><td>0.111</td></tr>
+<div class="tablewrap"><table><thead><tr><th>公开数据集</th><th>行数</th><th>指标</th><th>mia-decider-2b</th><th>mia-decider-2b-state-first</th><th>mia-qwen3.5-2b</th><th>mia-laya</th><th>laya-oldlabels</th><th>qwen3.5-2b-zero-shot</th><th>decider-2b-zero-shot</th><th>kev-4b-zero-shot</th><th>clm-qwen3-8b</th><th>clm-v0.1-8b-zero-shot</th></tr></thead><tbody>
+<tr><td>ChnSentiCorp test</td><td>1,200</td><td>二选一准确率（只比较正/负概率）</td><td>0.8800</td><td>0.8867</td><td>0.8817</td><td>0.8833</td><td>0.8783</td><td>0.8583</td><td>0.8850</td><td>0.8908</td><td>0.8642</td><td>0.5067</td></tr>
+<tr><td></td><td></td><td>三选一严格准确率（判中性算错）</td><td>0.6883</td><td>0.6950</td><td>0.6508</td><td>0.8225</td><td>0.8275</td><td>0.8067</td><td>0.7558</td><td>0.7750</td><td>0.6475</td><td>0.5067</td></tr>
+<tr><td></td><td></td><td>判为中性的比例</td><td>0.272</td><td>0.263</td><td>0.312</td><td>0.087</td><td>0.083</td><td>0.082</td><td>0.182</td><td>0.172</td><td>0.314</td><td>0.000</td></tr>
+<tr><td></td><td></td><td>只看给出极性的行的准确率</td><td>0.9451</td><td>0.9424</td><td>0.9455</td><td>0.9005</td><td>0.9027</td><td>0.8784</td><td>0.9236</td><td>0.9366</td><td>0.9441</td><td>0.5067</td></tr>
+<tr><td>online_shopping_10_cats（抽样 5,000）</td><td>5,000</td><td>二选一准确率（只比较正/负概率）</td><td>0.9208</td><td>0.9286</td><td>0.9224</td><td>0.9186</td><td>0.9192</td><td>0.8964</td><td>0.9274</td><td>0.9302</td><td>0.9182</td><td>0.5048</td></tr>
+<tr><td></td><td></td><td>三选一严格准确率（判中性算错）</td><td>0.7968</td><td>0.7968</td><td>0.7754</td><td>0.8786</td><td>0.8754</td><td>0.8562</td><td>0.8390</td><td>0.8344</td><td>0.7768</td><td>0.5048</td></tr>
+<tr><td></td><td></td><td>判为中性的比例</td><td>0.176</td><td>0.176</td><td>0.199</td><td>0.058</td><td>0.066</td><td>0.062</td><td>0.122</td><td>0.133</td><td>0.196</td><td>0.000</td></tr>
+<tr><td></td><td></td><td>只看给出极性的行的准确率</td><td>0.9672</td><td>0.9665</td><td>0.9676</td><td>0.9325</td><td>0.9377</td><td>0.9130</td><td>0.9560</td><td>0.9628</td><td>0.9659</td><td>0.5048</td></tr>
+<tr><td>eprstmt (FewCLUE) test</td><td>610</td><td>二选一准确率（只比较正/负概率）</td><td>0.8934</td><td>0.9049</td><td>0.8967</td><td>0.8820</td><td>0.8803</td><td>0.8426</td><td>0.9049</td><td>0.8951</td><td>0.8885</td><td>0.5000</td></tr>
+<tr><td></td><td></td><td>三选一严格准确率（判中性算错）</td><td>0.6738</td><td>0.6787</td><td>0.6721</td><td>0.8180</td><td>0.8033</td><td>0.7918</td><td>0.7525</td><td>0.7410</td><td>0.6852</td><td>0.5000</td></tr>
+<tr><td></td><td></td><td>判为中性的比例</td><td>0.298</td><td>0.295</td><td>0.298</td><td>0.087</td><td>0.120</td><td>0.092</td><td>0.197</td><td>0.223</td><td>0.285</td><td>0.000</td></tr>
+<tr><td></td><td></td><td>只看给出极性的行的准确率</td><td>0.9603</td><td>0.9628</td><td>0.9579</td><td>0.8959</td><td>0.9125</td><td>0.8718</td><td>0.9367</td><td>0.9536</td><td>0.9587</td><td>0.5000</td></tr>
+<tr><td>weibo_senti_100k（抽样 5,000）</td><td>5,000</td><td>二选一准确率（只比较正/负概率）</td><td>0.8302</td><td>0.8250</td><td>0.7976</td><td>0.8030</td><td>0.8278</td><td>0.8046</td><td>0.8192</td><td>0.8206</td><td>0.8342</td><td>0.5014</td></tr>
+<tr><td></td><td></td><td>三选一严格准确率（判中性算错）</td><td>0.6570</td><td>0.6714</td><td>0.6162</td><td>0.6650</td><td>0.7680</td><td>0.7810</td><td>0.6430</td><td>0.5896</td><td>0.6568</td><td>0.5014</td></tr>
+<tr><td></td><td></td><td>判为中性的比例</td><td>0.240</td><td>0.218</td><td>0.271</td><td>0.192</td><td>0.086</td><td>0.034</td><td>0.251</td><td>0.319</td><td>0.250</td><td>0.000</td></tr>
+<tr><td></td><td></td><td>只看给出极性的行的准确率</td><td>0.8645</td><td>0.8586</td><td>0.8455</td><td>0.8228</td><td>0.8399</td><td>0.8085</td><td>0.8587</td><td>0.8658</td><td>0.8755</td><td>0.5014</td></tr>
+<tr><td>DMSC 豆瓣影评（抽样 5,000，1-2 星负 / 3 星中 / 4-5 星正）</td><td>5,000</td><td>三分类准确率</td><td>0.5352</td><td>0.5330</td><td>0.5120</td><td>0.5422</td><td>0.5728</td><td>0.5048</td><td>0.5532</td><td>0.5982</td><td>0.5220</td><td>0.6012</td></tr>
+<tr><td></td><td></td><td>三分类 Macro-F1</td><td>0.5190</td><td>0.5132</td><td>0.4992</td><td>0.4666</td><td>0.4890</td><td>0.4214</td><td>0.5150</td><td>0.5605</td><td>0.5108</td><td>0.2503</td></tr>
+<tr><td></td><td></td><td>中性（3 星）召回</td><td>0.492</td><td>0.473</td><td>0.508</td><td>0.216</td><td>0.235</td><td>0.111</td><td>0.389</td><td>0.473</td><td>0.522</td><td>0.000</td></tr>
+</tbody></table></div>
+
+<h2>mia-decider-2b 的两种打分路径</h2>
+<p class="note">同一份权重。默认把题目和三个选项放在前面、只算一次并缓存，每条文本只算它自己；另一种是 decider 的默认排法，每条都把题目放在文本后面重算一遍。温度在后一种路径上拟合（0.999），两种路径共用。每格为 准确率 / Macro-F1 / 中性召回；公开集四个二分类集依次是 ChnSentiCorp / 网购评论 / eprstmt / 微博 的二选一准确率。</p>
+<div class="tablewrap"><table><thead><tr><th>路径</th><th>开发集 4,920</th><th>holdout 5,372</th><th>中文 CSV 900</th><th>公开二分类集</th><th>DMSC</th><th>4090 每秒条数</th></tr></thead><tbody>
+<tr><td>题面在前、题面缓存（默认）</td><td>0.8866 / 0.8763 / 0.888</td><td>0.8812 / 0.8705 / 0.876</td><td>0.9400 / 0.9397 / 0.840</td><td>0.8800 / 0.9208 / 0.8934 / 0.8302</td><td>0.5352</td><td>375</td></tr>
+<tr><td>题面在后、每条都带题面</td><td>0.8831 / 0.8716 / 0.890</td><td>0.8762 / 0.8652 / 0.874</td><td>0.9333 / 0.9327 / 0.803</td><td>0.8867 / 0.9286 / 0.9049 / 0.8250</td><td>0.5330</td><td>129</td></tr>
+</tbody></table></div>
+
+<h2>接着训前后的通用判断</h2>
+<p class="note">decider 训练时的评测：Mia 校准集前 600 行，以及 decider 自带 teacher_data 里从没训过的 6 个领域（自定义题 2,888 题、路由题 600 题，英文）。step 0 是原版 decider-2b。温度 1。</p>
+<div class="tablewrap"><table><thead><tr><th>step</th><th>Mia 校准集（前 600 行）</th><th>通用判断：自定义题（2,888 题）</th><th>通用判断：路由题（600 题）</th></tr></thead><tbody>
+<tr><td>0</td><td>0.8417</td><td>0.9318</td><td>0.8950</td></tr>
+<tr><td>100</td><td>0.8800</td><td>0.9342</td><td>0.9200</td></tr>
+<tr><td>200</td><td>0.8933</td><td>0.9332</td><td>0.9200</td></tr>
+<tr><td>300</td><td>0.8817</td><td>0.9346</td><td>0.9250</td></tr>
+<tr><td>400</td><td>0.8967</td><td>0.9352</td><td>0.9283</td></tr>
+<tr><td>466</td><td>0.8983</td><td>0.9349</td><td>0.9267</td></tr>
+</tbody></table></div>
+
+<h2>CLM 路线的五组设置</h2>
+<p class="note">冻结 Qwen3-8B、只训两个投影头，用 CLM 仓库的 <code>train/finetune.py --task choice</code> 原样训练；验证集是它从训练集里切出的 10%，版本按验证集挑，开发集只报告不参与选择。</p>
+<div class="tablewrap"><table><thead><tr><th>设置</th><th>说明</th><th>最佳 epoch</th><th>验证集 Acc</th><th>开发集 Acc</th><th>分钟</th></tr></thead><tbody>
+<tr><td><code>clm-default</code></td><td>默认：参考头热启动，20 轮</td><td>16</td><td>0.8657</td><td>0.8642</td><td>0.39</td></tr>
+<tr><td><code>clm-softce</code></td><td>softce 损失，热启动</td><td>9</td><td>0.8623</td><td>0.8563</td><td>0.32</td></tr>
+<tr><td><code>clm-scratch</code></td><td>不热启动，20 轮</td><td>19</td><td>0.8683</td><td>0.8703</td><td>0.41</td></tr>
+<tr><td><code>clm-e40</code></td><td>热启动，40 轮</td><td>23</td><td>0.8695</td><td>0.8685</td><td>0.61</td></tr>
+<tr><td><code>clm-scratch-e40</code></td><td>不热启动，40 轮（按验证集选出）</td><td>33</td><td>0.8702</td><td>0.8732</td><td>0.70</td></tr>
+</tbody></table></div>
+
+<h2>速度</h2>
+<p class="note">RTX 4090, bf16, batch 64, holdout 5,372 rows end to end (tokenise, forward, softmax), model loaded and warmed up first; linear-attention layers on PyTorch fallback kernels</p>
+<div class="tablewrap"><table><thead><tr><th>模型</th><th>路径</th><th>每秒条数</th></tr></thead><tbody>
+<tr><td>mia-laya</td><td>laya predict_batch</td><td>1977</td></tr>
+<tr><td>mia-qwen3.5-2b</td><td>序列分类，短模板</td><td>626</td></tr>
+<tr><td>mia-decider-2b</td><td>题面缓存（默认）</td><td>375</td></tr>
+<tr><td>mia-decider-2b（题面在后）</td><td>每条都带题面</td><td>129</td></tr>
+<tr><td>clm-qwen3-8b</td><td>Qwen3-8B 末 token 向量 + 投影头</td><td>254</td></tr>
+<tr><td>kev-4b-zero-shot</td><td>Kev-4B，每条都带题面</td><td>67</td></tr>
 </tbody></table></div>
 
 <h2>训练侧：各自训练时的开发集、温度与校准</h2>
-<p class="note">每次训练在自己那套数据的开发集上评一次；旧标签模型的开发集是旧标签，所以这一列不能跨行比较。温度在 calibration 切分上拟合；ECE 是 15 桶期望校准误差。</p>
-<div class="tablewrap"><table><thead><tr><th>模型</th><th>训练数据</th><th>训练行数</th><th>自有开发集行数</th><th>Acc</th><th>Macro-F1</th><th>温度</th><th>校准前 ECE</th><th>校准后 ECE</th><th>每 epoch 训练损失</th></tr></thead><tbody>
-<tr><td><code>laya-oldlabels</code></td><td>laya-sentiment-data-cap100-natural</td><td>77,259</td><td>5000</td><td>0.7430</td><td>0.7230</td><td>1.7960</td><td>0.1287</td><td>0.0241</td><td>[0.6148, 0.4621, 0.3198]</td></tr>
-<tr><td><code>laya-oldlabels-neutral-reviewed</code></td><td>laya-sentiment-data-cap100-natural-neutral-reviewed-no-uncertain</td><td>75,692</td><td>5000</td><td>0.7386</td><td>0.7132</td><td>2.4479</td><td>0.1614</td><td>0.0168</td><td>[0.5115, 0.3491, 0.2126]</td></tr>
-<tr><td><code>laya-oldlabels-cw-none</code></td><td>laya-sentiment-data-cap100-natural</td><td>77,259</td><td>5000</td><td>0.7436</td><td>0.7231</td><td>1.7876</td><td>0.1274</td><td>0.0214</td><td>[0.6148, 0.4622, 0.3198]</td></tr>
-<tr><td><code>laya-oldlabels-cw-sqrt</code></td><td>laya-sentiment-data-cap100-natural</td><td>77,259</td><td>5000</td><td>0.7390</td><td>0.7208</td><td>1.7775</td><td>0.1304</td><td>0.0245</td><td>[0.6408, 0.4809, 0.3314]</td></tr>
-<tr><td><code>laya-oldlabels-cw-balanced</code></td><td>laya-sentiment-data-cap100-natural</td><td>77,259</td><td>5000</td><td>0.7388</td><td>0.7232</td><td>1.7949</td><td>0.1291</td><td>0.0198</td><td>[0.6534, 0.4889, 0.3343]</td></tr>
-<tr><td><code>laya-relabeled-cw-none</code></td><td>laya-sentiment-data-relabeled</td><td>72,610</td><td>4704</td><td>0.8374</td><td>0.8213</td><td>1.9932</td><td>0.0942</td><td>0.0212</td><td>[0.4511, 0.2812, 0.1521]</td></tr>
-<tr><td><code>mia-laya</code> <span class="tag">发布版</span></td><td>laya-sentiment-data-relabeled</td><td>72,610</td><td>4704</td><td>0.8376</td><td>0.8234</td><td>1.9488</td><td>0.0905</td><td>0.0228</td><td>[0.4626, 0.2862, 0.1567]</td></tr>
-<tr><td><code>qwen0.8b-relabeled</code></td><td>laya-sentiment-data-relabeled</td><td>72,610</td><td>4704</td><td>0.8642</td><td>0.8499</td><td>2.9516</td><td>0.0985</td><td>0.0206</td><td>[0.4594, 0.1598, 0.0194]</td></tr>
-<tr><td><code>qwen2b-relabeled</code></td><td>laya-sentiment-data-relabeled</td><td>72,610</td><td>4704</td><td>0.8718</td><td>0.8585</td><td>2.6244</td><td>0.0939</td><td>0.0224</td><td>[0.4362, 0.1375, 0.0165]</td></tr>
-<tr><td><code>mia-qwen3.5-2b</code> <span class="tag">发布版</span></td><td>laya-sentiment-data-relabeled-mixed-neutral</td><td>76,112</td><td>4923</td><td>0.8686</td><td>0.8538</td><td>1.7063</td><td>0.0659</td><td>0.0152</td><td>[0.4367, 0.104]</td></tr>
+<p class="note">每次训练在自己那套数据的开发集上评一次；旧标签模型的开发集是旧标签，所以这一列不能跨行比较；CLM 的开发集是它从训练集里切出的验证集。温度在 calibration 切分上拟合；ECE 是 15 桶期望校准误差。</p>
+<div class="tablewrap"><table><thead><tr><th>模型</th><th>训练数据</th><th>训练行数</th><th>自有开发集行数</th><th>Acc</th><th>Macro-F1</th><th>温度</th><th>校准前 ECE</th><th>校准后 ECE</th><th>目标</th><th>每 epoch 训练损失</th></tr></thead><tbody>
+<tr><td><code>laya-oldlabels</code></td><td>laya-sentiment-data-cap100-natural</td><td>77,259</td><td>5000</td><td>0.7430</td><td>0.7230</td><td>1.7960</td><td>0.1287</td><td>0.0241</td><td>cross-entropy</td><td>[0.6148, 0.4621, 0.3198]</td></tr>
+<tr><td><code>laya-oldlabels-neutral-reviewed</code></td><td>laya-sentiment-data-cap100-natural-neutral-reviewed-no-uncertain</td><td>75,692</td><td>5000</td><td>0.7386</td><td>0.7132</td><td>2.4479</td><td>0.1614</td><td>0.0168</td><td>cross-entropy</td><td>[0.5115, 0.3491, 0.2126]</td></tr>
+<tr><td><code>laya-oldlabels-cw-none</code></td><td>laya-sentiment-data-cap100-natural</td><td>77,259</td><td>5000</td><td>0.7436</td><td>0.7231</td><td>1.7876</td><td>0.1274</td><td>0.0214</td><td>cross-entropy</td><td>[0.6148, 0.4622, 0.3198]</td></tr>
+<tr><td><code>laya-oldlabels-cw-sqrt</code></td><td>laya-sentiment-data-cap100-natural</td><td>77,259</td><td>5000</td><td>0.7390</td><td>0.7208</td><td>1.7775</td><td>0.1304</td><td>0.0245</td><td>cross-entropy</td><td>[0.6408, 0.4809, 0.3314]</td></tr>
+<tr><td><code>laya-oldlabels-cw-balanced</code></td><td>laya-sentiment-data-cap100-natural</td><td>77,259</td><td>5000</td><td>0.7388</td><td>0.7232</td><td>1.7949</td><td>0.1291</td><td>0.0198</td><td>cross-entropy</td><td>[0.6534, 0.4889, 0.3343]</td></tr>
+<tr><td><code>laya-relabeled-cw-none</code></td><td>laya-sentiment-data-relabeled</td><td>72,610</td><td>4704</td><td>0.8374</td><td>0.8213</td><td>1.9932</td><td>0.0942</td><td>0.0212</td><td>cross-entropy</td><td>[0.4511, 0.2812, 0.1521]</td></tr>
+<tr><td><code>mia-laya</code> <span class="tag">发布版</span></td><td>laya-sentiment-data-relabeled</td><td>72,610</td><td>4704</td><td>0.8376</td><td>0.8234</td><td>1.9488</td><td>0.0905</td><td>0.0228</td><td>cross-entropy</td><td>[0.4626, 0.2862, 0.1567]</td></tr>
+<tr><td><code>qwen0.8b-relabeled</code></td><td>laya-sentiment-data-relabeled</td><td>72,610</td><td>4704</td><td>0.8642</td><td>0.8499</td><td>2.9516</td><td>0.0985</td><td>0.0206</td><td>cross-entropy</td><td>[0.4594, 0.1598, 0.0194]</td></tr>
+<tr><td><code>qwen2b-relabeled</code></td><td>laya-sentiment-data-relabeled</td><td>72,610</td><td>4704</td><td>0.8718</td><td>0.8585</td><td>2.6244</td><td>0.0939</td><td>0.0224</td><td>cross-entropy</td><td>[0.4362, 0.1375, 0.0165]</td></tr>
+<tr><td><code>mia-qwen3.5-2b</code> <span class="tag">发布版</span></td><td>laya-sentiment-data-relabeled-mixed-neutral</td><td>76,112</td><td>4923</td><td>0.8686</td><td>0.8538</td><td>1.7063</td><td>0.0659</td><td>0.0152</td><td>cross-entropy</td><td>[0.4367, 0.104]</td></tr>
+<tr><td><code>clm-qwen3-8b</code></td><td>relabeled-mixed-neutral（CLM 自切 10% 做验证）</td><td>68,501</td><td>7611</td><td>0.8702</td><td>—</td><td>0.9993</td><td>—</td><td>—</td><td>infonce</td><td>[2.9276, 2.8124, 2.8512, 2.7879, 2.6824, 2.6561, 2.6344, 2.6268, 2.6114, 2.5981, 2.5876, 2.5843, 2.5781, 2.5668, 2.571, 2.5527, 2.5498, 2.5462, 2.5423, 2.5383, 2.5328, 2.5356, 2.5255, 2.5248, 2.5184, 2.5137, 2.5133, 2.5123, 2.5085, 2.5045, 2.5024, 2.4998, 2.4961, 2.4937, 2.4919, 2.4894, 2.4893, 2.4868, 2.4865, 2.486]</td></tr>
+<tr><td><code>mia-decider-2b</code> <span class="tag">发布版</span></td><td>relabeled-mixed-neutral + decider teacher_data 回放</td><td>89,544</td><td>4920</td><td>0.8831</td><td>0.8716</td><td>0.9989</td><td>0.0137</td><td>0.0136</td><td>cross-entropy over option letters (decider.train)</td><td>[0.3036]</td></tr>
 </tbody></table></div>
 
 <p class="note">数据来源：<code>reports/summary.json</code>，由 <code>scripts</code> 目录外的 <code>build_docs.py</code> 生成本页与全部 SVG。</p>

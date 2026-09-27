@@ -1,0 +1,199 @@
+{
+  "model": "models/mia-decider-2b/final",
+  "method": "decider-2b v11 continued on Mia's 76,112 training rows (+13,432 teacher_data replay rows), one epoch with decider.train; same Choice as the zero-shot baseline; temperature fitted on Mia's calibration split",
+  "impl": "decider",
+  "model_name": "decider-2b-v11-mia",
+  "temperature": 0.9989189216657526,
+  "temperature_by_type": {
+    "choice": 0.9989189216657526,
+    "noul": 1.624,
+    "score": 1.124
+  },
+  "layout": "plain",
+  "path": "eager DecisionModel.slot_logits, bf16, right-padded batches",
+  "training_data": null,
+  "labels": [
+    "负面",
+    "中性",
+    "正面"
+  ],
+  "datasets": {
+    "中文情感测试集_01.csv": {
+      "path": "data/eval/中文情感测试集_01.csv",
+      "label_counts": {
+        "正面": 100,
+        "负面": 100,
+        "中性": 100
+      },
+      "exact_train_text_overlap": null,
+      "metrics": {
+        "rows": 300,
+        "accuracy": 0.9233333468437195,
+        "macro_f1": 0.9223058279074089,
+        "nll": 0.17775247991085052,
+        "brier": 0.11290261894464493,
+        "ece": 0.027754982908566837,
+        "per_class": {
+          "负面": {
+            "support": 100,
+            "precision": 0.8130081300813008,
+            "recall": 1.0,
+            "f1": 0.8968609865470852
+          },
+          "中性": {
+            "support": 100,
+            "precision": 1.0,
+            "recall": 0.77,
+            "f1": 0.8700564971751412
+          },
+          "正面": {
+            "support": 100,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            100,
+            0,
+            0
+          ],
+          [
+            23,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            100
+          ]
+        ],
+        "label_order": [
+          "负面",
+          "中性",
+          "正面"
+        ]
+      }
+    },
+    "中文情感测试集_02.csv": {
+      "path": "data/eval/中文情感测试集_02.csv",
+      "label_counts": {
+        "中性": 100,
+        "负面": 100,
+        "正面": 100
+      },
+      "exact_train_text_overlap": null,
+      "metrics": {
+        "rows": 300,
+        "accuracy": 0.9433333277702332,
+        "macro_f1": 0.9429209371039091,
+        "nll": 0.1532515585422516,
+        "brier": 0.08893886208534241,
+        "ece": 0.02722544014453889,
+        "per_class": {
+          "负面": {
+            "support": 100,
+            "precision": 0.8547008547008547,
+            "recall": 1.0,
+            "f1": 0.9216589861751152
+          },
+          "中性": {
+            "support": 100,
+            "precision": 1.0,
+            "recall": 0.83,
+            "f1": 0.907103825136612
+          },
+          "正面": {
+            "support": 100,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            100,
+            0,
+            0
+          ],
+          [
+            17,
+            83,
+            0
+          ],
+          [
+            0,
+            0,
+            100
+          ]
+        ],
+        "label_order": [
+          "负面",
+          "中性",
+          "正面"
+        ]
+      }
+    },
+    "中文情感测试集_03.csv": {
+      "path": "data/eval/中文情感测试集_03.csv",
+      "label_counts": {
+        "中性": 100,
+        "负面": 100,
+        "正面": 100
+      },
+      "exact_train_text_overlap": null,
+      "metrics": {
+        "rows": 300,
+        "accuracy": 0.9333333373069763,
+        "macro_f1": 0.9327755912047232,
+        "nll": 0.16410593688488007,
+        "brier": 0.09913028031587601,
+        "ece": 0.026782070795695022,
+        "per_class": {
+          "负面": {
+            "support": 100,
+            "precision": 0.8403361344537815,
+            "recall": 1.0,
+            "f1": 0.91324200913242
+          },
+          "中性": {
+            "support": 100,
+            "precision": 0.9878048780487805,
+            "recall": 0.81,
+            "f1": 0.8901098901098901
+          },
+          "正面": {
+            "support": 100,
+            "precision": 1.0,
+            "recall": 0.99,
+            "f1": 0.9949748743718593
+          }
+        },
+        "confusion_matrix": [
+          [
+            100,
+            0,
+            0
+          ],
+          [
+            19,
+            81,
+            0
+          ],
+          [
+            0,
+            1,
+            99
+          ]
+        ],
+        "label_order": [
+          "负面",
+          "中性",
+          "正面"
+        ]
+      }
+    }
+  }
+}

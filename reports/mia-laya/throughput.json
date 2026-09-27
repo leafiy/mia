@@ -1,0 +1,10 @@
+{
+  "model": "models/mia-laya/final",
+  "path": "laya 0.3.20 predict_batch, sort_by_length, chunks of 512 rows",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 2.7173655033111572,
+  "rows_per_second": 1976.9147703737772,
+  "holdout_accuracy_check": 0.8172002978406553
+}

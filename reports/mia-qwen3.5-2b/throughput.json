@@ -1,0 +1,10 @@
+{
+  "model": "models/mia-qwen3.5-2b/final",
+  "path": "transformers Qwen3_5TextForSequenceClassification, bf16, PyTorch fallback kernels for the linear-attention layers",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 8.585249185562134,
+  "rows_per_second": 625.7244121736297,
+  "holdout_accuracy_check": 0.8709977661950856
+}

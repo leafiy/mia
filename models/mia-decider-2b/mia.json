@@ -1,0 +1,75 @@
+{
+  "name": "mia-decider-2b",
+  "task": "chinese-sentiment-3class",
+  "labels": [
+    "负面",
+    "中性",
+    "正面"
+  ],
+  "base_model": "Mapika/decider-2b",
+  "base_revision": "533964dae8be954c5b5e19fa4948e48408094c1e",
+  "base_license": "Apache-2.0",
+  "base_chain": "Qwen/Qwen3.5-2B-Base -> Mapika/decider-2b v11 -> mia-decider-2b",
+  "architecture": "Qwen3_5ForCausalLM read as a System One decision model (decider): option-letter logits at the answer slot",
+  "params_million": 1882,
+  "weights_dtype": "bfloat16",
+  "questions": "questions.json (one Choice with defined options; the same question was used for training)",
+  "temperature": 0.9989189216657526,
+  "default_scoring": "questions-first layout with the question prefix cached (decider_config.json schema_first=true; Decider.schema(questions).batch(texts))",
+  "training_data": "76,112 Chinese short texts relabeled by an LLM, 褒贬混合 mapped to 中性, not distributed; plus 13,432 replay rows from decider teacher_data (15%)",
+  "trainer": "python -m decider.train (github.com/Mapika/decider @ a5120cc), delta recipe with warmup 50 and none_prob 0",
+  "epochs": 1,
+  "optimizer_steps": 466,
+  "tokens_per_step": 32768,
+  "learning_rate": 8e-06,
+  "seed": 0,
+  "eval": {
+    "dev_4920": {
+      "accuracy": 0.8866,
+      "macro_f1": 0.8763
+    },
+    "holdout_5372": {
+      "accuracy": 0.8812,
+      "macro_f1": 0.8705,
+      "ece": 0.0102,
+      "recall": {
+        "负面": 0.851,
+        "中性": 0.876,
+        "正面": 0.903
+      }
+    },
+    "chinese_csv_900": {
+      "accuracy": 0.94,
+      "macro_f1": 0.9397,
+      "neutral_recall": 0.84
+    },
+    "public_forced_binary_accuracy": {
+      "chnsenticorp": 0.88,
+      "online_shopping_10_cats": 0.9208,
+      "eprstmt": 0.8934,
+      "weibo_senti_100k": 0.8302
+    },
+    "public_dmsc_3class_accuracy": 0.5352,
+    "decider_heldout_general_decisions": {
+      "teacher_custom_heldout": {
+        "before": 0.9318,
+        "after": 0.9349
+      },
+      "teacher_routing_heldout": {
+        "before": 0.895,
+        "after": 0.9267
+      }
+    }
+  },
+  "throughput": "375 rows/s on RTX 4090 (bf16, batch 64, question prefix cached); 129 rows/s with the question after the text",
+  "reports": [
+    "reports/mia-decider-2b/",
+    "reports/public/mia-decider-2b.json"
+  ],
+  "released": "2026-09-27",
+  "license": "Apache-2.0",
+  "hub": {
+    "huggingface": "https://huggingface.co/leafiy/mia-decider-2b",
+    "modelscope": "https://modelscope.cn/models/leafiy2/mia-decider-2b"
+  }
+}

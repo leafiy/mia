@@ -1,0 +1,77 @@
+{
+  "model": "Mapika/decider-2b@533964da",
+  "method": "zero-shot System One (decider): one Choice with the evaluate-qwen-zero-shot.py rubric, state = the text, probabilities at the checkpoint temperature, nothing fitted on Mia data",
+  "impl": "decider",
+  "model_name": "decider-2b-v11",
+  "temperature": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "temperature_by_type": {
+    "choice": 1.164,
+    "noul": 1.624,
+    "score": 1.124
+  },
+  "layout": "plain",
+  "path": "eager DecisionModel.slot_logits, bf16, right-padded batches",
+  "requested_device": "cuda:0",
+  "dataset": {
+    "path": "data/eval/test.jsonl",
+    "sha256": "2adee0bf6a949b2e9df35422c52d8ce11c8dc5d27b1a1dd0b01c5cd0fada334a",
+    "manifest_rows": 4920,
+    "evaluated_rows": 4920,
+    "limit": 0
+  },
+  "metrics": {
+    "rows": 4920,
+    "accuracy": 0.8461382389068604,
+    "macro_f1": 0.8336737487461976,
+    "nll": 0.42344504594802856,
+    "brier": 0.24036121368408203,
+    "ece": 0.09744305126066133,
+    "per_class": {
+      "负面": {
+        "support": 838,
+        "precision": 0.7723480333730631,
+        "recall": 0.7732696897374701,
+        "f1": 0.7728085867620751
+      },
+      "中性": {
+        "support": 2391,
+        "precision": 0.8569587628865979,
+        "recall": 0.8343789209535759,
+        "f1": 0.845518118245391
+      },
+      "正面": {
+        "support": 1691,
+        "precision": 0.8670849971477467,
+        "recall": 0.898876404494382,
+        "f1": 0.8826945412311266
+      }
+    },
+    "confusion_matrix": [
+      [
+        648,
+        168,
+        22
+      ],
+      [
+        185,
+        1995,
+        211
+      ],
+      [
+        6,
+        165,
+        1520
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  },
+  "label_provenance": "llm relabel of the normalized text; old machine labels unused"
+}

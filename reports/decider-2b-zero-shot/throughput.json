@@ -1,0 +1,19 @@
+{
+  "model": "Mapika/decider-2b@533964da",
+  "impl": "decider",
+  "model_name": "decider-2b-v11",
+  "temperature": 1.145,
+  "temperature_by_type": {
+    "choice": 1.164,
+    "noul": 1.624,
+    "score": 1.124
+  },
+  "layout": "plain",
+  "path": "eager DecisionModel.slot_logits, bf16, right-padded batches",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 41.68400597572327,
+  "rows_per_second": 128.8743697793501,
+  "holdout_accuracy_check": 0.8438198064035741
+}

@@ -1,0 +1,77 @@
+{
+  "model": "models/mia-decider-2b/final",
+  "method": "decider-2b v11 continued on Mia's 76,112 training rows (+13,432 teacher_data replay rows), one epoch with decider.train; same Choice as the zero-shot baseline; temperature fitted on Mia's calibration split; scored in the questions-first layout with the question prefix cached",
+  "impl": "decider",
+  "model_name": "decider-2b-v11-mia",
+  "temperature": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "temperature_by_type": {
+    "choice": 0.9989189216657526,
+    "noul": 1.624,
+    "score": 1.124
+  },
+  "layout": "plain",
+  "path": "schema-first layout, question prefix cached once (Decider.schema, CUDA graphs), bf16",
+  "requested_device": "cuda:0",
+  "dataset": {
+    "path": "data/eval/test.jsonl",
+    "sha256": "2adee0bf6a949b2e9df35422c52d8ce11c8dc5d27b1a1dd0b01c5cd0fada334a",
+    "manifest_rows": 4920,
+    "evaluated_rows": 4920,
+    "limit": 0
+  },
+  "metrics": {
+    "rows": 4920,
+    "accuracy": 0.8865853548049927,
+    "macro_f1": 0.8762788616878866,
+    "nll": 0.27388444542884827,
+    "brier": 0.1615481972694397,
+    "ece": 0.012720462425452887,
+    "per_class": {
+      "负面": {
+        "support": 838,
+        "precision": 0.8221436984687868,
+        "recall": 0.8329355608591885,
+        "f1": 0.8275044457617071
+      },
+      "中性": {
+        "support": 2391,
+        "precision": 0.8913134704154427,
+        "recall": 0.8883312421580929,
+        "f1": 0.889819857561793
+      },
+      "正面": {
+        "support": 1691,
+        "precision": 0.9123222748815166,
+        "recall": 0.9107037256061502,
+        "f1": 0.9115122817401599
+      }
+    },
+    "confusion_matrix": [
+      [
+        698,
+        121,
+        19
+      ],
+      [
+        138,
+        2124,
+        129
+      ],
+      [
+        13,
+        138,
+        1540
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  },
+  "label_provenance": "llm relabel of the normalized text; old machine labels unused"
+}

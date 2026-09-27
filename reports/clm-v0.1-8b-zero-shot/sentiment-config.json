@@ -1,0 +1,30 @@
+{
+  "labels": [
+    "负面",
+    "中性",
+    "正面"
+  ],
+  "questions": {
+    "sentiment": {
+      "type": "choice",
+      "instructions": "判断文本表达的整体情感倾向。",
+      "criteria": {
+        "负面": "表达不满、失望、批评等负面态度",
+        "中性": "态度客观或情绪不明显",
+        "正面": "表达满意、赞赏、愉快等正面态度"
+      }
+    }
+  },
+  "temperature": 1.0,
+  "head": "Contrastive-LM/CLM-v0.1-8B/CLM_v0.1-8B.pt",
+  "logit_scale_exp": 100.0,
+  "embed_model": "Qwen/Qwen3-8B",
+  "pooling": "Qwen3-8B last token, L2-normalised",
+  "state_text_example": "text: <文本>\n\n判断文本表达的整体情感倾向。",
+  "options": [
+    "表达不满、失望、批评等负面态度",
+    "态度客观或情绪不明显",
+    "表达满意、赞赏、愉快等正面态度"
+  ],
+  "calibrated_on": null
+}

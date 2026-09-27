@@ -6,7 +6,7 @@
 | --- | --- |
 | 底座 | [Qwen/Qwen3.5-2B](https://huggingface.co/Qwen/Qwen3.5-2B)，只保留 `model.language_model.*`（24 层，hidden 2048，线性注意力 + 每 4 层一层全注意力），丢掉视觉塔、`lm_head` 与 MTP 头 |
 | 参数量 | 1,882M（含 248,320 词表的嵌入） |
-| 权重 | 不在仓库里：下载 [https://files.qiansmile.com/mia/v1/mia-qwen3.5-2b-final.tar](https://files.qiansmile.com/mia/v1/mia-qwen3.5-2b-final.tar)（3.78 GB，sha256 `4889f4b532587a0791f469c2c194a7d08bf588e8c2c355fd69910f7e6a78a6ba`）解压到本目录得到 `final/`，用 `final.sha256` 核对。`final/model.safetensors` 为 bf16；`final/config.json` 是 `Qwen3_5TextConfig`，`num_labels=3` |
+| 权重 | 不在仓库里：从 [Hugging Face](https://huggingface.co/leafiy/mia-qwen3.5-2b) 或 [ModelScope](https://modelscope.cn/models/leafiy2/mia-qwen3.5-2b) 下载 `final/` 到本目录（`hf download leafiy/mia-qwen3.5-2b --include "final/*" --local-dir models/mia-qwen3.5-2b`），用 `final.sha256` 核对。`final/model.safetensors` 为 bf16，约 3.6G；`final/config.json` 是 `Qwen3_5TextConfig`，`num_labels=3` |
 | 输入模板 | `文本：{text}\n情感倾向：`，右侧 padding，不加特殊 token；取最后一个非 pad token 的隐状态 |
 | 标签顺序 | `负面, 中性, 正面`（`sentiment-config.json` 的 `labels`） |
 | 温度 | 1.7063，推理时 logits 先除以它再 softmax |
@@ -17,7 +17,8 @@
 | 中文 900 条 | Acc 0.9411 · Macro-F1 0.9411 · 中性召回 0.903 |
 | 公开数据集（二选一准确率） | ChnSentiCorp 0.8817 · online_shopping_10_cats 0.9224 · eprstmt 0.8967 · weibo_senti_100k 0.7976；DMSC 三分类 0.5120 |
 | 对照：原版 Qwen3.5-2B 零样本 | 同一口径提示词、受限选择：holdout 0.6372 / Macro-F1 0.6283 / 中性召回 0.351；中文 900 条 0.7944；ChnSentiCorp 0.8583 · online_shopping 0.8964 · eprstmt 0.8426 · weibo 0.8046（`reports/qwen3.5-2b-zero-shot/`、`reports/public/qwen3.5-2b-zero-shot.json`） |
-| 吞吐 | RTX 4090，bf16，batch 64，PyTorch 参考实现的线性注意力：约 340 条/秒 |
+| 吞吐 | RTX 4090，bf16，batch 64，PyTorch 参考实现的线性注意力，holdout 5,372 条端到端：约 626 条/秒（`reports/mia-qwen3.5-2b/throughput.json`） |
+| 许可 | 权重以 Apache-2.0 发布（与底座一致） |
 | 依赖 | `torch>=2.14`，`transformers>=5.17`（含 `qwen3_5`） |
 
 ```python

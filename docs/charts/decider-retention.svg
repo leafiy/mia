@@ -1,0 +1,49 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1080' height='320' viewBox='0 0 1080 320' role='img' aria-label='mia-decider-2b 接着训前后：情感上涨，通用判断没有掉' font-family='-apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif'>
+<rect width='1080' height='320' fill='#ffffff'/>
+<text x='24' y='30' font-size='18' font-weight='600' fill='#1f2328'>mia-decider-2b 接着训前后：情感上涨，通用判断没有掉</text>
+<line x1='256.0' y1='50' x2='256.0' y2='230' stroke='#d0d7de' stroke-width='1'/>
+<text x='256.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.80</text>
+<line x1='329.4' y1='50' x2='329.4' y2='230' stroke='#d0d7de' stroke-width='1'/>
+<text x='329.4' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.82</text>
+<line x1='402.8' y1='50' x2='402.8' y2='230' stroke='#d0d7de' stroke-width='1'/>
+<text x='402.8' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.84</text>
+<line x1='476.2' y1='50' x2='476.2' y2='230' stroke='#d0d7de' stroke-width='1'/>
+<text x='476.2' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.86</text>
+<line x1='549.6' y1='50' x2='549.6' y2='230' stroke='#d0d7de' stroke-width='1'/>
+<text x='549.6' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.88</text>
+<line x1='623.0' y1='50' x2='623.0' y2='230' stroke='#d0d7de' stroke-width='1'/>
+<text x='623.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.90</text>
+<line x1='696.4' y1='50' x2='696.4' y2='230' stroke='#d0d7de' stroke-width='1'/>
+<text x='696.4' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.92</text>
+<line x1='769.8' y1='50' x2='769.8' y2='230' stroke='#d0d7de' stroke-width='1'/>
+<text x='769.8' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.94</text>
+<line x1='843.2' y1='50' x2='843.2' y2='230' stroke='#d0d7de' stroke-width='1'/>
+<text x='843.2' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.96</text>
+<line x1='916.6' y1='50' x2='916.6' y2='230' stroke='#d0d7de' stroke-width='1'/>
+<text x='916.6' y='44' font-size='11' fill='#57606a' text-anchor='middle'>0.98</text>
+<line x1='990.0' y1='50' x2='990.0' y2='230' stroke='#d0d7de' stroke-width='1'/>
+<text x='990.0' y='44' font-size='11' fill='#57606a' text-anchor='middle'>1.00</text>
+<text x='244' y='89.0' font-size='13' fill='#1f2328' text-anchor='end'>Mia 校准集（前 600 行）</text>
+<rect x='256' y='65.0' width='152.9' height='18' fill='#6e7781' rx='2'/>
+<text x='414.9' y='79.0' font-size='11' fill='#1f2328'>0.842</text>
+<rect x='256' y='87.0' width='360.9' height='18' fill='#1a7f37' rx='2'/>
+<text x='622.9' y='101.0' font-size='11' fill='#1f2328'>0.898</text>
+<text x='244' y='139.0' font-size='13' fill='#1f2328' text-anchor='end'>通用判断：自定义题（2,888</text>
+<text x='244' y='155.0' font-size='13' fill='#1f2328' text-anchor='end'>题）</text>
+<rect x='256' y='123.0' width='483.7' height='18' fill='#6e7781' rx='2'/>
+<text x='745.7' y='137.0' font-size='11' fill='#1f2328'>0.932</text>
+<rect x='256' y='145.0' width='495.1' height='18' fill='#1a7f37' rx='2'/>
+<text x='757.1' y='159.0' font-size='11' fill='#1f2328'>0.935</text>
+<line x1='24' y1='114' x2='1056' y2='114' stroke='#d0d7de' stroke-width='0.5'/>
+<text x='244' y='205.0' font-size='13' fill='#1f2328' text-anchor='end'>通用判断：路由题（600 题）</text>
+<rect x='256' y='181.0' width='348.6' height='18' fill='#6e7781' rx='2'/>
+<text x='610.6' y='195.0' font-size='11' fill='#1f2328'>0.895</text>
+<rect x='256' y='203.0' width='464.9' height='18' fill='#1a7f37' rx='2'/>
+<text x='726.9' y='217.0' font-size='11' fill='#1f2328'>0.927</text>
+<line x1='24' y1='172' x2='1056' y2='172' stroke='#d0d7de' stroke-width='0.5'/>
+<rect x='256' y='245' width='14' height='14' fill='#6e7781' rx='2'/>
+<text x='276' y='256' font-size='12' fill='#1f2328'>原版 decider-2b</text>
+<rect x='437' y='245' width='14' height='14' fill='#1a7f37' rx='2'/>
+<text x='457' y='256' font-size='12' fill='#1f2328'>mia-decider-2b</text>
+<text x='256' y='278' font-size='11' fill='#57606a'>准确率，温度 1；后两行是 decider 自带 teacher_data 里从没训过的 6 个领域（英文）</text>
+</svg>

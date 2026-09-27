@@ -1,0 +1,312 @@
+{
+  "model": "models/mia-decider-2b/final",
+  "model_type": "decider",
+  "seed": 42,
+  "sample": 5000,
+  "max_chars": 512,
+  "datasets": {
+    "chnsenticorp": {
+      "rows": 1200,
+      "gold_counts": {
+        "正面": 608,
+        "负面": 592
+      },
+      "pred_counts": {
+        "负面": 488,
+        "中性": 326,
+        "正面": 386
+      },
+      "accuracy": 0.6883333333333334,
+      "confusion_matrix": [
+        [
+          464,
+          104,
+          24
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          24,
+          222,
+          362
+        ]
+      ],
+      "label_order": [
+        "负面",
+        "中性",
+        "正面"
+      ],
+      "per_class": {
+        "负面": {
+          "support": 592,
+          "precision": 0.9508196721311475,
+          "recall": 0.7837837837837838,
+          "f1": 0.8592592592592593
+        },
+        "中性": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "正面": {
+          "support": 608,
+          "precision": 0.9378238341968912,
+          "recall": 0.5953947368421053,
+          "f1": 0.7283702213279678
+        }
+      },
+      "neutral_rate": 0.27166666666666667,
+      "polarity_accuracy": 0.9450800915331807,
+      "forced_binary_accuracy": 0.88,
+      "forced_binary_macro_f1": 0.8798665183537264,
+      "kind": "binary",
+      "avg_chars": 102.1175
+    },
+    "weibo_senti": {
+      "rows": 5000,
+      "gold_counts": {
+        "负面": 2493,
+        "正面": 2507
+      },
+      "pred_counts": {
+        "负面": 1737,
+        "正面": 2063,
+        "中性": 1200
+      },
+      "accuracy": 0.657,
+      "confusion_matrix": [
+        [
+          1555,
+          605,
+          333
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          182,
+          595,
+          1730
+        ]
+      ],
+      "label_order": [
+        "负面",
+        "中性",
+        "正面"
+      ],
+      "per_class": {
+        "负面": {
+          "support": 2493,
+          "precision": 0.8952216465169833,
+          "recall": 0.623746490172483,
+          "f1": 0.735224586288416
+        },
+        "中性": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "正面": {
+          "support": 2507,
+          "precision": 0.8385845855550169,
+          "recall": 0.6900678101316314,
+          "f1": 0.7571115973741794
+        }
+      },
+      "neutral_rate": 0.24,
+      "polarity_accuracy": 0.8644736842105263,
+      "forced_binary_accuracy": 0.8302,
+      "forced_binary_macro_f1": 0.8299964785843019,
+      "kind": "binary",
+      "avg_chars": 43.923
+    },
+    "online_shop": {
+      "rows": 5000,
+      "gold_counts": {
+        "负面": 2476,
+        "正面": 2524
+      },
+      "pred_counts": {
+        "负面": 2283,
+        "中性": 881,
+        "正面": 1836
+      },
+      "accuracy": 0.7968,
+      "confusion_matrix": [
+        [
+          2190,
+          244,
+          42
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          93,
+          637,
+          1794
+        ]
+      ],
+      "label_order": [
+        "负面",
+        "中性",
+        "正面"
+      ],
+      "per_class": {
+        "负面": {
+          "support": 2476,
+          "precision": 0.9592641261498029,
+          "recall": 0.8844911147011308,
+          "f1": 0.9203614204664845
+        },
+        "中性": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "正面": {
+          "support": 2524,
+          "precision": 0.9771241830065359,
+          "recall": 0.7107765451664025,
+          "f1": 0.8229357798165138
+        }
+      },
+      "neutral_rate": 0.1762,
+      "polarity_accuracy": 0.9672250546249089,
+      "forced_binary_accuracy": 0.9208,
+      "forced_binary_macro_f1": 0.9206972236017879,
+      "kind": "binary",
+      "avg_chars": 56.8608
+    },
+    "eprstmt": {
+      "rows": 610,
+      "gold_counts": {
+        "负面": 305,
+        "正面": 305
+      },
+      "pred_counts": {
+        "负面": 251,
+        "正面": 177,
+        "中性": 182
+      },
+      "accuracy": 0.6737704918032786,
+      "confusion_matrix": [
+        [
+          239,
+          61,
+          5
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          12,
+          121,
+          172
+        ]
+      ],
+      "label_order": [
+        "负面",
+        "中性",
+        "正面"
+      ],
+      "per_class": {
+        "负面": {
+          "support": 305,
+          "precision": 0.952191235059761,
+          "recall": 0.7836065573770492,
+          "f1": 0.8597122302158273
+        },
+        "中性": {
+          "support": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "正面": {
+          "support": 305,
+          "precision": 0.9717514124293786,
+          "recall": 0.5639344262295082,
+          "f1": 0.7136929460580913
+        }
+      },
+      "neutral_rate": 0.2983606557377049,
+      "polarity_accuracy": 0.9602803738317757,
+      "forced_binary_accuracy": 0.8934426229508197,
+      "forced_binary_macro_f1": 0.8932012422594469,
+      "kind": "binary",
+      "avg_chars": 46.75901639344262
+    },
+    "dmsc": {
+      "rows": 5000,
+      "gold_counts": {
+        "中性": 1131,
+        "正面": 3006,
+        "负面": 863
+      },
+      "pred_counts": {
+        "中性": 1945,
+        "正面": 1734,
+        "负面": 1321
+      },
+      "accuracy": 0.5352,
+      "confusion_matrix": [
+        [
+          609,
+          221,
+          33
+        ],
+        [
+          383,
+          557,
+          191
+        ],
+        [
+          329,
+          1167,
+          1510
+        ]
+      ],
+      "label_order": [
+        "负面",
+        "中性",
+        "正面"
+      ],
+      "per_class": {
+        "负面": {
+          "support": 863,
+          "precision": 0.4610143830431491,
+          "recall": 0.7056778679026651,
+          "f1": 0.5576923076923077
+        },
+        "中性": {
+          "support": 1131,
+          "precision": 0.2863753213367609,
+          "recall": 0.49248452696728556,
+          "f1": 0.3621586475942783
+        },
+        "正面": {
+          "support": 3006,
+          "precision": 0.8708189158016147,
+          "recall": 0.5023286759813705,
+          "f1": 0.6371308016877637
+        }
+      },
+      "macro_f1": 0.51899391899145,
+      "kind": "ternary",
+      "avg_chars": 35.5284
+    }
+  }
+}

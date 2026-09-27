@@ -1,0 +1,107 @@
+[
+ {
+  "tag": "clm-default",
+  "desc": "默认：参考头热启动，20 轮",
+  "best_epoch": 16,
+  "val_acc": 0.8657206674549993,
+  "dev_acc": 0.8642276422764228,
+  "init_dev_acc": 0.3436991869918699,
+  "minutes": 0.39,
+  "train_questions": 68501,
+  "args": {
+   "loss": "infonce",
+   "targets": "soft",
+   "epochs": 20,
+   "patience": 5,
+   "batch": 256,
+   "lr": null,
+   "val_frac": 0.1,
+   "seed": 1234,
+   "init_ckpt": "CLM_v0.1-8B.pt"
+  }
+ },
+ {
+  "tag": "clm-softce",
+  "desc": "softce 损失，热启动",
+  "best_epoch": 9,
+  "val_acc": 0.8623045591906451,
+  "dev_acc": 0.8563008130081301,
+  "init_dev_acc": 0.3436991869918699,
+  "minutes": 0.32,
+  "train_questions": 68501,
+  "args": {
+   "loss": "softce",
+   "targets": "soft",
+   "epochs": 20,
+   "patience": 5,
+   "batch": 256,
+   "lr": null,
+   "val_frac": 0.1,
+   "seed": 1234,
+   "init_ckpt": "CLM_v0.1-8B.pt"
+  }
+ },
+ {
+  "tag": "clm-scratch",
+  "desc": "不热启动，20 轮",
+  "best_epoch": 19,
+  "val_acc": 0.8683484430429641,
+  "dev_acc": 0.8703252032520326,
+  "init_dev_acc": 0.3436991869918699,
+  "minutes": 0.41,
+  "train_questions": 68501,
+  "args": {
+   "loss": "infonce",
+   "targets": "soft",
+   "epochs": 20,
+   "patience": 5,
+   "batch": 256,
+   "lr": null,
+   "val_frac": 0.1,
+   "seed": 1234,
+   "init_ckpt": null
+  }
+ },
+ {
+  "tag": "clm-e40",
+  "desc": "热启动，40 轮",
+  "best_epoch": 23,
+  "val_acc": 0.8695309420575483,
+  "dev_acc": 0.8684959349593496,
+  "init_dev_acc": 0.3436991869918699,
+  "minutes": 0.61,
+  "train_questions": 68501,
+  "args": {
+   "loss": "infonce",
+   "targets": "soft",
+   "epochs": 40,
+   "patience": 10,
+   "batch": 256,
+   "lr": null,
+   "val_frac": 0.1,
+   "seed": 1234,
+   "init_ckpt": "CLM_v0.1-8B.pt"
+  }
+ },
+ {
+  "tag": "clm-scratch-e40",
+  "desc": "不热启动，40 轮（按验证集选出）",
+  "best_epoch": 33,
+  "val_acc": 0.8701878859545394,
+  "dev_acc": 0.8731707317073171,
+  "init_dev_acc": 0.48597560975609755,
+  "minutes": 0.7,
+  "train_questions": 68501,
+  "args": {
+   "loss": "infonce",
+   "targets": "soft",
+   "epochs": 40,
+   "patience": 10,
+   "batch": 256,
+   "lr": null,
+   "val_frac": 0.1,
+   "seed": 1234,
+   "init_ckpt": null
+  }
+ }
+]

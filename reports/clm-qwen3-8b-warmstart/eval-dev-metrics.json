@@ -1,0 +1,68 @@
+{
+  "model": "<workdir>/clm/runs/clm-e40/best_head.pt",
+  "requested_device": "cuda:0",
+  "actual_device": "cuda:0",
+  "temperature": [
+    0.8843658234356262,
+    1.0,
+    1.0
+  ],
+  "dataset": {
+    "path": "data/eval/test.jsonl",
+    "sha256": "2adee0bf6a949b2e9df35422c52d8ce11c8dc5d27b1a1dd0b01c5cd0fada334a",
+    "manifest_rows": 4920,
+    "evaluated_rows": 4920,
+    "limit": 0
+  },
+  "metrics": {
+    "rows": 4920,
+    "accuracy": 0.8664634227752686,
+    "macro_f1": 0.8550182227580394,
+    "nll": 0.310691237449646,
+    "brier": 0.1859198361635208,
+    "ece": 0.013878526314487306,
+    "per_class": {
+      "负面": {
+        "support": 838,
+        "precision": 0.7952941176470588,
+        "recall": 0.8066825775656324,
+        "f1": 0.8009478672985783
+      },
+      "中性": {
+        "support": 2391,
+        "precision": 0.8700376096949436,
+        "recall": 0.8707653701380176,
+        "f1": 0.8704013377926422
+      },
+      "正面": {
+        "support": 1691,
+        "precision": 0.8974358974358975,
+        "recall": 0.8900059136605559,
+        "f1": 0.8937054631828979
+      }
+    },
+    "confusion_matrix": [
+      [
+        676,
+        145,
+        17
+      ],
+      [
+        154,
+        2082,
+        155
+      ],
+      [
+        20,
+        166,
+        1505
+      ]
+    ],
+    "label_order": [
+      "负面",
+      "中性",
+      "正面"
+    ]
+  },
+  "label_provenance": "llm relabel of the normalized text; old machine labels unused"
+}

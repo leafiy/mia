@@ -1,0 +1,59 @@
+[data] train: 76112 rows -> <workdir>/clm/data/sentiment/train-00000.parquet
+[data] test: 4920 rows -> <workdir>/clm/data/sentiment/test-00000.parquet
+[cache] 81035 distinct texts, 81035 to embed -> <workdir>/clm/embeddings/choice_Qwen_Qwen3-8B_2048.npz
+
+Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 398/398 [00:00<00:00, 18945.58it/s]
+[transformers] [1mQwen3Model LOAD REPORT[0m from: Qwen/Qwen3-8B
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[embed] 2048/20000 472.1 texts/s
+[embed] 4032/20000 475.7 texts/s
+[embed] 6016/20000 459.9 texts/s
+[embed] 8000/20000 440.3 texts/s
+[embed] 10048/20000 416.8 texts/s
+[embed] 12032/20000 390.7 texts/s
+[embed] 14016/20000 362.8 texts/s
+[embed] 16000/20000 332.8 texts/s
+[embed] 18048/20000 301.0 texts/s
+[embed] 20000/20000 266.2 texts/s
+[cache] 20000/81035 new texts saved
+[embed] 2048/20000 535.3 texts/s
+[embed] 4032/20000 504.3 texts/s
+[embed] 6016/20000 476.3 texts/s
+[embed] 8000/20000 450.4 texts/s
+[embed] 10048/20000 423.7 texts/s
+[embed] 12032/20000 397.1 texts/s
+[embed] 14016/20000 368.4 texts/s
+[embed] 16000/20000 337.7 texts/s
+[embed] 18048/20000 304.5 texts/s
+[embed] 20000/20000 268.8 texts/s
+[cache] 40000/81035 new texts saved
+[embed] 2048/20000 537.1 texts/s
+[embed] 4032/20000 504.9 texts/s
+[embed] 6016/20000 476.6 texts/s
+[embed] 8000/20000 450.1 texts/s
+[embed] 10048/20000 422.8 texts/s
+[embed] 12032/20000 395.4 texts/s
+[embed] 14016/20000 366.7 texts/s
+[embed] 16000/20000 336.3 texts/s
+[embed] 18048/20000 304.0 texts/s
+[embed] 20000/20000 268.6 texts/s
+[cache] 60000/81035 new texts saved
+[embed] 2048/20000 540.2 texts/s
+[embed] 4032/20000 507.1 texts/s
+[embed] 6016/20000 478.9 texts/s
+[embed] 8000/20000 452.2 texts/s
+[embed] 10048/20000 424.7 texts/s
+[embed] 12032/20000 397.0 texts/s
+[embed] 14016/20000 367.4 texts/s
+[embed] 16000/20000 336.6 texts/s
+[embed] 18048/20000 303.6 texts/s
+[embed] 20000/20000 267.2 texts/s
+[cache] 80000/81035 new texts saved
+[cache] 81035/81035 new texts saved
+[done] finetune.py will find every text in the cache
