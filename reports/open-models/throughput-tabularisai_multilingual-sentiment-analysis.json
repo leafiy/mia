@@ -1,0 +1,10 @@
+{
+  "model": "tabularisai/multilingual-sentiment-analysis",
+  "path": "transformers AutoModelForSequenceClassification, fp32 (library default), texts sorted by length",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 0.8194031715393066,
+  "rows_per_second": 6555.991222133445,
+  "holdout_accuracy_check": 0.622114668652271
+}

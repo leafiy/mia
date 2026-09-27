@@ -43,7 +43,22 @@
   <div class='card'><h3>原版 Qwen3.5-2B 零样本</h3><div class='big'>0.6372</div><div class='sub'>未微调，同一口径提示词、受限选择 · 中文 900 条 0.7944</div></div>
 </div>
 
+<h2>和常见开源中文情感模型对比</h2>
+<div class="tablewrap"><table><thead><tr><th>模型</th><th>类别</th><th>holdout 5,372 三分类</th><th>中文 900 条三分类</th><th>holdout 正负二选一</th><th>900 条正负二选一</th><th>ChnSentiCorp</th><th>网购评论</th><th>eprstmt</th><th>微博</th><th>DMSC Macro-F1</th><th>4090 每秒条数</th></tr></thead><tbody>
+<tr><td><a href='https://huggingface.co/leafiy/mia-decider-2b'>mia-decider-2b</a> <span class="tag">Mia</span></td><td>负 / 中 / 正</td><td>0.881</td><td>0.940</td><td>0.978</td><td>1.000</td><td>0.880</td><td>0.921</td><td>0.893</td><td>0.830</td><td>0.519</td><td>375</td></tr>
+<tr><td><a href='https://huggingface.co/leafiy/mia-qwen3.5-2b'>mia-qwen3.5-2b</a> <span class="tag">Mia</span></td><td>负 / 中 / 正</td><td>0.871</td><td>0.941</td><td>0.972</td><td>1.000</td><td>0.882</td><td>0.922</td><td>0.897</td><td>0.798</td><td>0.499</td><td>626</td></tr>
+<tr><td><a href='https://huggingface.co/leafiy/mia-laya'>mia-laya</a> <span class="tag">Mia</span></td><td>负 / 中 / 正</td><td>0.817</td><td>0.938</td><td>0.954</td><td>0.995</td><td>0.883</td><td>0.919</td><td>0.882</td><td>0.803</td><td>0.467</td><td>1,977</td></tr>
+<tr><td><a href='https://huggingface.co/IDEA-CCNL/Erlangshen-Roberta-330M-Sentiment'>Erlangshen-Roberta-330M-Sentiment</a></td><td>负 / 正</td><td>0.452</td><td>0.656</td><td>0.880</td><td>0.983</td><td>0.968</td><td>0.989</td><td>0.997</td><td>0.729</td><td>0.415</td><td>1,378</td></tr>
+<tr><td><a href='https://huggingface.co/IDEA-CCNL/Erlangshen-Roberta-110M-Sentiment'>Erlangshen-Roberta-110M-Sentiment</a></td><td>负 / 正</td><td>0.448</td><td>0.646</td><td>0.871</td><td>0.968</td><td>0.962</td><td>0.979</td><td>0.982</td><td>0.721</td><td>0.409</td><td>3,809</td></tr>
+<tr><td><a href='https://huggingface.co/uer/roberta-base-finetuned-dianping-chinese'>uer/roberta-base-finetuned-dianping-chinese</a></td><td>负 / 正</td><td>0.455</td><td>0.657</td><td>0.885</td><td>0.985</td><td>0.877</td><td>0.894</td><td>0.795</td><td>0.726</td><td>0.414</td><td>3,812</td></tr>
+<tr><td><a href='https://huggingface.co/uer/roberta-base-finetuned-jd-binary-chinese'>uer/roberta-base-finetuned-jd-binary-chinese</a></td><td>负 / 正</td><td>0.431</td><td>0.654</td><td>0.839</td><td>0.982</td><td>0.834</td><td>0.928</td><td>0.902</td><td>0.704</td><td>0.455</td><td>3,795</td></tr>
+<tr><td><a href='https://huggingface.co/cardiffnlp/twitter-xlm-roberta-base-sentiment'>cardiffnlp/twitter-xlm-roberta-base-sentiment</a></td><td>负 / 中 / 正</td><td>0.693</td><td>0.664</td><td>0.921</td><td>0.750</td><td>0.809</td><td>0.894</td><td>0.848</td><td>0.813</td><td>0.397</td><td>3,650</td></tr>
+<tr><td><a href='https://huggingface.co/lxyuan/distilbert-base-multilingual-cased-sentiments-student'>lxyuan/distilbert-base-multilingual-cased-sentiments-student</a></td><td>负 / 中 / 正</td><td>0.486</td><td>0.560</td><td>0.885</td><td>0.817</td><td>0.852</td><td>0.903</td><td>0.864</td><td>0.797</td><td>0.447</td><td>6,699</td></tr>
+<tr><td><a href='https://huggingface.co/tabularisai/multilingual-sentiment-analysis'>tabularisai/multilingual-sentiment-analysis</a></td><td>五档合为三类</td><td>0.622</td><td>0.777</td><td>0.837</td><td>0.785</td><td>0.822</td><td>0.868</td><td>0.841</td><td>0.668</td><td>0.374</td><td>6,556</td></tr>
+</tbody></table></div>
+
 <h2>图表</h2>
+<figure><img src='charts/open-models.svg' alt='和常见开源中文情感模型对比' loading='lazy'/><figcaption><strong>和常见开源中文情感模型对比</strong> 同一套评测。</figcaption></figure>
 <figure><img src='charts/journey.svg' alt='一路走来' loading='lazy'/><figcaption><strong>一路走来</strong> 关键版本在同一 holdout 上的准确率：配方、换标签、换底座、定义褒贬混合，再换成决策模型并在它上面接着训。</figcaption></figure>
 <figure><img src='charts/accuracy.svg' alt='准确率' loading='lazy'/><figcaption><strong>准确率</strong> 12 次训练和零样本基线全部用同一脚本在三套评测集上重评。</figcaption></figure>
 <figure><img src='charts/macro-f1.svg' alt='Macro-F1' loading='lazy'/><figcaption><strong>Macro-F1</strong> 三类 F1 的算术平均，对少数类更敏感。</figcaption></figure>

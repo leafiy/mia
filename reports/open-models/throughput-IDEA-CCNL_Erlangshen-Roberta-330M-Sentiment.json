@@ -1,0 +1,10 @@
+{
+  "model": "IDEA-CCNL/Erlangshen-Roberta-330M-Sentiment",
+  "path": "transformers AutoModelForSequenceClassification, fp32 (library default), texts sorted by length",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 3.8979997634887695,
+  "rows_per_second": 1378.1427208687098,
+  "holdout_accuracy_check": 0.4523454951600894
+}

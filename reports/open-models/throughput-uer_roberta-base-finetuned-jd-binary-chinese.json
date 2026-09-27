@@ -1,0 +1,10 @@
+{
+  "model": "uer/roberta-base-finetuned-jd-binary-chinese",
+  "path": "transformers AutoModelForSequenceClassification, fp32 (library default), texts sorted by length",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 1.4154784679412842,
+  "rows_per_second": 3795.1831282980966,
+  "holdout_accuracy_check": 0.4311243484735666
+}

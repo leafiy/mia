@@ -1,0 +1,10 @@
+{
+  "model": "uer/roberta-base-finetuned-dianping-chinese",
+  "path": "transformers AutoModelForSequenceClassification, fp32 (library default), texts sorted by length",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 1.4093668460845947,
+  "rows_per_second": 3811.6406774603206,
+  "holdout_accuracy_check": 0.4545793000744602
+}

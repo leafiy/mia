@@ -1,0 +1,10 @@
+{
+  "model": "lxyuan/distilbert-base-multilingual-cased-sentiments-student",
+  "path": "transformers AutoModelForSequenceClassification, fp32 (library default), texts sorted by length",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 0.8018805980682373,
+  "rows_per_second": 6699.2517501250995,
+  "holdout_accuracy_check": 0.48566641846612063
+}

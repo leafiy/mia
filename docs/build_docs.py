@@ -270,6 +270,13 @@ if TP:
                lambda row, k: row['rows_per_second'], [('rps', '每秒条数', '#0969da')], 0, 2000,
                note='bf16，batch 64，先加载并预热；线性注意力层走 PyTorch 参考实现', fmt='{:.0f}', tick_fmt='{:.0f}')
 
+# 5e. Mia against popular open Chinese sentiment models
+OPEN = SUMMARY.get('open_models')
+if OPEN:
+    hbar_chart(CHARTS / 'open-models.svg', '和常见开源中文情感模型对比', OPEN['rows'], lambda row, k: row[k],
+               [('holdout_3way', 'holdout 三分类', '#0969da'), ('holdout_polar', 'holdout 正负二选一', '#8250df'),
+                ('csv_polar', '900 条正负二选一', '#bf8700')], 0.4, 1.0)
+
 # 6. the journey: holdout accuracy along the chronological path
 journey = [BY[a] for a in ('qwen3.5-2b-zero-shot', 'laya-oldlabels', 'laya-oldlabels-cw-balanced', 'mia-laya', 'qwen2b-relabeled', 'mia-qwen3.5-2b',
                            'decider-2b-zero-shot', 'mia-decider-2b') if a in BY]
@@ -341,9 +348,13 @@ ret_rows_html = [[str(r['step'])] + [f"{r[k]:.4f}" for k in RET['sets']] for r i
 variant_rows = [[f"<code>{esc(v['tag'])}</code>", esc(v['desc']), v['best_epoch'], f"{v['val_acc']:.4f}", f"{v['dev_acc']:.4f}", f"{v['minutes']:.2f}"]
                 for v in SUMMARY.get('clm_variants', [])]
 tp_rows = [[esc(r['alias']), esc(r['path']), f"{r['rows_per_second']:.0f}"] for r in (TP or {}).get('rows', [])]
+OPEN_COLS = ['holdout_3way', 'csv_3way', 'holdout_polar', 'csv_polar', 'chnsenticorp', 'online_shop', 'eprstmt', 'weibo_senti', 'dmsc_macro_f1']
+open_rows = [[f"<a href='{esc(r['url'])}'>{esc(r['alias'])}</a>" + (' <span class="tag">Mia</span>' if r['mia'] else ''), esc(r['classes'])]
+             + [f"{r[c]:.3f}" for c in OPEN_COLS] + [f"{r['rows_per_second']:,.0f}"] for r in (OPEN or {}).get('rows', [])]
 
 charts = [
-    ('journey.svg', '一路走来', '关键版本在同一 holdout 上的准确率：配方、换标签、换底座、定义褒贬混合，再换成决策模型并在它上面接着训。'),
+    ('open-models.svg', '和常见开源中文情感模型对比', '同一套评测。'),
+    ('journey.svg', '一路走来','关键版本在同一 holdout 上的准确率：配方、换标签、换底座、定义褒贬混合，再换成决策模型并在它上面接着训。'),
     ('accuracy.svg', '准确率', f'{len(RUNS)} 次训练和零样本基线全部用同一脚本在三套评测集上重评。'),
     ('macro-f1.svg', 'Macro-F1', '三类 F1 的算术平均，对少数类更敏感。'),
     ('neutral-recall.svg', '中性召回', '中性一直是最难的一类；旧标签模型的中性召回不到 0.55，零样本模型普遍把中性判成负面。'),
@@ -408,6 +419,9 @@ page = f"""<!DOCTYPE html>
   <div class="card"><h3>起点 laya-oldlabels</h3><div class="big">{BY['laya-oldlabels']['unified_holdout']['accuracy']:.4f}</div><div class="sub">同一 holdout 上的早期标签模型 · 从这里到发布版靠的是换标签、换底座、定义褒贬混合</div></div>
   {"<div class='card'><h3>原版 Qwen3.5-2B 零样本</h3><div class='big'>" + f"{ZS['unified_holdout']['accuracy']:.4f}" + "</div><div class='sub'>未微调，同一口径提示词、受限选择 · 中文 900 条 " + f"{ZS['chinese_csv']['pooled']['accuracy']:.4f}" + "</div></div>" if ZS else ""}
 </div>
+
+<h2>和常见开源中文情感模型对比</h2>
+<div class="tablewrap">{table(['模型', '类别', f'holdout {_rows("holdout")} 三分类', '中文 900 条三分类', 'holdout 正负二选一', '900 条正负二选一', 'ChnSentiCorp', '网购评论', 'eprstmt', '微博', 'DMSC Macro-F1', '4090 每秒条数'], open_rows)}</div>
 
 <h2>图表</h2>
 {chart_html}

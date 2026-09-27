@@ -1,0 +1,10 @@
+{
+  "model": "cardiffnlp/twitter-xlm-roberta-base-sentiment",
+  "path": "transformers AutoModelForSequenceClassification, fp32 (library default), texts sorted by length",
+  "device": "NVIDIA GeForce RTX 4090",
+  "batch_size": 64,
+  "rows": 5372,
+  "seconds": 1.4718515872955322,
+  "rows_per_second": 3649.8245110913886,
+  "holdout_accuracy_check": 0.6934102755026061
+}

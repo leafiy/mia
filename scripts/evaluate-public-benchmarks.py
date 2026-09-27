@@ -12,8 +12,16 @@ Datasets (fixed samples, seed 42; texts normalized like training and cut to 512 
   online_shop    dirtycomputer/online_shopping_10_cats, 5,000 sampled e-commerce reviews across 10 categories, binary
   eprstmt        suolyer/eprstmt (FewCLUE) test split, e-commerce reviews, binary
   dmsc           BerlinWang/DMSC, 5,000 sampled Douban movie short comments with 1-5 stars: 1-2 -> 负面, 3 -> 中性, 4-5 -> 正面
+  mia_dev / mia_holdout / mia_csv   Mia's own evaluation sets (data/eval/test.jsonl, unseen-test.jsonl, the three 中文情感测试集 CSVs)
 For binary sets a 中性 prediction counts as wrong in `accuracy`; `polarity_accuracy` scores only the rows where the model
-chose 正面/负面, and `neutral_rate` is how often it chose 中性. The 3-star proxy for 中性 in dmsc is rough by nature.
+chose 正面/负面, and `neutral_rate` is how often it chose 中性. The 3-star proxy for 中性 in dmsc is rough by nature. Three-way
+sets also get `polar_forced_binary_accuracy`: on the rows whose gold is 正面 or 负面, the forced two-way choice, which is the
+one number a two-class model (no 中性) can be compared on.
+
+  python scripts/evaluate-public-benchmarks.py --model-type hf --model IDEA-CCNL/Erlangshen-Roberta-110M-Sentiment \
+    --datasets chnsenticorp weibo_senti online_shop eprstmt dmsc mia_dev mia_holdout mia_csv --output reports/open-models/<slug>.json
+--model-type hf loads any Hugging Face sequence classifier and folds its labels into 负面 / 中性 / 正面 by name (negative,
+very negative, 1-3 star negative -> 负面; neutral -> 中性; positive, very positive -> 正面); a two-class model gets 中性 = 0.
 """
 import argparse
 import csv
@@ -45,7 +53,7 @@ def module(filename, name):
 
 def arguments():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('--model-type', choices=('qwen', 'laya', 'zero-shot', 'clm', 'decider', 'kev'), required=True,
+    parser.add_argument('--model-type', choices=('qwen', 'laya', 'zero-shot', 'clm', 'decider', 'kev', 'hf'), required=True,
                         help='qwen/laya: a Mia final/ directory; zero-shot: an original Qwen3.5 checkpoint scored by evaluate-qwen-zero-shot.py; '
                              'clm: a CLM head checkpoint scored by evaluate-clm-sentiment.py; decider/kev: a System One checkpoint '
                              '(Hub id or path: models/mia-decider-2b/final, Mapika/decider-2b, jaredpalmer/kev-4b) scored by evaluate-systemone-sentiment.py')
@@ -126,7 +134,56 @@ def load_dataset(name, cache_dir):
                         continue
                     rows.append((text, '负面' if star <= 2 else '中性' if star == 3 else '正面'))
         return sample(rows, SAMPLE), 'ternary'
+    if name in ('mia_dev', 'mia_holdout'):
+        path = ROOT.parent / 'data' / 'eval' / ('test.jsonl' if name == 'mia_dev' else 'unseen-test.jsonl')
+        rows = []
+        for line in path.open(encoding='utf-8'):
+            r = json.loads(line)
+            rows.append((json.loads(r['state'])['text'], json.loads(r['gold'])['sentiment']['label']))
+        return rows, 'ternary'
+    if name == 'mia_csv':
+        rows = []
+        for n in (1, 2, 3):
+            with (ROOT.parent / 'data' / 'eval' / f'中文情感测试集_{n:02d}.csv').open(newline='', encoding='utf-8-sig') as f:
+                rows += [(r['text'], r['label'].strip()) for r in csv.DictReader(f)]
+        return rows, 'ternary'
     raise ValueError(name)
+
+
+def hf_label_map(id2label):
+    """Model label index -> index in LABELS, by label name."""
+    out = {}
+    for i, name in id2label.items():
+        n = str(name).lower()
+        j = 1 if 'neutral' in n else 0 if 'neg' in n else 2 if 'pos' in n else None
+        if j is None:
+            raise ValueError(f'cannot fold label {name!r} into 负面 / 中性 / 正面')
+        out[int(i)] = j
+    return out
+
+
+def predict_hf(model_id, texts, device, batch_size):
+    """Any Hugging Face sequence classifier, labels folded into LABELS order; a two-class model gets 中性 = 0."""
+    import torch
+    from transformers import AutoModelForSequenceClassification, AutoTokenizer
+    if 'hf_model' not in globals():
+        tok = AutoTokenizer.from_pretrained(model_id)
+        model = AutoModelForSequenceClassification.from_pretrained(model_id).to(device).eval()
+        globals()['hf_model'] = (tok, model, hf_label_map(model.config.id2label))
+    tok, model, fold = globals()['hf_model']
+    max_len = min(512, getattr(tok, 'model_max_length', 512) or 512)
+    order = sorted(range(len(texts)), key=lambda i: len(texts[i]))
+    out = [None] * len(texts)
+    with torch.inference_mode():
+        for start in range(0, len(order), batch_size):
+            idx = order[start:start + batch_size]
+            enc = tok([texts[i] for i in idx], return_tensors='pt', padding=True, truncation=True, max_length=max_len).to(device)
+            for i, row in zip(idx, model(**enc).logits.float().softmax(-1).cpu().tolist()):
+                q = [0.0, 0.0, 0.0]
+                for k, v in enumerate(row):
+                    q[fold[k]] += v
+                out[i] = q
+    return out
 
 
 def predict_qwen(model_dir, texts, device, batch_size):
@@ -186,6 +243,9 @@ def score(gold, probs, kind):
         report['forced_binary_macro_f1'] = sum(f1s) / 2
     else:
         report['macro_f1'] = sum(v['f1'] for v in per_class.values()) / 3
+        polar = [(g, p) for g, p in zip(gold, probs) if g != '中性']
+        report['polar_rows'] = len(polar)
+        report['polar_forced_binary_accuracy'] = sum(g == ('正面' if p[2] >= p[0] else '负面') for g, p in polar) / max(1, len(polar))
     return report
 
 
@@ -215,6 +275,9 @@ def main():
                 globals()['systemone_scorer'] = module('evaluate-systemone-sentiment.py', 'systemone_sentiment').scorer(
                     args.model_type, str(args.model), args.device, args.batch_size, schema_cache=args.schema_cache)
             probs = systemone_scorer.probs(texts)
+        elif args.model_type == 'hf':
+            probs = predict_hf(str(args.model), texts, args.device, args.batch_size)
+            report['model_classes'] = sorted({LABELS[j] for j in hf_model[2].values()}, key=LABELS.index)
         else:
             probs = predict_laya(args.model, args.questions or args.model.parent / 'questions.json', texts, args.device, args.batch_size)
         res = score(gold, probs, kind)
@@ -222,7 +285,7 @@ def main():
         res['avg_chars'] = sum(len(t) for t in texts) / len(texts)
         report['datasets'][name] = res
         extra = (f"neutral_rate={res['neutral_rate']:.3f} polarity_acc={res['polarity_accuracy']:.4f} forced_binary_acc={res['forced_binary_accuracy']:.4f}"
-                 if kind == 'binary' else f"macro_f1={res['macro_f1']:.4f}")
+                 if kind == 'binary' else f"macro_f1={res['macro_f1']:.4f} polar_forced_binary_acc={res['polar_forced_binary_accuracy']:.4f}")
         print(f"{name}: rows={res['rows']} acc={res['accuracy']:.4f} {extra}", flush=True)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

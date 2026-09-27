@@ -5,6 +5,7 @@ holdout text through tokenisation, forward and softmax.
 
   python scripts/benchmark-throughput.py --model-type qwen --model models/mia-qwen3.5-2b/final --output reports/mia-qwen3.5-2b/throughput.json
   python scripts/benchmark-throughput.py --model-type laya --model models/mia-laya/final --output reports/mia-laya/throughput.json
+  python scripts/benchmark-throughput.py --model-type hf --model IDEA-CCNL/Erlangshen-Roberta-110M-Sentiment --output reports/open-models/throughput-<slug>.json
 """
 import argparse
 import importlib.util
@@ -57,9 +58,17 @@ def laya_runner(model_dir, device, batch_size):
     return run, 'laya 0.3.20 predict_batch, sort_by_length, chunks of 512 rows'
 
 
+def hf_runner(model_id, device, batch_size):
+    bench = module('evaluate-public-benchmarks.py', 'public_benchmarks')
+
+    def run(texts):
+        return bench.predict_hf(str(model_id), texts, device, batch_size)
+    return run, 'transformers AutoModelForSequenceClassification, fp32 (library default), texts sorted by length'
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('--model-type', choices=('qwen', 'laya'), required=True)
+    parser.add_argument('--model-type', choices=('qwen', 'laya', 'hf'), required=True)
     parser.add_argument('--model', type=Path, required=True)
     parser.add_argument('--device', default='cuda:0')
     parser.add_argument('--batch-size', type=int, default=64)
@@ -69,7 +78,7 @@ def main():
     rows = [json.loads(line) for line in (ROOT.parent / 'data' / 'eval' / 'unseen-test.jsonl').open(encoding='utf-8')]
     texts = [json.loads(r['state'])['text'] for r in rows]
     labels = [LABELS.index(json.loads(r['gold'])['sentiment']['label']) for r in rows]
-    run, path = (qwen_runner if args.model_type == 'qwen' else laya_runner)(args.model, args.device, args.batch_size)
+    run, path = {'qwen': qwen_runner, 'laya': laya_runner, 'hf': hf_runner}[args.model_type](args.model, args.device, args.batch_size)
     run(texts[:512])
     torch.cuda.synchronize()
     started = time.time()
