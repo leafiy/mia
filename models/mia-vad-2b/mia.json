@@ -32,7 +32,7 @@
     },
     "gold_random_1439": {"valence_r": 0.8806, "arousal_r": 0.8445, "dominance_r": 0.6003, "intensity_r": 0.8165, "emotion_accuracy": 0.7915},
     "gold_all_1981": {"emotion_macro_f1": 0.671, "emotion_f1": {"喜悦": 0.848, "愤怒": 0.570, "悲伤": 0.731, "恐惧": 0.647, "惊讶": 0.563, "厌恶": 0.571, "无明显情绪": 0.767}},
-    "gold_note": "2,000 texts labeled by an LLM under a written rubric, not by people; 1,454 drawn at random, 546 added for rare emotions",
+    "gold_note": "2,000 texts labeled by a third LLM under the written rubric (rubric.md); 1,454 drawn at random, 546 added for rare emotions",
     "cvat_2931": {"valence_r": 0.8428, "arousal_r": 0.5488},
     "smp2020_ewect_usual_test_4998": {"accuracy": 0.7109, "macro_f1": 0.6982, "note": "no disgust class in EWECT; predicted 厌恶 counted as wrong"},
     "decider_heldout_general_decisions": {"teacher_custom_heldout": 0.932, "teacher_routing_heldout": 0.932}
