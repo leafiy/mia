@@ -2,6 +2,8 @@
 
 Mia 是一组给中文短文本判「负面 / 中性 / 正面」的小模型。这个仓库公开三个发布版本的权重、全部评测数据、每一次实验的报告和脚本，以及我们在标签、底座、口径上踩过的坑。
 
+另有一个多维版 `mia-vad-2b`，在三分类之外还给出效价、唤醒度、支配度、七类主导情绪和情绪强度，见下面的「多维版：mia-vad-2b」一节。
+
 图表和完整表格见 [docs/index.html](docs/index.html)，下面是浓缩版。
 
 ## 三个版本
@@ -159,6 +161,61 @@ Mia 是一组给中文短文本判「负面 / 中性 / 正面」的小模型。�
 缓存路径在 Mia 自己的三套评测上都更好、快将近 3 倍；在长评论为主的三个公开集上低 0.7 到 1.2 个百分点。温度在后一种路径上拟合（0.9989，几乎不用调），两条路径共用。
 
 ![速度](docs/charts/throughput.svg)
+
+## 多维版：mia-vad-2b
+
+三分类只回答在夸还是在骂。`mia-vad-2b` 一次多给五项：效价（−3～+3）、唤醒度（0～4）、支配度（0～4）、主导情绪（喜悦、愤怒、悲伤、恐惧、惊讶、厌恶、无明显情绪七选一）和情绪强度（0～3）。底座同样是 decider-2b v11，整体态度那道题和 `mia-decider-2b` 一字不差，三分类成绩持平：holdout 0.8816（`mia-decider-2b` 0.8812），中文 900 条 0.9367（0.9400），ECE 0.0106。模型卡在 [models/mia-vad-2b/](models/mia-vad-2b/README.md)，权重同时放在 [ModelScope leafiy2/mia-vad-2b](https://modelscope.cn/models/leafiy2/mia-vad-2b)。
+
+### 成绩
+
+金标 2,000 条由第三个大模型按同一份口径标注，没有人工核对：1,454 条随机抽取（下表前五行用其中金标判为可用的 1,439 条），546 条按稀有情绪补抽（Macro-F1 用全部 1,981 条可用的）。对照是未训练的 `mia-decider-2b` 直接回答同样六道题，以及标注者之一 Qwen3.8-27B。27B 的标签进了训练集、稀有部分又是按它的判断挑的，它和金标的一致度偏高，只作参照。
+
+| | `mia-vad-2b` | `mia-decider-2b` 零样本 | Qwen3.8-27B |
+| --- | ---: | ---: | ---: |
+| 效价 r | 0.881 | 0.845 | **0.908** |
+| 唤醒度 r | **0.845** | 0.791 | 0.813 |
+| 支配度 r | **0.600** | 0.459 | 0.574 |
+| 强度 r | **0.817** | 0.735 | 0.795 |
+| 主导情绪准确率 | 0.792 | 0.737 | **0.810** |
+| 主导情绪 Macro-F1 | 0.671 | 0.500 | **0.707** |
+
+两份训练和挑选时都没碰过的公开考卷：
+
+| | `mia-vad-2b` | `mia-decider-2b` 零样本 | Qwen3.8-27B |
+| --- | ---: | ---: | ---: |
+| CVAT 2,931 句，效价 r | 0.843 | **0.857** | 0.740 |
+| CVAT，唤醒度 r | **0.549** | 0.522 | 0.486 |
+| CVAT 新闻 1,471 句，效价 r | 0.791 | **0.826** | 0.635 |
+| SMP2020-EWECT 微博 4,998 条，准确率 | **0.711** | 0.696 | 0.689 |
+| SMP2020-EWECT，Macro-F1 | **0.698** | 0.628 | 0.678 |
+| SMP2020-EWECT，惊讶 F1 | 0.561 | 0.254 | **0.568** |
+
+CVAT 是人工 1～9 分的效价和唤醒度评分，相关系数用模型各档概率的期望（T=1）算。EWECT 没有厌恶类，判成厌恶的算错，27B 只算它判为可用的 4,920 条。CVAT 上效价比零样本低 0.014，差距几乎都在新闻句：我们的口径把作者没表态的负面报道判为中性效价，CVAT 的评分人按事件本身打分；酒店、汽车、笔记本、书评四类评论都持平或更高。可以用 `scripts/evaluate-mia-vad-external.py` 重算这两份考卷。
+
+训练量和起点的对比（`reports/mia-vad-2b/learning-curve.json`，前四列是金标随机部分）：
+
+| | 效价 r | 唤醒度 r | 强度 r | 主导情绪准确率 | Macro-F1 | 中文 900 条 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `mia-decider-2b` 零样本 | 0.845 | 0.791 | 0.735 | 0.737 | 0.500 | 0.939 |
+| 新文本 12,500 条 | 0.871 | 0.826 | 0.801 | 0.774 | 0.573 | 0.938 |
+| 新文本 25,000 条 | 0.873 | 0.832 | 0.805 | 0.777 | 0.607 | 0.931 |
+| 新文本 42,000 条 | 0.883 | 0.840 | 0.812 | 0.794 | 0.626 | 0.933 |
+| 42,000 条，从 `mia-decider-2b` 接着训 | 0.874 | 0.819 | 0.797 | 0.774 | 0.582 | 0.929 |
+| **发布版**：42,000 条，改两处数据 | 0.881 | 0.845 | 0.817 | 0.792 | 0.671 | 0.937 |
+
+### 数据与训练
+
+- **文本**：Mia 原有的 76,112 条三分类数据，加 42,000 条新的中文短文本（社媒、电商、文学、医疗等），不公开。
+- **标签**：口径写在 [models/mia-vad-2b/rubric.md](models/mia-vad-2b/rubric.md)。Qwen3.8-27B 标全部候选；第二个大模型重标随机 20%，以及 27B 判出恐惧、惊讶、厌恶、愤怒、悲伤的行（27B 判的这几类，金标只认同 33%～77%）；第三个大模型标 2,000 条金标，再定向纠正 3,000 条：27B 判出稀有情绪的、两家分歧最大的、和 `mia-decider-2b` 三分类相反的各 1,000 条。主导情绪两家一致才学，不一致的这道题不学。金标随机部分三方的 Krippendorff α：效价 0.889，唤醒度 0.793，强度 0.779，主导情绪 0.699，三分类 0.797，支配度只有 0.528。
+- **配方**：decider 自己的 `python -m decider.train`，从 decider-2b v11 原版训 1 轮，lr 8e-6，warmup 180，每步 32,768 token，一半样本题面在前，`none_prob 0`，另混 15% 的 `teacher_data` 回放；RTX 4090 上 1 小时 56 分（`reports/mia-vad-2b/training-config.json`，日志 `logs/mia-vad-2b.log`）。
+
+### 几条心得
+
+- **两套口径会打架。** Mia 把褒贬并存判中性，新文本的三分类按占上风的一边标，混在一起训，中文 900 条从 0.939 掉到 0.933。发布版让新文本的三分类只学和 `mia-decider-2b` 判断一致的那部分，回到 0.937。
+- **稀有情绪靠重复样本。** 两家一致才学之后，惊讶只剩 502 条、恐惧 669 条，查全分别只有 0.23 和 0.48。把惊讶的行重复 4 遍、恐惧 3 遍、厌恶和悲伤各 2 遍，查全升到 0.44、0.56，Macro-F1 从 0.626 升到 0.671。在输出端给各类加偏置不管用：拟合在新文本 calibration 上的偏置，用到金标上反而更差。
+- **从原版训比接着训好。** 从 `mia-decider-2b` 接着训（lr 减半），除了三分类开发集高 0.004，其余各项都更低。
+- **两道选择题要分开定温度。** decider 只按题型给温度，整体态度和主导情绪都是选择题；合在一起拟合出 1.32～1.36，套在三分类上让 ECE 从 0.01 升到 0.043。现在三分类 1.04 写在 `choice`，主导情绪 1.2 另存为 `emotion_temperature`，用时按 p^(1.04/1.2) 换算再归一。
+- **评测和推理要用同一种线性注意力实现。** 训练装了 flash-linear-attention，快了约一半；推理时它和 transformers 自带实现的概率平均差 0.0013，中文 900 条会翻 2～3 条。所有评测都用自带实现，和 `mia-decider-2b` 的数字同口径。
 
 ## 数据
 
@@ -374,6 +431,26 @@ print(agent.predict_batch([{'text': '这家店的服务真的没话说'}], quest
 
 环境：`laya==0.3.20`（`scripts/requirements-laya-training.txt`）。`act_probability` 字段没有被训练，不要用它。
 
+### mia-vad-2b
+
+```python
+import json
+from decider.infer import Decider
+from decider.schema_engine import SchemaEngine
+
+d = Decider('models/mia-vad-2b/final')
+d._se = SchemaEngine(d.eng, use_graphs=False, chat=d.chat)   # 六道题各带一份题面缓存，按（批大小, 长度）抓 CUDA 图会占满显存
+questions = json.load(open('models/mia-vad-2b/questions.json', encoding='utf-8'))
+answers = d.schema(questions).batch(['这家店的服务真的没话说'])[0]['answers']
+
+w = {k: p ** (1.04 / 1.2) for k, p in answers['emotion']['probabilities'].items()}   # 主导情绪换到它自己的温度 1.2
+emotion = {k: v / sum(w.values()) for k, v in w.items()}
+valence = sum(int(k) * p for k, p in answers['valence']['probabilities'].items()) - 3   # 各档概率的期望，−3～+3
+print(answers['sentiment']['probabilities'], max(emotion, key=emotion.get), round(valence, 2))
+```
+
+权重不在仓库里，从 [ModelScope leafiy2/mia-vad-2b](https://modelscope.cn/models/leafiy2/mia-vad-2b) 下载 `final/`（bf16 约 3.8G）：`modelscope download --model leafiy2/mia-vad-2b --include "final/*" --local_dir models/mia-vad-2b`，下完用 `final.sha256` 核对。环境同 `mia-decider-2b`。唤醒度、支配度、强度的取法和效价一样，只是不减 3。
+
 ### 复现评测
 
 ```bash
@@ -412,12 +489,22 @@ python scripts/evaluate-clm-sentiment.py --clm-repo /path/to/CLM --embed-model /
 
 训练脚本（`train-laya-sentiment.py`、`train-qwen-sentiment.py`，以及 decider 版的数据构建 `prepare-decider-sentiment.py` + decider 仓库的 `python -m decider.train`，完整参数在 `reports/mia-decider-2b/training-config.json`）、重标脚本（`relabel-laya-dataset.py`，任何 OpenAI 兼容的对话接口都能用）和数据构建脚本（`prepare-laya-sentiment.py`）都在 `scripts/`，训练日志在 `logs/`。没有训练集它们跑不起来，放出来是为了把每一步怎么做的说清楚。
 
+`mia-vad-2b` 的两份外部考卷可以这样重算（数据自行下载：CVAT 在 [NYCU-NLP/Chinese-EmoBank](https://github.com/NYCU-NLP/Chinese-EmoBank)，EWECT 是 SMP2020 微博情绪分类评测通用微博的 `usual_test_labeled.txt`）：
+
+```bash
+python scripts/evaluate-mia-vad-external.py --model models/mia-vad-2b --cvat CVAT_all_SD.csv --ewect usual_test_labeled.txt \
+    --output reports/mia-vad-2b/external-rerun.json
+```
+
+它的训练集和金标不公开，`reports/mia-vad-2b/eval.json` 里的验收评测在仓库里重跑不了。
+
 ## 目录
 
 ```
 models/mia-decider-2b/           模型卡、mia.json、final.sha256、questions.json（训练与推理用的题目）；final/（bf16 权重、tokenizer、decider_config.json）从 HF / ModelScope 下载
 models/mia-qwen3.5-2b/           模型卡、mia.json、final.sha256；final/（bf16 权重、tokenizer、sentiment-config.json）从 HF / ModelScope 下载
 models/mia-laya/                 模型卡、mia.json、final.sha256、questions.json（推理时的问题定义）；final/（fp32 权重、encoder 配置、tokenizer）从 HF / ModelScope 下载
+models/mia-vad-2b/               模型卡、mia.json、final.sha256、questions.json（六道题）、rubric.md（标注口径）；final/（bf16 权重、tokenizer、decider_config.json）从 ModelScope 下载
 data/eval/                       开发集、holdout、校准集、三份中文 CSV、重标原始回答、manifest
 reports/<模型名>/                 每次训练和每个零样本基线的开发集 / holdout / 中文 CSV 报告，训练模型另有训练配置、历史与速度
 reports/clm-variants.json        CLM 五组设置
@@ -433,8 +520,9 @@ logs/                            每次训练与重标的运行日志
 
 - 三个发布版本的权重以 **Apache-2.0** 发布，与各自的底座一致。
 - `mia-decider-2b` 基于 [Mapika/decider-2b](https://huggingface.co/Mapika/decider-2b)（Apache-2.0，独立项目，与 TypeSafe AI 无关），其底座 Qwen3.5-2B-Base 为 Apache-2.0；训练时混入的回放题来自 decider 仓库的 `teacher_data/`（同一许可）。`mia-qwen3.5-2b` 基于 Qwen3.5-2B，其权重许可为 Apache-2.0；`mia-laya` 基于 convaiinnovations/laya-multilingual（Apache-2.0），编码器为 jhu-clsp/mmBERT-base。Kev 与 CLM（均为 Apache-2.0）只用于对照，没有进入任何发布权重。
+- `mia-vad-2b` 的权重同样以 **Apache-2.0** 发布，底座与 `mia-decider-2b` 相同。它评测用的 CVAT 与 SMP2020-EWECT 不在本仓库里，请按各自发布方的条款下载使用。
 - 本仓库的代码、报告与评测数据的许可：**待项目所有者确定**。
 
 ## 致谢
 
-Laya（convaiinnovations）、Qwen 团队、jhu-clsp 的 mmBERT、decider（Mapika）、Kev（jaredpalmer）、CLM（Contrastive-LM），以及 ChnSentiCorp、online_shopping_10_cats、eprstmt、weibo_senti_100k、DMSC 这几个公开数据集的整理者。
+Laya（convaiinnovations）、Qwen 团队、jhu-clsp 的 mmBERT、decider（Mapika）、Kev（jaredpalmer）、CLM（Contrastive-LM），以及 ChnSentiCorp、online_shopping_10_cats、eprstmt、weibo_senti_100k、DMSC、CVAT（Chinese EmoBank）、SMP2020-EWECT 这几个公开数据集的整理者。

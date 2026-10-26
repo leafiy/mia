@@ -1,0 +1,741 @@
+{
+ "calibration": {
+  "T_joint": 1.04,
+  "T_emotion_own": 1.2,
+  "sentiment": {
+   "six": {
+    "T_own": 1.04,
+    "mia_test": {
+     "T=1": {
+      "acc": 0.889,
+      "nll": 0.2672,
+      "ece": 0.0116
+     },
+     "joint": {
+      "acc": 0.889,
+      "nll": 0.2673,
+      "ece": 0.0086
+     },
+     "own": {
+      "acc": 0.889,
+      "nll": 0.2673,
+      "ece": 0.0086
+     }
+    },
+    "mia_unseen": {
+     "T=1": {
+      "acc": 0.8816,
+      "nll": 0.2833,
+      "ece": 0.0144
+     },
+     "joint": {
+      "acc": 0.8816,
+      "nll": 0.283,
+      "ece": 0.0106
+     },
+     "own": {
+      "acc": 0.8816,
+      "nll": 0.283,
+      "ece": 0.0106
+     }
+    },
+    "chinese900": {
+     "T=1": {
+      "acc": 0.9367,
+      "nll": 0.1409,
+      "ece": 0.0106
+     },
+     "joint": {
+      "acc": 0.9367,
+      "nll": 0.1408,
+      "ece": 0.0111
+     },
+     "own": {
+      "acc": 0.9367,
+      "nll": 0.1408,
+      "ece": 0.0111
+     }
+    }
+   },
+   "one": {
+    "T_own": 1.04,
+    "mia_test": {
+     "T=1": {
+      "acc": 0.8888,
+      "nll": 0.2676,
+      "ece": 0.0099
+     },
+     "joint": {
+      "acc": 0.8888,
+      "nll": 0.2677,
+      "ece": 0.0092
+     },
+     "own": {
+      "acc": 0.8888,
+      "nll": 0.2677,
+      "ece": 0.0092
+     }
+    },
+    "mia_unseen": {
+     "T=1": {
+      "acc": 0.8816,
+      "nll": 0.2838,
+      "ece": 0.0137
+     },
+     "joint": {
+      "acc": 0.8816,
+      "nll": 0.2835,
+      "ece": 0.0122
+     },
+     "own": {
+      "acc": 0.8816,
+      "nll": 0.2835,
+      "ece": 0.0122
+     }
+    },
+    "chinese900": {
+     "T=1": {
+      "acc": 0.9356,
+      "nll": 0.1407,
+      "ece": 0.0131
+     },
+     "joint": {
+      "acc": 0.9356,
+      "nll": 0.1406,
+      "ece": 0.014
+     },
+     "own": {
+      "acc": 0.9356,
+      "nll": 0.1406,
+      "ece": 0.014
+     }
+    }
+   }
+  },
+  "emotion": {
+   "gold_natural": {
+    "T=1": {
+     "acc": 0.7915,
+     "nll": 0.5856,
+     "ece": 0.0238
+    },
+    "joint": {
+     "acc": 0.7915,
+     "nll": 0.5825,
+     "ece": 0.0242
+    },
+    "emotion_own": {
+     "acc": 0.7915,
+     "nll": 0.5797,
+     "ece": 0.0285
+    },
+    "sentiment_own": {
+     "acc": 0.7915,
+     "nll": 0.5825,
+     "ece": 0.0242
+    }
+   },
+   "gold_all": {
+    "T=1": {
+     "acc": 0.7456,
+     "nll": 0.711,
+     "ece": 0.0366
+    },
+    "joint": {
+     "acc": 0.7456,
+     "nll": 0.7066,
+     "ece": 0.0294
+    },
+    "emotion_own": {
+     "acc": 0.7456,
+     "nll": 0.7005,
+     "ece": 0.0241
+    },
+    "sentiment_own": {
+     "acc": 0.7456,
+     "nll": 0.7066,
+     "ece": 0.0294
+    }
+   },
+   "fused_test": {
+    "T=1": {
+     "acc": 0.7606,
+     "nll": 0.6567,
+     "ece": 0.0401
+    },
+    "joint": {
+     "acc": 0.7606,
+     "nll": 0.6525,
+     "ece": 0.0329
+    },
+    "emotion_own": {
+     "acc": 0.7606,
+     "nll": 0.6465,
+     "ece": 0.0169
+    },
+    "sentiment_own": {
+     "acc": 0.7606,
+     "nll": 0.6525,
+     "ece": 0.0329
+    }
+   }
+  }
+ },
+ "emotion_classes_gold_all": {
+  "model": {
+   "喜悦": {
+    "n": 592,
+    "predicted": 583,
+    "precision": 0.854,
+    "recall": 0.841,
+    "as": {
+     "无明显情绪": 75,
+     "厌恶": 8,
+     "悲伤": 6
+    }
+   },
+   "愤怒": {
+    "n": 108,
+    "predicted": 155,
+    "precision": 0.484,
+    "recall": 0.694,
+    "as": {
+     "无明显情绪": 15,
+     "厌恶": 14,
+     "悲伤": 2
+    }
+   },
+   "悲伤": {
+    "n": 226,
+    "predicted": 198,
+    "precision": 0.783,
+    "recall": 0.686,
+    "as": {
+     "无明显情绪": 32,
+     "愤怒": 17,
+     "喜悦": 12
+    }
+   },
+   "恐惧": {
+    "n": 59,
+    "predicted": 43,
+    "precision": 0.767,
+    "recall": 0.559,
+    "as": {
+     "无明显情绪": 15,
+     "悲伤": 6,
+     "愤怒": 5
+    }
+   },
+   "惊讶": {
+    "n": 106,
+    "predicted": 61,
+    "precision": 0.77,
+    "recall": 0.443,
+    "as": {
+     "无明显情绪": 42,
+     "喜悦": 9,
+     "愤怒": 3
+    }
+   },
+   "厌恶": {
+    "n": 181,
+    "predicted": 159,
+    "precision": 0.61,
+    "recall": 0.536,
+    "as": {
+     "无明显情绪": 31,
+     "愤怒": 29,
+     "悲伤": 10
+    }
+   },
+   "无明显情绪": {
+    "n": 709,
+    "predicted": 782,
+    "precision": 0.731,
+    "recall": 0.807,
+    "as": {
+     "喜悦": 56,
+     "厌恶": 28,
+     "愤怒": 23
+    }
+   }
+  },
+  "qwen3.8-27b": {
+   "喜悦": {
+    "n": 592,
+    "predicted": 584,
+    "precision": 0.861,
+    "recall": 0.85,
+    "as": {
+     "无明显情绪": 48,
+     "惊讶": 23,
+     "厌恶": 10
+    }
+   },
+   "愤怒": {
+    "n": 108,
+    "predicted": 98,
+    "precision": 0.633,
+    "recall": 0.574,
+    "as": {
+     "厌恶": 26,
+     "恐惧": 8,
+     "无明显情绪": 5
+    }
+   },
+   "悲伤": {
+    "n": 226,
+    "predicted": 233,
+    "precision": 0.747,
+    "recall": 0.77,
+    "as": {
+     "恐惧": 16,
+     "厌恶": 12,
+     "无明显情绪": 7
+    }
+   },
+   "恐惧": {
+    "n": 59,
+    "predicted": 128,
+    "precision": 0.391,
+    "recall": 0.847,
+    "as": {
+     "无明显情绪": 6,
+     "悲伤": 2,
+     "愤怒": 1
+    }
+   },
+   "惊讶": {
+    "n": 106,
+    "predicted": 148,
+    "precision": 0.655,
+    "recall": 0.915,
+    "as": {
+     "悲伤": 4,
+     "厌恶": 2,
+     "恐惧": 2
+    }
+   },
+   "厌恶": {
+    "n": 181,
+    "predicted": 244,
+    "precision": 0.594,
+    "recall": 0.801,
+    "as": {
+     "愤怒": 10,
+     "无明显情绪": 7,
+     "悲伤": 6
+    }
+   },
+   "无明显情绪": {
+    "n": 709,
+    "predicted": 546,
+    "precision": 0.866,
+    "recall": 0.667,
+    "as": {
+     "喜悦": 68,
+     "厌恶": 49,
+     "恐惧": 47
+    }
+   }
+  },
+  "second-llm": {
+   "喜悦": {
+    "n": 581,
+    "predicted": 500,
+    "precision": 0.916,
+    "recall": 0.788,
+    "as": {
+     "无明显情绪": 92,
+     "悲伤": 11,
+     "惊讶": 10
+    }
+   },
+   "愤怒": {
+    "n": 108,
+    "predicted": 150,
+    "precision": 0.567,
+    "recall": 0.787,
+    "as": {
+     "厌恶": 7,
+     "恐惧": 6,
+     "无明显情绪": 6
+    }
+   },
+   "悲伤": {
+    "n": 226,
+    "predicted": 261,
+    "precision": 0.697,
+    "recall": 0.805,
+    "as": {
+     "无明显情绪": 23,
+     "愤怒": 10,
+     "恐惧": 6
+    }
+   },
+   "恐惧": {
+    "n": 58,
+    "predicted": 79,
+    "precision": 0.532,
+    "recall": 0.724,
+    "as": {
+     "无明显情绪": 10,
+     "悲伤": 5,
+     "愤怒": 1
+    }
+   },
+   "惊讶": {
+    "n": 105,
+    "predicted": 73,
+    "precision": 0.712,
+    "recall": 0.495,
+    "as": {
+     "无明显情绪": 35,
+     "愤怒": 4,
+     "恐惧": 4
+    }
+   },
+   "厌恶": {
+    "n": 180,
+    "predicted": 140,
+    "precision": 0.779,
+    "recall": 0.606,
+    "as": {
+     "无明显情绪": 24,
+     "愤怒": 23,
+     "悲伤": 17
+    }
+   },
+   "无明显情绪": {
+    "n": 684,
+    "predicted": 739,
+    "precision": 0.743,
+    "recall": 0.803,
+    "as": {
+     "悲伤": 39,
+     "喜悦": 36,
+     "愤怒": 23
+    }
+   }
+  }
+ },
+ "class_bias": {
+  "bias": {
+   "喜悦": 0.2,
+   "愤怒": 0.5,
+   "悲伤": 0.8,
+   "恐惧": 0.7,
+   "惊讶": 0.0,
+   "厌恶": 0.6,
+   "无明显情绪": 0.0
+  },
+  "calibration_macro_f1": 0.6605,
+  "calibration_macro_f1_before": 0.6434,
+  "gold_natural": {
+   "before": {
+    "n": 1439,
+    "acc": 0.7915,
+    "macro_f1": 0.6315,
+    "f1": {
+     "喜悦": 0.864,
+     "愤怒": 0.67,
+     "悲伤": 0.609,
+     "恐惧": 0.417,
+     "惊讶": 0.571,
+     "厌恶": 0.471,
+     "无明显情绪": 0.819
+    }
+   },
+   "after": {
+    "n": 1439,
+    "acc": 0.7867,
+    "macro_f1": 0.6217,
+    "f1": {
+     "喜悦": 0.869,
+     "愤怒": 0.66,
+     "悲伤": 0.576,
+     "恐惧": 0.357,
+     "惊讶": 0.571,
+     "厌恶": 0.503,
+     "无明显情绪": 0.815
+    }
+   }
+  },
+  "gold_all": {
+   "before": {
+    "n": 1981,
+    "acc": 0.7456,
+    "macro_f1": 0.671,
+    "f1": {
+     "喜悦": 0.848,
+     "愤怒": 0.57,
+     "悲伤": 0.731,
+     "恐惧": 0.647,
+     "惊讶": 0.563,
+     "厌恶": 0.571,
+     "无明显情绪": 0.767
+    }
+   },
+   "after": {
+    "n": 1981,
+    "acc": 0.7431,
+    "macro_f1": 0.6675,
+    "f1": {
+     "喜悦": 0.852,
+     "愤怒": 0.566,
+     "悲伤": 0.719,
+     "恐惧": 0.606,
+     "惊讶": 0.561,
+     "厌恶": 0.609,
+     "无明显情绪": 0.759
+    }
+   }
+  }
+ },
+ "chinese900": {
+  "model_six_acc": 0.9367,
+  "mia_decider_single_acc": 0.94,
+  "mia_right_model_wrong": 12,
+  "model_right_mia_wrong": 9
+ },
+ "by_industry_gold": {
+  "其他": {
+   "n": 974,
+   "unusable_by_me": 0.006,
+   "model_sentiment": 0.811,
+   "model_emotion": 0.733,
+   "model_valence_r": 0.879,
+   "qwen3.8-27b_sentiment": 0.864,
+   "qwen3.8-27b_emotion": 0.748
+  },
+  "社媒": {
+   "n": 319,
+   "unusable_by_me": 0.025,
+   "model_sentiment": 0.778,
+   "model_emotion": 0.723,
+   "model_valence_r": 0.84,
+   "qwen3.8-27b_sentiment": 0.839,
+   "qwen3.8-27b_emotion": 0.756
+  },
+  "电商": {
+   "n": 270,
+   "unusable_by_me": 0.004,
+   "model_sentiment": 0.848,
+   "model_emotion": 0.781,
+   "model_valence_r": 0.925,
+   "qwen3.8-27b_sentiment": 0.907,
+   "qwen3.8-27b_emotion": 0.788
+  },
+  "文学": {
+   "n": 268,
+   "unusable_by_me": 0.007,
+   "model_sentiment": 0.752,
+   "model_emotion": 0.786,
+   "model_valence_r": 0.855,
+   "qwen3.8-27b_sentiment": 0.861,
+   "qwen3.8-27b_emotion": 0.823
+  },
+  "医疗": {
+   "n": 102,
+   "unusable_by_me": 0.01,
+   "model_sentiment": 0.683,
+   "model_emotion": 0.634,
+   "model_valence_r": 0.756,
+   "qwen3.8-27b_sentiment": 0.782,
+   "qwen3.8-27b_emotion": 0.624
+  },
+  "工业": {
+   "n": 40,
+   "unusable_by_me": 0.0,
+   "model_sentiment": 0.825,
+   "model_emotion": 0.875,
+   "model_valence_r": 0.872,
+   "qwen3.8-27b_sentiment": 0.825,
+   "qwen3.8-27b_emotion": 0.7
+  },
+  "学术": {
+   "n": 27,
+   "unusable_by_me": 0.037,
+   "model_sentiment": 0.885,
+   "model_emotion": 0.923,
+   "model_valence_r": 0.843,
+   "qwen3.8-27b_sentiment": 0.923,
+   "qwen3.8-27b_emotion": 0.885
+  }
+ },
+ "external": {
+  "cvat": {
+   "all": {
+    "n": 2931,
+    "valence_model": 0.8428,
+    "valence_mia_zero_shot": 0.8565,
+    "valence_qwen3.8-27b": 0.7399,
+    "valence_model_same_rows": 0.8437,
+    "n_qwen3.8-27b_usable": 2914,
+    "arousal_model": 0.5488,
+    "arousal_mia_zero_shot": 0.5223,
+    "arousal_qwen3.8-27b": 0.4857,
+    "arousal_model_same_rows": 0.5508
+   },
+   "news": {
+    "n": 1471,
+    "valence_model": 0.7913,
+    "valence_mia_zero_shot": 0.826,
+    "valence_qwen3.8-27b": 0.6352,
+    "valence_model_same_rows": 0.7912,
+    "n_qwen3.8-27b_usable": 1467,
+    "arousal_model": 0.4528,
+    "arousal_mia_zero_shot": 0.4221,
+    "arousal_qwen3.8-27b": 0.3793,
+    "arousal_model_same_rows": 0.4536
+   },
+   "political": {
+    "n": 439,
+    "valence_model": 0.8223,
+    "valence_mia_zero_shot": 0.8272,
+    "valence_qwen3.8-27b": 0.696,
+    "valence_model_same_rows": 0.8226,
+    "n_qwen3.8-27b_usable": 437,
+    "arousal_model": 0.6579,
+    "arousal_mia_zero_shot": 0.6428,
+    "arousal_qwen3.8-27b": 0.5713,
+    "arousal_model_same_rows": 0.6578
+   },
+   "hotel": {
+    "n": 299,
+    "valence_model": 0.936,
+    "valence_mia_zero_shot": 0.922,
+    "valence_qwen3.8-27b": 0.9067,
+    "valence_model_same_rows": 0.9363,
+    "n_qwen3.8-27b_usable": 297,
+    "arousal_model": 0.6286,
+    "arousal_mia_zero_shot": 0.5816,
+    "arousal_qwen3.8-27b": 0.54,
+    "arousal_model_same_rows": 0.6318
+   },
+   "book": {
+    "n": 287,
+    "valence_model": 0.8701,
+    "valence_mia_zero_shot": 0.8623,
+    "valence_qwen3.8-27b": 0.8005,
+    "valence_model_same_rows": 0.8758,
+    "n_qwen3.8-27b_usable": 281,
+    "arousal_model": 0.4906,
+    "arousal_mia_zero_shot": 0.475,
+    "arousal_qwen3.8-27b": 0.4176,
+    "arousal_model_same_rows": 0.4863
+   },
+   "car": {
+    "n": 253,
+    "valence_model": 0.7815,
+    "valence_mia_zero_shot": 0.766,
+    "valence_qwen3.8-27b": 0.7032,
+    "valence_model_same_rows": 0.7822,
+    "n_qwen3.8-27b_usable": 251,
+    "arousal_model": 0.5783,
+    "arousal_mia_zero_shot": 0.543,
+    "arousal_qwen3.8-27b": 0.5277,
+    "arousal_model_same_rows": 0.5887
+   },
+   "laptop": {
+    "n": 182,
+    "valence_model": 0.8818,
+    "valence_mia_zero_shot": 0.8682,
+    "valence_qwen3.8-27b": 0.851,
+    "valence_model_same_rows": 0.8817,
+    "n_qwen3.8-27b_usable": 181,
+    "arousal_model": 0.5642,
+    "arousal_mia_zero_shot": 0.5306,
+    "arousal_qwen3.8-27b": 0.5619,
+    "arousal_model_same_rows": 0.5637
+   }
+  },
+  "ewect": {
+   "model": {
+    "n": 4998,
+    "predicted_disgust": 263,
+    "strict": {
+     "acc": 0.7109,
+     "macro_f1": 0.6982,
+     "f1": {
+      "喜悦": 0.784,
+      "愤怒": 0.745,
+      "悲伤": 0.664,
+      "恐惧": 0.658,
+      "惊讶": 0.561,
+      "无明显情绪": 0.777
+     }
+    },
+    "disgust_as_anger": {
+     "acc": 0.7487,
+     "macro_f1": 0.7088,
+     "f1": {
+      "喜悦": 0.784,
+      "愤怒": 0.808,
+      "悲伤": 0.664,
+      "恐惧": 0.658,
+      "惊讶": 0.561,
+      "无明显情绪": 0.777
+     }
+    }
+   },
+   "mia_zero_shot": {
+    "n": 4998,
+    "predicted_disgust": 58,
+    "strict": {
+     "acc": 0.6959,
+     "macro_f1": 0.6277,
+     "f1": {
+      "喜悦": 0.775,
+      "愤怒": 0.788,
+      "悲伤": 0.603,
+      "恐惧": 0.658,
+      "惊讶": 0.254,
+      "无明显情绪": 0.687
+     }
+    },
+    "disgust_as_anger": {
+     "acc": 0.7043,
+     "macro_f1": 0.6298,
+     "f1": {
+      "喜悦": 0.775,
+      "愤怒": 0.801,
+      "悲伤": 0.603,
+      "恐惧": 0.658,
+      "惊讶": 0.254,
+      "无明显情绪": 0.687
+     }
+    }
+   },
+   "qwen3.8-27b": {
+    "n": 4920,
+    "predicted_disgust": 345,
+    "strict": {
+     "acc": 0.6886,
+     "macro_f1": 0.6779,
+     "f1": {
+      "喜悦": 0.791,
+      "愤怒": 0.729,
+      "悲伤": 0.653,
+      "恐惧": 0.584,
+      "惊讶": 0.568,
+      "无明显情绪": 0.742
+     }
+    },
+    "disgust_as_anger": {
+     "acc": 0.7396,
+     "macro_f1": 0.6928,
+     "f1": {
+      "喜悦": 0.791,
+      "愤怒": 0.818,
+      "悲伤": 0.653,
+      "恐惧": 0.584,
+      "惊讶": 0.568,
+      "无明显情绪": 0.742
+     }
+    }
+   }
+  }
+ }
+}

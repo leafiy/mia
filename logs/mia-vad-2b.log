@@ -1,0 +1,124 @@
+[args] {"model": "Mapika/decider-2b@533964da", "data": "data/mia-vad-train.pkl", "out": "models/mia-vad-2b/final", "epochs": 1.0, "lr": 8e-06, "wd": 0.0, "warmup": 180, "max_tokens": 16384, "accum": 2, "max_ctx": 16384, "brier_w": 0.0, "label_smooth": 0.0, "eval_every": 200, "eval_limit": 600, "train_cap": 0, "seed": 0, "resample_every_epoch": false, "none_prob": 0.0, "schema_first_prob": 0.5, "max_options": 255}
+[data] train examples 146694; tokenizing...
+[data] 146694 items, 395175 questions, 45.9M tokens, tokenized in 47s
+[sched] 1569 optimizer steps/epoch, 1569 total
+[train] step 20/1569 ep 0 ce 0.7879 gn 32.00 lr 8.89e-07 2.2min eta 174min 4709tok/s mem 21GB
+[train] step 40/1569 ep 0 ce 0.6861 gn 19.50 lr 1.78e-06 3.7min eta 110min 7417tok/s mem 21GB
+[train] step 60/1569 ep 0 ce 0.7238 gn 21.88 lr 2.67e-06 5.1min eta 107min 7629tok/s mem 21GB
+[train] step 80/1569 ep 0 ce 0.6721 gn 26.00 lr 3.56e-06 6.5min eta 106min 7598tok/s mem 21GB
+[train] step 100/1569 ep 0 ce 0.6269 gn 37.00 lr 4.44e-06 7.9min eta 104min 7637tok/s mem 21GB
+[train] step 120/1569 ep 0 ce 0.5537 gn 25.00 lr 5.33e-06 9.4min eta 104min 7517tok/s mem 21GB
+[train] step 140/1569 ep 0 ce 0.5580 gn 20.62 lr 6.22e-06 10.8min eta 103min 7506tok/s mem 21GB
+[train] step 160/1569 ep 0 ce 0.5709 gn 27.00 lr 7.11e-06 12.2min eta 100min 7627tok/s mem 21GB
+[train] step 180/1569 ep 0 ce 0.5458 gn 19.50 lr 8.00e-06 13.7min eta 99min 7629tok/s mem 21GB
+[train] step 200/1569 ep 0 ce 0.5848 gn 29.62 lr 8.00e-06 15.1min eta 98min 7531tok/s mem 21GB
+[eval] mia_calibration      n=  600 acc=0.873 (chance 0.33) nll=0.294 brier=0.180 ece=0.033 aurc=0.025 acc@80=0.944 
+[eval] emotion_calibration  n= 3600 acc=0.737 (chance 0.21) nll=0.617 brier=0.353 ece=0.022 aurc=0.111 acc@80=0.809 
+[eval] teacher_custom_heldout n= 2888 acc=0.925 (chance 0.34) nll=0.196 brier=0.107 ece=0.024 aurc=0.010 acc@80=0.985 
+[eval] teacher_routing_heldout n=  600 acc=0.905 (chance 0.20) nll=0.279 brier=0.152 ece=0.022 aurc=0.022 acc@80=0.958 
+[eval-agg] step 200 {"in_task": {"acc": 0.8600348184056632, "nll": 0.34662411734461784, "brier": 0.1982144769281149, "ece": 0.025551390945905687, "aurc": 0.042105266525078906, "acc_at_80": 0.9240113185425686, "chance": 0.2704434166556743}, "heldout": {}, "n_in": 4, "n_heldout": 0}
+[train] step 220/1569 ep 0 ce 0.5514 gn 36.75 lr 7.98e-06 17.2min eta 139min 5265tok/s mem 21GB
+[train] step 240/1569 ep 0 ce 0.5248 gn 16.38 lr 7.96e-06 18.6min eta 94min 7615tok/s mem 21GB
+[train] step 260/1569 ep 0 ce 0.5176 gn 21.62 lr 7.93e-06 20.1min eta 99min 6893tok/s mem 21GB
+[train] step 280/1569 ep 0 ce 0.4799 gn 29.00 lr 7.90e-06 21.5min eta 95min 7381tok/s mem 21GB
+[train] step 300/1569 ep 0 ce 0.5114 gn 34.75 lr 7.85e-06 23.0min eta 92min 7485tok/s mem 21GB
+[train] step 320/1569 ep 0 ce 0.5165 gn 17.75 lr 7.80e-06 24.4min eta 89min 7615tok/s mem 21GB
+[train] step 340/1569 ep 0 ce 0.5073 gn 25.88 lr 7.74e-06 25.8min eta 87min 7610tok/s mem 21GB
+[train] step 360/1569 ep 0 ce 0.4709 gn 14.38 lr 7.67e-06 27.3min eta 86min 7636tok/s mem 21GB
+[train] step 380/1569 ep 0 ce 0.4430 gn 26.75 lr 7.60e-06 28.7min eta 84min 7619tok/s mem 21GB
+[train] step 400/1569 ep 0 ce 0.4352 gn 25.38 lr 7.51e-06 30.2min eta 90min 6919tok/s mem 21GB
+[eval] mia_calibration      n=  600 acc=0.878 (chance 0.33) nll=0.282 brier=0.171 ece=0.027 aurc=0.024 acc@80=0.950 
+[eval] emotion_calibration  n= 3600 acc=0.759 (chance 0.21) nll=0.580 brier=0.332 ece=0.025 aurc=0.098 acc@80=0.826 
+[eval] teacher_custom_heldout n= 2888 acc=0.928 (chance 0.34) nll=0.197 brier=0.105 ece=0.025 aurc=0.010 acc@80=0.985 
+[eval] teacher_routing_heldout n=  600 acc=0.925 (chance 0.20) nll=0.215 brier=0.118 ece=0.021 aurc=0.012 acc@80=0.977 
+[eval-agg] step 400 {"in_task": {"acc": 0.872567136041859, "nll": 0.31838344410061836, "brier": 0.1815803311765194, "ece": 0.024603716633673892, "aurc": 0.03627974527230635, "acc_at_80": 0.9344065656565657, "chance": 0.2704434166556743}, "heldout": {}, "n_in": 4, "n_heldout": 0}
+[train] step 420/1569 ep 0 ce 0.4870 gn 24.00 lr 7.43e-06 32.1min eta 107min 5806tok/s mem 21GB
+[train] step 440/1569 ep 0 ce 0.4277 gn 20.62 lr 7.33e-06 33.5min eta 80min 7648tok/s mem 21GB
+[train] step 460/1569 ep 0 ce 0.4667 gn 21.62 lr 7.22e-06 34.9min eta 79min 7608tok/s mem 21GB
+[train] step 480/1569 ep 0 ce 0.4513 gn 21.25 lr 7.11e-06 36.4min eta 78min 7479tok/s mem 21GB
+[train] step 500/1569 ep 0 ce 0.4416 gn 23.25 lr 7.00e-06 37.8min eta 76min 7647tok/s mem 21GB
+[train] step 520/1569 ep 0 ce 0.4144 gn 19.62 lr 6.87e-06 39.2min eta 74min 7658tok/s mem 21GB
+[train] step 540/1569 ep 0 ce 0.4764 gn 24.62 lr 6.75e-06 40.6min eta 73min 7588tok/s mem 21GB
+[train] step 560/1569 ep 0 ce 0.4397 gn 17.12 lr 6.61e-06 42.0min eta 72min 7468tok/s mem 21GB
+[train] step 580/1569 ep 0 ce 0.4421 gn 20.00 lr 6.47e-06 43.5min eta 70min 7613tok/s mem 21GB
+[train] step 600/1569 ep 0 ce 0.4315 gn 24.88 lr 6.33e-06 44.9min eta 69min 7618tok/s mem 21GB
+[eval] mia_calibration      n=  600 acc=0.878 (chance 0.33) nll=0.258 brier=0.157 ece=0.026 aurc=0.020 acc@80=0.963 
+[eval] emotion_calibration  n= 3600 acc=0.766 (chance 0.21) nll=0.574 brier=0.326 ece=0.044 aurc=0.094 acc@80=0.835 
+[eval] teacher_custom_heldout n= 2888 acc=0.930 (chance 0.34) nll=0.195 brier=0.103 ece=0.024 aurc=0.010 acc@80=0.985 
+[eval] teacher_routing_heldout n=  600 acc=0.925 (chance 0.20) nll=0.200 brier=0.113 ece=0.017 aurc=0.011 acc@80=0.981 
+[eval-agg] step 600 {"in_task": {"acc": 0.874892082179132, "nll": 0.3066164590418339, "brier": 0.17464003711938858, "ece": 0.027813275344360233, "aurc": 0.03368158952105898, "acc_at_80": 0.941112012987013, "chance": 0.2704434166556743}, "heldout": {}, "n_in": 4, "n_heldout": 0}
+[train] step 620/1569 ep 0 ce 0.4237 gn 17.25 lr 6.18e-06 46.7min eta 88min 5839tok/s mem 21GB
+[train] step 640/1569 ep 0 ce 0.4599 gn 18.50 lr 6.02e-06 48.2min eta 66min 7614tok/s mem 21GB
+[train] step 660/1569 ep 0 ce 0.4642 gn 26.88 lr 5.87e-06 49.6min eta 65min 7583tok/s mem 21GB
+[train] step 680/1569 ep 0 ce 0.4305 gn 25.12 lr 5.70e-06 51.0min eta 63min 7459tok/s mem 21GB
+[train] step 700/1569 ep 0 ce 0.4653 gn 17.50 lr 5.54e-06 52.4min eta 62min 7610tok/s mem 21GB
+[train] step 720/1569 ep 0 ce 0.4210 gn 21.62 lr 5.37e-06 53.9min eta 60min 7636tok/s mem 21GB
+[train] step 740/1569 ep 0 ce 0.4571 gn 17.00 lr 5.20e-06 55.3min eta 59min 7538tok/s mem 21GB
+[train] step 760/1569 ep 0 ce 0.4173 gn 24.00 lr 5.02e-06 56.7min eta 57min 7645tok/s mem 21GB
+[train] step 780/1569 ep 0 ce 0.4368 gn 21.88 lr 4.85e-06 58.1min eta 56min 7614tok/s mem 21GB
+[train] step 800/1569 ep 0 ce 0.4201 gn 25.25 lr 4.67e-06 59.6min eta 55min 7624tok/s mem 21GB
+[eval] mia_calibration      n=  600 acc=0.887 (chance 0.33) nll=0.255 brier=0.157 ece=0.026 aurc=0.020 acc@80=0.960 
+[eval] emotion_calibration  n= 3600 acc=0.764 (chance 0.21) nll=0.568 brier=0.323 ece=0.046 aurc=0.093 acc@80=0.831 
+[eval] teacher_custom_heldout n= 2888 acc=0.930 (chance 0.34) nll=0.191 brier=0.102 ece=0.021 aurc=0.010 acc@80=0.985 
+[eval] teacher_routing_heldout n=  600 acc=0.920 (chance 0.20) nll=0.205 brier=0.117 ece=0.017 aurc=0.011 acc@80=0.981 
+[eval-agg] step 800 {"in_task": {"acc": 0.8751698599569098, "nll": 0.30445094779133797, "brier": 0.17489932663738728, "ece": 0.0276144513269504, "aurc": 0.03355471001469735, "acc_at_80": 0.9395495129870131, "chance": 0.2704434166556743}, "heldout": {}, "n_in": 4, "n_heldout": 0}
+[train] step 820/1569 ep 0 ce 0.4182 gn 26.25 lr 4.49e-06 61.4min eta 69min 5842tok/s mem 21GB
+[train] step 840/1569 ep 0 ce 0.4436 gn 25.75 lr 4.31e-06 62.8min eta 52min 7617tok/s mem 21GB
+[train] step 860/1569 ep 0 ce 0.4335 gn 32.75 lr 4.13e-06 64.3min eta 50min 7610tok/s mem 21GB
+[train] step 880/1569 ep 0 ce 0.4057 gn 15.88 lr 3.95e-06 65.7min eta 49min 7635tok/s mem 21GB
+[train] step 900/1569 ep 0 ce 0.3902 gn 25.12 lr 3.77e-06 67.1min eta 47min 7662tok/s mem 21GB
+[train] step 920/1569 ep 0 ce 0.4239 gn 21.62 lr 3.59e-06 68.5min eta 46min 7638tok/s mem 21GB
+[train] step 940/1569 ep 0 ce 0.4125 gn 26.62 lr 3.41e-06 69.9min eta 45min 7643tok/s mem 21GB
+[train] step 960/1569 ep 0 ce 0.4259 gn 19.38 lr 3.23e-06 71.3min eta 43min 7605tok/s mem 21GB
+[train] step 980/1569 ep 0 ce 0.3502 gn 23.38 lr 3.05e-06 72.8min eta 42min 7504tok/s mem 21GB
+[train] step 1000/1569 ep 0 ce 0.4191 gn 22.38 lr 2.88e-06 74.2min eta 40min 7581tok/s mem 21GB
+[eval] mia_calibration      n=  600 acc=0.890 (chance 0.33) nll=0.246 brier=0.149 ece=0.018 aurc=0.018 acc@80=0.963 
+[eval] emotion_calibration  n= 3600 acc=0.775 (chance 0.21) nll=0.562 brier=0.320 ece=0.041 aurc=0.092 acc@80=0.835 
+[eval] teacher_custom_heldout n= 2888 acc=0.933 (chance 0.34) nll=0.189 brier=0.101 ece=0.022 aurc=0.009 acc@80=0.984 
+[eval] teacher_routing_heldout n=  600 acc=0.927 (chance 0.20) nll=0.198 brier=0.113 ece=0.021 aurc=0.010 acc@80=0.981 
+[eval-agg] step 1000 {"in_task": {"acc": 0.8811230378578024, "nll": 0.2987639233469963, "brier": 0.17080416157841682, "ece": 0.025521380478483555, "aurc": 0.03246088281302058, "acc_at_80": 0.9407873376623377, "chance": 0.2704434166556743}, "heldout": {}, "n_in": 4, "n_heldout": 0}
+[train] step 1020/1569 ep 0 ce 0.4242 gn 27.75 lr 2.71e-06 76.0min eta 51min 5827tok/s mem 21GB
+[train] step 1040/1569 ep 0 ce 0.3823 gn 19.75 lr 2.54e-06 77.5min eta 38min 7508tok/s mem 21GB
+[train] step 1060/1569 ep 0 ce 0.4272 gn 24.12 lr 2.37e-06 78.9min eta 36min 7647tok/s mem 21GB
+[train] step 1080/1569 ep 0 ce 0.3885 gn 15.19 lr 2.21e-06 80.3min eta 35min 7642tok/s mem 21GB
+[train] step 1100/1569 ep 0 ce 0.4154 gn 24.00 lr 2.05e-06 81.7min eta 33min 7632tok/s mem 21GB
+[train] step 1120/1569 ep 0 ce 0.4083 gn 29.00 lr 1.89e-06 83.1min eta 32min 7638tok/s mem 21GB
+[train] step 1140/1569 ep 0 ce 0.4196 gn 16.62 lr 1.74e-06 84.5min eta 30min 7622tok/s mem 21GB
+[train] step 1160/1569 ep 0 ce 0.4208 gn 19.00 lr 1.59e-06 86.0min eta 29min 7631tok/s mem 21GB
+[train] step 1180/1569 ep 0 ce 0.3825 gn 29.12 lr 1.45e-06 87.4min eta 28min 7625tok/s mem 21GB
+[train] step 1200/1569 ep 0 ce 0.4135 gn 18.38 lr 1.31e-06 88.8min eta 26min 7629tok/s mem 21GB
+[eval] mia_calibration      n=  600 acc=0.890 (chance 0.33) nll=0.245 brier=0.149 ece=0.026 aurc=0.018 acc@80=0.963 
+[eval] emotion_calibration  n= 3600 acc=0.775 (chance 0.21) nll=0.562 brier=0.318 ece=0.040 aurc=0.091 acc@80=0.839 
+[eval] teacher_custom_heldout n= 2888 acc=0.932 (chance 0.34) nll=0.191 brier=0.102 ece=0.023 aurc=0.009 acc@80=0.984 
+[eval] teacher_routing_heldout n=  600 acc=0.932 (chance 0.20) nll=0.194 brier=0.110 ece=0.022 aurc=0.010 acc@80=0.981 
+[eval-agg] step 1200 {"in_task": {"acc": 0.8822864727608495, "nll": 0.2979811131954193, "brier": 0.1695332545787096, "ece": 0.02783204016425623, "aurc": 0.0321607027199505, "acc_at_80": 0.9417421987734487, "chance": 0.2704434166556743}, "heldout": {}, "n_in": 4, "n_heldout": 0}
+[train] step 1220/1569 ep 0 ce 0.3912 gn 16.50 lr 1.18e-06 90.7min eta 32min 5848tok/s mem 21GB
+[train] step 1240/1569 ep 0 ce 0.4198 gn 19.75 lr 1.06e-06 92.1min eta 23min 7640tok/s mem 21GB
+[train] step 1260/1569 ep 0 ce 0.4062 gn 24.75 lr 9.38e-07 93.5min eta 22min 7643tok/s mem 21GB
+[train] step 1280/1569 ep 0 ce 0.4042 gn 21.00 lr 8.25e-07 94.9min eta 20min 7642tok/s mem 21GB
+[train] step 1300/1569 ep 0 ce 0.4214 gn 34.50 lr 7.18e-07 96.3min eta 19min 7626tok/s mem 21GB
+[train] step 1320/1569 ep 0 ce 0.3900 gn 26.00 lr 6.18e-07 97.7min eta 18min 7627tok/s mem 21GB
+[train] step 1340/1569 ep 0 ce 0.3905 gn 23.50 lr 5.25e-07 99.2min eta 16min 7570tok/s mem 21GB
+[train] step 1360/1569 ep 0 ce 0.4183 gn 19.38 lr 4.39e-07 100.6min eta 15min 7623tok/s mem 21GB
+[train] step 1380/1569 ep 0 ce 0.4206 gn 22.00 lr 3.60e-07 102.0min eta 13min 7627tok/s mem 21GB
+[train] step 1400/1569 ep 0 ce 0.4032 gn 19.38 lr 2.89e-07 103.4min eta 12min 7465tok/s mem 21GB
+[eval] mia_calibration      n=  600 acc=0.893 (chance 0.33) nll=0.245 brier=0.149 ece=0.021 aurc=0.018 acc@80=0.963 
+[eval] emotion_calibration  n= 3600 acc=0.776 (chance 0.21) nll=0.560 brier=0.318 ece=0.036 aurc=0.091 acc@80=0.839 
+[eval] teacher_custom_heldout n= 2888 acc=0.932 (chance 0.34) nll=0.191 brier=0.101 ece=0.023 aurc=0.009 acc@80=0.984 
+[eval] teacher_routing_heldout n=  600 acc=0.933 (chance 0.20) nll=0.193 brier=0.109 ece=0.021 aurc=0.010 acc@80=0.981 
+[eval-agg] step 1400 {"in_task": {"acc": 0.883571675900277, "nll": 0.2975761331617832, "brier": 0.16940393671393394, "ece": 0.025316504957902546, "aurc": 0.032030414562486315, "acc_at_80": 0.9415685876623376, "chance": 0.2704434166556743}, "heldout": {}, "n_in": 4, "n_heldout": 0}
+[train] step 1420/1569 ep 0 ce 0.4212 gn 26.38 lr 2.25e-07 105.3min eta 14min 5827tok/s mem 21GB
+[train] step 1440/1569 ep 0 ce 0.4072 gn 22.75 lr 1.69e-07 106.7min eta 9min 7629tok/s mem 21GB
+[train] step 1460/1569 ep 0 ce 0.3910 gn 17.88 lr 1.21e-07 108.1min eta 8min 7648tok/s mem 21GB
+[train] step 1480/1569 ep 0 ce 0.3899 gn 26.25 lr 8.08e-08 109.6min eta 6min 7633tok/s mem 21GB
+[train] step 1500/1569 ep 0 ce 0.4522 gn 18.75 lr 4.86e-08 111.0min eta 5min 7590tok/s mem 21GB
+[train] step 1520/1569 ep 0 ce 0.4166 gn 29.62 lr 2.45e-08 112.4min eta 3min 7606tok/s mem 21GB
+[train] step 1540/1569 ep 0 ce 0.4041 gn 29.88 lr 8.60e-09 113.8min eta 2min 7616tok/s mem 21GB
+[train] step 1560/1569 ep 0 ce 0.4179 gn 24.75 lr 8.29e-10 115.2min eta 1min 7617tok/s mem 21GB
+[save] models/mia-vad-2b/final
+[eval] mia_calibration      n=  600 acc=0.892 (chance 0.33) nll=0.245 brier=0.149 ece=0.021 aurc=0.018 acc@80=0.965 
+[eval] emotion_calibration  n= 3600 acc=0.774 (chance 0.21) nll=0.560 brier=0.318 ece=0.038 aurc=0.091 acc@80=0.839 
+[eval] teacher_custom_heldout n= 2888 acc=0.932 (chance 0.34) nll=0.191 brier=0.101 ece=0.023 aurc=0.009 acc@80=0.984 
+[eval] teacher_routing_heldout n=  600 acc=0.932 (chance 0.20) nll=0.194 brier=0.110 ece=0.022 aurc=0.010 acc@80=0.981 
+[eval-agg] step 1569 {"in_task": {"acc": 0.8824948060941828, "nll": 0.2974897585809231, "brier": 0.16940003260970116, "ece": 0.025956956279329625, "aurc": 0.03207710089036932, "acc_at_80": 0.9422844516594517, "chance": 0.2704434166556743}, "heldout": {}, "n_in": 4, "n_heldout": 0}
+[done] saved models/mia-vad-2b/final

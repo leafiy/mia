@@ -1,0 +1,42 @@
+{
+  "name": "mia-vad-2b",
+  "task": "chinese-sentiment-vad-emotion",
+  "questions": {
+    "sentiment": {"type": "choice", "labels": ["负面", "中性", "正面"]},
+    "valence": {"type": "score", "levels": [0, 6], "neutral": 3},
+    "arousal": {"type": "score", "levels": [0, 4]},
+    "dominance": {"type": "score", "levels": [0, 4]},
+    "emotion": {"type": "choice", "labels": ["喜悦", "愤怒", "悲伤", "恐惧", "惊讶", "厌恶", "无明显情绪"]},
+    "intensity": {"type": "score", "levels": [0, 3]}
+  },
+  "base_model": "Mapika/decider-2b",
+  "base_revision": "533964dae8be954c5b5e19fa4948e48408094c1e",
+  "base_license": "Apache-2.0",
+  "base_chain": "Qwen/Qwen3.5-2B-Base -> Mapika/decider-2b v11 -> mia-vad-2b",
+  "architecture": "Qwen3_5ForCausalLM read as a System One decision model (decider): option-letter logits at the answer slot",
+  "params_million": 1882,
+  "weights_dtype": "bfloat16",
+  "temperature": {"sentiment": 1.04, "score": 0.88, "emotion": 1.2},
+  "emotion_temperature_note": "decider applies temperature by answer type and sentiment/emotion are both choice; decider_config.json holds the sentiment temperature as choice, so rescale emotion as p^(1.04/1.2) and renormalize",
+  "score_value": "expected level under the probabilities (valence minus 3 gives -3..3)",
+  "training_data": "Mia's 76,112 sentiment rows; 42,000 new Chinese short texts with six labels (rare emotions repeated to 48,578 rows), not distributed; 22,004 replay rows of decider teacher_data (15%)",
+  "labels_of_new_texts": "Qwen3.8-27B labeled every candidate under a written rubric; a second LLM re-labeled a random 20% plus the rows where Qwen's rare emotions were unreliable; a third LLM labeled the 2,000 gold texts and corrected 3,000 rows where the others disagreed; emotion is learned only where two labelers agree, sentiment only where it agrees with mia-decider-2b",
+  "trainer": "python -m decider.train (decider-ai 1.5.0), 1 epoch, lr 8e-6, warmup 180, schema_first_prob 0.5, none_prob 0, seed 0",
+  "optimizer_steps": 1569,
+  "tokens_per_step": 32768,
+  "eval": {
+    "sentiment": {
+      "dev_4920": {"accuracy": 0.889, "macro_f1": 0.8788, "ece": 0.0086},
+      "holdout_5372": {"accuracy": 0.8816, "macro_f1": 0.8702, "ece": 0.0106},
+      "chinese_csv_900": {"accuracy": 0.9367, "macro_f1": 0.9361, "ece": 0.0111}
+    },
+    "gold_random_1439": {"valence_r": 0.8806, "arousal_r": 0.8445, "dominance_r": 0.6003, "intensity_r": 0.8165, "emotion_accuracy": 0.7915},
+    "gold_all_1981": {"emotion_macro_f1": 0.671, "emotion_f1": {"喜悦": 0.848, "愤怒": 0.570, "悲伤": 0.731, "恐惧": 0.647, "惊讶": 0.563, "厌恶": 0.571, "无明显情绪": 0.767}},
+    "gold_note": "2,000 texts labeled by an LLM under a written rubric, not by people; 1,454 drawn at random, 546 added for rare emotions",
+    "cvat_2931": {"valence_r": 0.8428, "arousal_r": 0.5488},
+    "smp2020_ewect_usual_test_4998": {"accuracy": 0.7109, "macro_f1": 0.6982, "note": "no disgust class in EWECT; predicted 厌恶 counted as wrong"},
+    "decider_heldout_general_decisions": {"teacher_custom_heldout": 0.932, "teacher_routing_heldout": 0.932}
+  },
+  "throughput": "67 texts/s on RTX 4090 (bf16, batch 32, CUDA graph, one row per question)",
+  "released": "2026-10-27"
+}

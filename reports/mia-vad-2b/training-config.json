@@ -1,0 +1,51 @@
+{
+ "trainer": "python -m decider.train (decider-ai 1.5.0) + flash-linear-attention 0.6.0 for training only",
+ "args": {
+  "model": "Mapika/decider-2b@533964da",
+  "data": "data/mia-vad-train.pkl",
+  "out": "models/mia-vad-2b/final",
+  "epochs": 1.0,
+  "lr": 8e-06,
+  "wd": 0.0,
+  "warmup": 180,
+  "max_tokens": 16384,
+  "accum": 2,
+  "max_ctx": 16384,
+  "brier_w": 0.0,
+  "label_smooth": 0.0,
+  "eval_every": 200,
+  "eval_limit": 600,
+  "train_cap": 0,
+  "seed": 0,
+  "resample_every_epoch": false,
+  "none_prob": 0.0,
+  "schema_first_prob": 0.5,
+  "max_options": 255
+ },
+ "data": {
+  "train_rows": 146694,
+  "mia_rows": 76112,
+  "new_rows": 48578,
+  "replay_rows": 22004,
+  "new_labeled_per_question": {
+   "sentiment": 38109,
+   "valence": 48401,
+   "arousal": 48469,
+   "dominance": 48323,
+   "emotion": 43488,
+   "intensity": 48233
+  },
+  "evals": {
+   "mia_calibration": 4926,
+   "emotion_calibration": 4000,
+   "teacher_custom_heldout": 378,
+   "teacher_routing_heldout": 600
+  }
+ },
+ "temperatures": {
+  "sentiment (choice)": 1.04,
+  "score": 0.88,
+  "emotion": 1.2
+ },
+ "gpu": "RTX 4090 48G, 1 h 56 min"
+}
