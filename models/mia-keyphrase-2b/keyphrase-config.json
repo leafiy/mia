@@ -1,0 +1,7 @@
+{
+  "user_template": "摘出下面这段材料的关键短语，按重要性从高到低排列，只输出 JSON。\n材料：{text}",
+  "enable_thinking": false,
+  "max_chars": 500,
+  "max_keyphrases": 10,
+  "max_new_tokens": 256
+}

@@ -1,0 +1,34 @@
+{
+  "name": "mia-keyphrase-2b",
+  "task": "chinese-keyphrase-extraction",
+  "base_model": "Qwen/Qwen3.5-2B",
+  "base_license": "Apache-2.0",
+  "architecture": "Qwen3_5ForConditionalGeneration (low-rank adapters r=32 on 186 linear layers of the text backbone, merged into the weights)",
+  "weights_dtype": "bfloat16",
+  "input": "a passage of up to 500 Chinese characters",
+  "output": "JSON: up to 10 keyphrases copied verbatim from the passage, most important first",
+  "training_data": "3,796 passages labelled by an LLM (200 more held out for dev); not distributed",
+  "epochs": 3,
+  "learning_rate": 0.0001,
+  "batch_size": 8,
+  "eval_288_heldout_passages_blind_rated": {
+    "qualified": 0.58,
+    "marginal": 0.392,
+    "unqualified": 0.027,
+    "reference_core_phrases_covered": 0.8,
+    "structbert_keyphrase_baseline": {
+      "qualified": 0.173,
+      "marginal": 0.321,
+      "unqualified": 0.506,
+      "reference_core_phrases_covered": 0.475
+    },
+    "labelling_llm": {
+      "qualified": 0.572,
+      "marginal": 0.381,
+      "unqualified": 0.047,
+      "reference_core_phrases_covered": 0.805
+    }
+  },
+  "throughput": "about 17 passages/s on RTX 4090, bf16, batch 16, transformers generate",
+  "released": "2026-11-13"
+}

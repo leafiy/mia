@@ -1,0 +1,24 @@
+{
+  "model": "mia-keyphrase-2b",
+  "test_set": "300 held-out Chinese passages (up to 500 characters each, from files not used in training); not distributed",
+  "blind_rating_by_independent_llm_288_passages_with_a_topic": {
+    "note": "every phrase from the four sources was pooled, shuffled and rated 2 qualified / 1 marginal / 0 unqualified without its source; the rater also wrote its own core phrases before seeing any output",
+    "mia-keyphrase-2b": {"phrases": 2332, "qualified": 0.580, "marginal": 0.392, "unqualified": 0.027, "qualified_per_passage": 4.70, "rater_core_phrases_covered": 0.800},
+    "same_recipe_on_qwen3.5-4b": {"phrases": 2357, "qualified": 0.591, "marginal": 0.385, "unqualified": 0.024, "qualified_per_passage": 4.84, "rater_core_phrases_covered": 0.808},
+    "labelling_llm": {"phrases": 2370, "qualified": 0.572, "marginal": 0.381, "unqualified": 0.047, "qualified_per_passage": 4.70, "rater_core_phrases_covered": 0.805},
+    "structbert_keyphrase_baseline": {"phrases": 1719, "qualified": 0.173, "marginal": 0.321, "unqualified": 0.506, "qualified_per_passage": 1.03, "rater_core_phrases_covered": 0.475},
+    "paired_passages_more_qualified_2b_vs_4b": {"2b": 78, "4b": 97, "tie": 113}
+  },
+  "blind_rating_by_labelling_llm_100_passages": {
+    "mia-keyphrase-2b": {"qualified": 0.748, "marginal": 0.241, "unqualified": 0.011},
+    "labelling_llm": {"qualified": 0.750, "marginal": 0.244, "unqualified": 0.006},
+    "structbert_keyphrase_baseline": {"qualified": 0.168, "marginal": 0.526, "unqualified": 0.306}
+  },
+  "overlap_with_labelling_llm_300_passages": {
+    "mia-keyphrase-2b": {"exact_precision": 0.530, "exact_recall": 0.521, "containment_precision": 0.681, "containment_recall": 0.667, "top3_reference_phrases_found": 0.633},
+    "structbert_keyphrase_baseline": {"exact_precision": 0.087, "exact_recall": 0.064, "containment_precision": 0.501, "containment_recall": 0.346, "top3_reference_phrases_found": 0.105},
+    "labelling_llm_second_pass_first_150": {"exact_precision": 0.677, "exact_recall": 0.645, "containment_precision": 0.784, "containment_recall": 0.751, "top3_reference_phrases_found": 0.752}
+  },
+  "word_boundary_check": {"phrases_cut_inside_a_word_share_of_all": 0.010, "qualified_aligned": 0.98, "marginal_aligned": 0.97},
+  "throughput": {"mia-keyphrase-2b_passages_per_second": 16.6, "qwen3.5-4b_passages_per_second": 10.5}
+}

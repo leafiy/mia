@@ -1,0 +1,14 @@
+{
+  "base_model": "Qwen/Qwen3.5-2B (Qwen3_5ForConditionalGeneration; vision tower loaded, frozen, unused)",
+  "method": "low-rank adapters on every nn.Linear of the text backbone (186 modules), r=32, alpha=64, base weights frozen in bf16; adapters merged into the weights before saving",
+  "data": {"train": 3796, "dev": 200, "source": "passages of up to 500 characters cut from Chinese articles and comment collections, at most 3 per file, train and test files disjoint", "labels": "one LLM, JSON-schema-constrained output, 20 passages per request; 5-10 verbatim phrases per passage ordered by importance"},
+  "input": "chat template, thinking off; user: 摘出下面这段材料的关键短语，按重要性从高到低排列，只输出 JSON。\\n材料：{text}",
+  "target": "compact JSON {\"keyphrases\":[...]} followed by <|im_end|>; phrases not found verbatim in the passage are dropped",
+  "loss": "cross-entropy on target tokens only; lm_head applied only at target positions",
+  "optimizer": "AdamW, lr 1e-4, weight decay 0, 5% warmup + cosine, grad clip 1.0",
+  "batch_size": 8, "epochs": 3, "steps": 1425, "precision": "bf16 autocast", "seed": 7,
+  "dev_loss_by_epoch": [0.5914, 0.6304, 0.7617],
+  "note": "dev loss is lowest after epoch 1, but the 3-epoch model scores higher on the held-out passages (exact recall 0.521 vs 0.499), so the 3-epoch model is released",
+  "hardware": "RTX 4090 48G, 439 seconds, peak 20.6 GB (the same recipe on Qwen3.5-4B: 1071 seconds)",
+  "decoding": "greedy, max_new_tokens 256, stop at <|im_end|>"
+}

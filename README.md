@@ -6,7 +6,9 @@ Mia 是一组给中文短文本判「负面 / 中性 / 正面」的小模型。�
 
 还有一个依据词版 `mia-evidence-2b`，接在三分类后面，从原文里摘出承载态度的依据词并判断表达模式，见「依据词版：mia-evidence-2b」一节。
 
-五个模型各自做什么、怎么训出来的，汇总在 [docs/mia-series.md](docs/mia-series.md)。
+另有一个关键短语版 `mia-keyphrase-2b`，做的不是情感：给一段材料，摘出最能代表它在讲什么的关键短语，见「关键短语版：mia-keyphrase-2b」一节。
+
+六个模型各自做什么、怎么训出来的，汇总在 [docs/mia-series.md](docs/mia-series.md)。
 
 图表和完整表格见 [docs/index.html](docs/index.html)，下面是浓缩版。
 
@@ -241,6 +243,27 @@ CVAT 是人工 1～9 分的效价和唤醒度评分，相关系数用模型各�
 - **顺带的标记**：依据词里积极和消极两个方向都有，就是两种评价并存。400 条里标注模型认为并存的 30 条，这样推出 21 条，其中 16 条对。
 
 没有采用的做法、学习曲线和更多细节见 [docs/mia-series.md](docs/mia-series.md)。
+
+## 关键短语版：mia-keyphrase-2b
+
+这一个做的不是情感。给一段不超过 500 字的中文材料（文章片段，或拼在一起的多条评论），`mia-keyphrase-2b` 摘出最能代表它在讲什么的关键短语，最多 10 个，逐字来自原文，按重要性从高到低排列。做法和依据词版相同：一个大模型当老师，蒸馏进 Qwen3.5-2B。模型卡在 [models/mia-keyphrase-2b/](models/mia-keyphrase-2b/README.md)，权重在 [ModelScope leafiy2/mia-keyphrase-2b](https://modelscope.cn/models/leafiy2/mia-keyphrase-2b)。
+
+300 段没进训练的材料，其中 288 段有明确主题。把四家摘的短语混在一起打乱，由一个没参与标注的大模型逐个盲评（合格 / 勉强 / 不合格）；它在看到任何输出之前，先自己写了每段的核心短语（`reports/mia-keyphrase-2b/eval.json`）：
+
+| | 合格 | 勉强 | 不合格 | 核心短语被摘到 |
+| --- | ---: | ---: | ---: | ---: |
+| `mia-keyphrase-2b` | 58.0% | 39.2% | 2.7% | 80.0% |
+| 同一配方换 Qwen3.5-4B | 59.1% | 38.5% | 2.4% | 80.8% |
+| 标注用的大模型 | 57.2% | 38.1% | 4.7% | 80.5% |
+| StructBERT 关键短语模型（会议转写数据训练） | 17.3% | 32.1% | 50.6% | 47.5% |
+
+- **数据**：4,000 段中文材料，每个来源文件最多取 3 段，训练和测试来自不同文件；由一个大模型按统一规则摘 5 到 10 个逐字出自原文的短语并排序。
+- **训练**：低秩适配（r=32），lr 1e-4，batch 8，3 轮，RTX 4090 上 439 秒（`reports/mia-keyphrase-2b/training-config.json`，脚本 `scripts/train-mia-keyphrase.py`）。
+- **学生追平了老师，换大底座没用**。2B、4B 和标注模型三家几乎一样；4B 逐段比 2B 多赢 19 段、平 113 段，训练慢 2.4 倍。短板在标注，不在底座。
+- **别用逐字对答案来评**。和标注模型逐字相同的只有 52%，可标注模型自己标两遍也只有 65% 到 68%：一段话里成立的关键短语不止 8 个。逐个评短语本身合不合格，才分得清好坏。
+- **词没有被切碎**。摘出的短语两端落在分词边界上的占 98%，切在词中间的只占全部短语的 1%。
+
+评测方法的来龙去脉见 [docs/mia-series.md](docs/mia-series.md)。
 
 ## 数据
 
@@ -497,6 +520,28 @@ print(tok.decode(out[0, enc['input_ids'].shape[1]:], skip_special_tokens=True))
 
 权重不在仓库里，从 [ModelScope leafiy2/mia-evidence-2b](https://modelscope.cn/models/leafiy2/mia-evidence-2b) 下载 `final/`（bf16 约 4.4G）：`modelscope download --model leafiy2/mia-evidence-2b --include "final/*" --local_dir models/mia-evidence-2b`，下完用 `final.sha256` 核对。环境：torch 2.14、transformers 5.17。输出是紧凑写法的 JSON；依据词里偶尔带没转义的引号，按固定的键顺序逐段读比 `json.loads` 稳。
 
+### mia-keyphrase-2b
+
+```python
+import json, torch
+from transformers import AutoTokenizer, Qwen3_5ForConditionalGeneration
+
+final = 'models/mia-keyphrase-2b/final'
+tok = AutoTokenizer.from_pretrained(final); tok.padding_side = 'left'
+model = Qwen3_5ForConditionalGeneration.from_pretrained(final, dtype=torch.bfloat16).cuda().eval()
+cfg = json.load(open(final + '/keyphrase-config.json', encoding='utf-8'))
+
+text = '城市更新行动进入第三年，老旧小区改造的重点从外立面翻新转向管网更新和加装电梯。'   # 不超过 500 字，长材料先切段
+msg = [{'role': 'user', 'content': cfg['user_template'].format(text=text)}]
+enc = tok([tok.apply_chat_template(msg, add_generation_prompt=True, enable_thinking=False, tokenize=False)],
+          return_tensors='pt', add_special_tokens=False).to('cuda')
+out = model.generate(**enc, max_new_tokens=cfg['max_new_tokens'], do_sample=False, eos_token_id=tok.convert_tokens_to_ids('<|im_end|>'))
+raw = tok.decode(out[0, enc['input_ids'].shape[1]:], skip_special_tokens=True).strip()
+print(raw[len('{"keyphrases":["'):-len('"]}')].split('","'))   # 短语里偶尔带没转义的引号，这样切比 json.loads 稳
+```
+
+权重不在仓库里，从 [ModelScope leafiy2/mia-keyphrase-2b](https://modelscope.cn/models/leafiy2/mia-keyphrase-2b) 下载 `final/`（bf16 约 4.4G）：`modelscope download --model leafiy2/mia-keyphrase-2b --include "final/*" --local_dir models/mia-keyphrase-2b`，下完用 `final.sha256` 核对。环境：torch 2.14、transformers 5.17。
+
 ### 复现评测
 
 ```bash
@@ -552,6 +597,7 @@ models/mia-qwen3.5-2b/           模型卡、mia.json、final.sha256；final/（
 models/mia-laya/                 模型卡、mia.json、final.sha256、questions.json（推理时的问题定义）；final/（fp32 权重、encoder 配置、tokenizer）从 HF / ModelScope 下载
 models/mia-vad-2b/               模型卡、mia.json、final.sha256、questions.json（六道题）、rubric.md（标注口径）；final/（bf16 权重、tokenizer、decider_config.json）从 ModelScope 下载
 models/mia-evidence-2b/          模型卡、mia.json、final.sha256、evidence-config.json（输入模板与标签表）；final/（bf16 权重、tokenizer）从 ModelScope 下载
+models/mia-keyphrase-2b/         模型卡、mia.json、final.sha256、keyphrase-config.json（输入模板）；final/（bf16 权重、tokenizer）从 ModelScope 下载
 data/eval/                       开发集、holdout、校准集、三份中文 CSV、重标原始回答、manifest
 reports/<模型名>/                 每次训练和每个零样本基线的开发集 / holdout / 中文 CSV 报告，训练模型另有训练配置、历史与速度
 reports/clm-variants.json        CLM 五组设置
@@ -570,6 +616,7 @@ logs/                            每次训练与重标的运行日志
 - `mia-decider-2b` 基于 [Mapika/decider-2b](https://huggingface.co/Mapika/decider-2b)（Apache-2.0，独立项目，与 TypeSafe AI 无关），其底座 Qwen3.5-2B-Base 为 Apache-2.0；训练时混入的回放题来自 decider 仓库的 `teacher_data/`（同一许可）。`mia-qwen3.5-2b` 基于 Qwen3.5-2B，其权重许可为 Apache-2.0；`mia-laya` 基于 convaiinnovations/laya-multilingual（Apache-2.0），编码器为 jhu-clsp/mmBERT-base。Kev 与 CLM（均为 Apache-2.0）只用于对照，没有进入任何发布权重。
 - `mia-vad-2b` 的权重同样以 **Apache-2.0** 发布，底座与 `mia-decider-2b` 相同。它评测用的 CVAT 与 SMP2020-EWECT 不在本仓库里，请按各自发布方的条款下载使用。
 - `mia-evidence-2b` 的权重同样以 **Apache-2.0** 发布，底座 Qwen3.5-2B 的权重许可为 Apache-2.0。
+- `mia-keyphrase-2b` 的权重同样以 **Apache-2.0** 发布，底座 Qwen3.5-2B 的权重许可为 Apache-2.0。
 - 本仓库的代码、报告与评测数据的许可：**待项目所有者确定**。
 
 ## 致谢
