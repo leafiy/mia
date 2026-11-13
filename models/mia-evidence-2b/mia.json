@@ -1,0 +1,25 @@
+{
+  "name": "mia-evidence-2b",
+  "task": "chinese-sentiment-evidence-extraction",
+  "base_model": "Qwen/Qwen3.5-2B",
+  "base_license": "Apache-2.0",
+  "architecture": "Qwen3_5ForConditionalGeneration (low-rank adapters r=32 on 186 linear layers of the text backbone, merged into the weights)",
+  "weights_dtype": "bfloat16",
+  "input": "text + overall attitude (积极 / 消极 / 中性, from mia-decider-2b)",
+  "output": "JSON: up to 5 evidence words copied from the text (contribution, tag out of 28, polarity) and logic (pattern out of 12, negation, pivot)",
+  "training_data": "3,800 Chinese short texts labelled by an LLM (200 more held out for dev); not distributed",
+  "epochs": 3,
+  "learning_rate": 0.0001,
+  "batch_size": 16,
+  "eval_400_heldout_vs_labeller": {
+    "words_found_in_text": 0.989,
+    "evidence_precision": 0.806,
+    "evidence_recall": 0.795,
+    "tag_accuracy_on_exact_words": 0.706,
+    "pattern_accuracy_with_mia_attitude": 0.677,
+    "pattern_accuracy_with_labeller_attitude": 0.784,
+    "labeller_self_agreement_pattern": 0.79
+  },
+  "throughput": "about 15 rows/s on RTX 4090, bf16, batch 32, transformers generate",
+  "released": "2026-11-12"
+}

@@ -1,0 +1,14 @@
+{
+  "base_model": "Qwen/Qwen3.5-2B (Qwen3_5ForConditionalGeneration; vision tower loaded, frozen, unused)",
+  "method": "low-rank adapters on every nn.Linear of the text backbone (186 modules), r=32, alpha=64, base weights frozen in bf16; adapters merged into the weights before saving",
+  "trainable_params_million": 33,
+  "data": {"train": 3800, "dev": 200, "source": "4,000 texts sampled from the Mia train split (负面 1,400 / 正面 1,400 / 中性 1,200), 6-200 characters", "labels": "one LLM, JSON-schema-constrained output, 25 texts per request"},
+  "input": "chat template, thinking off; user: 摘出下面文本中承载态度的依据词，并判断表达模式，只输出 JSON。\\n文本：{text}\\n整体态度：{sentiment}",
+  "target": "compact JSON {evidence:[{word,contribution,reason:{tag,polarity}}],logic:{pattern,negation,pivot}} followed by <|im_end|>",
+  "loss": "cross-entropy on target tokens only; lm_head applied only at target positions (248k vocabulary)",
+  "optimizer": "AdamW, lr 1e-4, weight decay 0, 5% warmup + cosine, grad clip 1.0",
+  "batch_size": 16, "epochs": 3, "steps": 714, "precision": "bf16 autocast", "seed": 7,
+  "dev_loss_by_epoch": [0.1159, 0.1138, 0.1298],
+  "hardware": "RTX 4090 48G, 219 seconds, peak 21.6 GB",
+  "decoding": "greedy, max_new_tokens 512, stop at <|im_end|>"
+}

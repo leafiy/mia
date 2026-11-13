@@ -1,0 +1,19 @@
+{
+  "model": "mia-evidence-2b",
+  "test_set": "400 held-out Chinese short texts (from the Mia holdout split), labelled by the same LLM that labelled the training set; not distributed",
+  "matching": "evidence precision/recall count a word as hit when its character span overlaps a reference word; exact = identical string",
+  "systems": {
+    "generic_9b_prompted": {"words_in_text": 0.960, "evidence_precision": 0.638, "evidence_recall": 0.828, "evidence_exact": 0.494, "contribution_on_exact": 0.922, "tag_on_exact": 0.446, "polarity_on_exact": 0.882, "tag_in_list": 0.971, "pattern": 0.463, "pattern_in_list": 0.978, "negation_accuracy": 0.940, "negation_f1": 0.200, "pivot_overlap": 0.565},
+    "mia-evidence-2b_with_mia_decider_attitude": {"parseable": 1.0, "words_in_text": 0.989, "evidence_precision": 0.806, "evidence_recall": 0.795, "evidence_exact": 0.581, "contribution_on_exact": 0.891, "tag_on_exact": 0.706, "polarity_on_exact": 0.891, "tag_in_list": 1.0, "pattern": 0.677, "pattern_in_list": 1.0, "negation_accuracy": 0.925, "negation_f1": 0.444, "pivot_overlap": 0.694},
+    "mia-evidence-2b_with_labeller_attitude": {"words_in_text": 0.987, "evidence_precision": 0.806, "evidence_recall": 0.823, "evidence_exact": 0.598, "contribution_on_exact": 0.953, "tag_on_exact": 0.728, "polarity_on_exact": 0.931, "pattern": 0.784, "negation_accuracy": 0.925, "negation_f1": 0.464, "pivot_overlap": 0.737},
+    "labeller_second_pass_first_200": {"words_in_text": 0.987, "evidence_precision": 0.889, "evidence_recall": 0.815, "evidence_exact": 0.683, "contribution_on_exact": 0.939, "tag_on_exact": 0.775, "polarity_on_exact": 0.893, "pattern": 0.790, "negation_accuracy": 0.925, "negation_f1": 0.571, "pivot_overlap": 0.805, "attitude_agreement": 0.945}
+  },
+  "variants": {
+    "trained_on_725_rows": {"evidence_precision": 0.775, "evidence_recall": 0.775, "tag_on_exact": 0.654, "pattern": 0.645},
+    "full_finetune_3800_rows": {"evidence_precision": 0.781, "evidence_recall": 0.812, "tag_on_exact": 0.665, "pattern": 0.657},
+    "model_also_judges_attitude": {"evidence_precision": 0.795, "evidence_recall": 0.813, "tag_on_exact": 0.675, "pattern": 0.687, "attitude_vs_labeller_400": 0.865, "attitude_chinese_csv_900": 0.872, "attitude_holdout_sample_600": 0.818}
+  },
+  "attitude_reference_same_samples": {"mia-decider-2b": {"chinese_csv_900": 0.939, "holdout_sample_600": 0.905, "vs_labeller_400": 0.825}},
+  "mixed_flag_from_evidence": {"labeller_rows": 30, "predicted_rows": 21, "both": 16, "precision": 0.76, "recall": 0.53},
+  "candidate_question_route_not_adopted": {"candidates_per_text": 51.9, "candidate_exact_coverage_of_reference_words": 0.912, "input_tokens_per_text": 12500, "texts_per_second": 0.9, "untrained_decision_model_precision": 0.72, "untrained_decision_model_recall": 0.72}
+}
